@@ -292,7 +292,7 @@ export default function SageeWoodsListingPage() {
 								<motion.h1
 									variants={itemVariants}
 									className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white font-light font-serif tracking-tight leading-tight">
-									Sagee Manor
+									S110W30520 YMCA Camp Rd
 								</motion.h1>
 
 								<motion.div
@@ -304,13 +304,13 @@ export default function SageeWoodsListingPage() {
 								<motion.p
 									variants={itemVariants}
 									className="text-2xl sm:text-3xl md:text-4xl font-light text-white/90 tracking-wide font-serif">
-									$32,000,000
+									$1,750,000
 								</motion.p>
 
 								<motion.p
 									variants={itemVariants}
 									className="text-lg md:text-xl text-white/70 font-light tracking-wide">
-									Lake Geneva, Wisconsin, 28741
+									Mukwonago, Wisconsin, 53149
 								</motion.p>
 							</motion.div>
 

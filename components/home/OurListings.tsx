@@ -57,11 +57,11 @@ interface Listing {
 const dummyListings: Listing[] = [
 	{
 		id: "listing-001",
-		title: "581 Sagee Woods Drive",
+		title: "S110W30520 YMCA Camp Rd",
 		slug: "581-sagee-woods-drive",
 		price: 32000000,
 		address: {
-			street: "581 Sagee Woods Drive",
+			street: "S110W30520 YMCA Camp Rd",
 			region: "Lake Geneva",
 			state: "WI",
 			zipCode: "28741"
@@ -71,7 +71,7 @@ const dummyListings: Listing[] = [
 			baths: 1,
 			sqft: 3200
 		},
-		imageUrl: "/mr/mr2.webp" // Replace with your actual image path
+		imageUrl: "/lre/lre3.jpg" // Replace with your actual image path
 	},
 	{
 		id: "listing-002",
