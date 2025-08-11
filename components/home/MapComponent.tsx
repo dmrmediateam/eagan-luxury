@@ -160,7 +160,7 @@ export function MapComponent({
 			const invalidate = () => {
 				try {
 					map.invalidateSize(false);
-				} catch (e) {
+				} catch {
 					// no-op
 				}
 			};
