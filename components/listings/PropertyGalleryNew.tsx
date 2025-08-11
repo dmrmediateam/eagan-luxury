@@ -183,20 +183,20 @@ const PropertyGalleryNew = ({ images, className }: PropertyGalleryNewProps) => {
 		}
 	};
 
-	const nextImage = useCallback(
+  const nextImage = useCallback(
 		(e?: React.MouseEvent) => {
 			e?.stopPropagation();
 			changeLightboxImage(currentIndex + 1, 1);
 		},
-		[currentIndex, changeLightboxImage]
+    [currentIndex, images, changeLightboxImage]
 	);
 
-	const prevImage = useCallback(
+  const prevImage = useCallback(
 		(e?: React.MouseEvent) => {
 			e?.stopPropagation();
 			changeLightboxImage(currentIndex - 1, -1);
 		},
-		[currentIndex, changeLightboxImage]
+    [currentIndex, images, changeLightboxImage]
 	);
 
 	React.useEffect(() => {

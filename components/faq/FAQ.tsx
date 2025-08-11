@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FAQ as FAQType, getCategoryDisplayName } from "@/lib/data/faqs";
 import { useRouter, usePathname } from "next/navigation";
@@ -141,10 +141,11 @@ export function FAQ({ faqs = [], initialCategory = "all" }: FAQComponentProps) {
 			? allFaqItems
 			: allFaqItems.filter((item) => item.category === selectedCategory);
 
-	// Get unique categories from FAQs
-	const uniqueCategories = [
-		...new Set(allFaqItems.map((item) => item.category))
-	];
+  // Get unique categories from FAQs (memoized to avoid changing ref each render)
+  const uniqueCategories = useMemo(
+    () => [...new Set(allFaqItems.map((item) => item.category))],
+    [allFaqItems]
+  );
 
 	// Make sure we only show category options that have FAQs
 	const availableCategoryOptions = [
