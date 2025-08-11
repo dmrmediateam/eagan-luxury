@@ -11,6 +11,7 @@ import EstateMapNew, {
 } from "@/components/listings/EstateMapNew";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import PropertyGalleryNew from "@/components/listings/PropertyGalleryNew";
+import Image from "next/image";
 
 // Animation variants for text elements with improved luxury timing
 const containerVariants = {
@@ -263,18 +264,12 @@ export default function SageeWoodsListingPage() {
 				{/* Video Background */}
 				<div className="absolute inset-0 overflow-hidden">
 					<div className="absolute inset-0">
-						<video
-							autoPlay
-							muted
-							loop
-							playsInline
-							className="absolute w-full h-full object-cover scale-110">
-							<source
-								src="https://redesign-media.s3.eu-north-1.amazonaws.com/michaud-rauer/581sagee.mp4"
-								type="video/mp4"
-							/>
-							Your browser does not support the video tag.
-						</video>
+						<Image
+							src="/lre/lre3.jpg"
+							alt="Sagee Woods"
+							fill
+							className="object-cover"
+						/>
 						{/* Improved video overlay with more sophisticated gradient */}
 						<div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/70"></div>
 					</div>
