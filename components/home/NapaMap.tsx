@@ -203,7 +203,7 @@ export function LuxuryLocations() {
 				/>
 
 				{/* Map Container */}
-				<div className="grid grid-cols-1 2xl:grid-cols-3 gap-0 items-stretch h-auto md:h-[75vh] lg:h-[80vh] 2xl:h-[950px] shadow-[0_15px_40px_rgba(0,0,0,0.06)]">
+				<div className="grid grid-cols-1 2xl:grid-cols-3 gap-0 items-stretch h-auto md:h-[75vh] lg:h-[80vh] xl:h-[88vh] 2xl:h-[950px] shadow-[0_15px_40px_rgba(0,0,0,0.06)]">
 					{/* Left: Interactive Leaflet Map */}
 					<motion.div
 						initial="hidden"
