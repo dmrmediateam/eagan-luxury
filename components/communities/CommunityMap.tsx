@@ -92,7 +92,7 @@ const MapController = ({
 }) => {
 	const map = useMap();
 
-    useEffect(() => {
+	useEffect(() => {
 		if (typeof window !== "undefined") {
 			map.setView(center, zoom);
 		}
@@ -179,7 +179,7 @@ export default function CommunityMap({
 				mapRef.current = null;
 			}
 		};
-    }, [mapRef]);
+	}, [mapRef]);
 
 	// Get unique categories from areas
 	const categories = Array.from(new Set(areas.map((area) => area.category)));

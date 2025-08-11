@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import L from "leaflet";
 
 // Import Leaflet CSS
@@ -154,6 +154,28 @@ export function MapComponent({
 		});
 	};
 
+	function MapSizeInvalidator() {
+		const map = useMap();
+		useEffect(() => {
+			const invalidate = () => {
+				try {
+					map.invalidateSize(false);
+				} catch (e) {
+					// no-op
+				}
+			};
+			// Invalidate after initial mount and next frame to account for animations
+			invalidate();
+			const t = setTimeout(invalidate, 0);
+			window.addEventListener("resize", invalidate);
+			return () => {
+				clearTimeout(t);
+				window.removeEventListener("resize", invalidate);
+			};
+		}, [map]);
+		return null;
+	}
+
 	return (
 		<MapContainer
 			center={center}
@@ -163,6 +185,7 @@ export function MapComponent({
 			style={{ height: "100%", width: "100%" }}
 			zoomControl={false}
 			attributionControl={false}>
+			<MapSizeInvalidator />
 			{/* Premium map tiles - use a light styled map for luxury aesthetic */}
 			<TileLayer
 				attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

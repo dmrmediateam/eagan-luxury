@@ -203,7 +203,7 @@ export function LuxuryLocations() {
 				/>
 
 				{/* Map Container */}
-				<div className="grid grid-cols-1 2xl:grid-cols-3 gap-0 items-stretch h-[950px] shadow-[0_15px_40px_rgba(0,0,0,0.06)]">
+				<div className="grid grid-cols-1 2xl:grid-cols-3 gap-0 items-stretch h-auto md:h-[75vh] lg:h-[80vh] 2xl:h-[950px] shadow-[0_15px_40px_rgba(0,0,0,0.06)]">
 					{/* Left: Interactive Leaflet Map */}
 					<motion.div
 						initial="hidden"
@@ -211,7 +211,7 @@ export function LuxuryLocations() {
 						viewport={{ once: true }}
 						custom={3}
 						variants={textVariants}
-						className="relative w-full 2xl:col-span-2 h-[950px] overflow-hidden">
+						className="relative w-full 2xl:col-span-2 h-[50vh] md:h-full overflow-hidden min-h-[320px]">
 						{isClient && (
 							<>
 								<Map
@@ -240,8 +240,8 @@ export function LuxuryLocations() {
 						viewport={{ once: true }}
 						custom={4}
 						variants={textVariants}
-						className="w-full 2xl:col-span-1 bg-white p-10 md:p-12 lg:p-14 flex flex-col justify-between h-full">
-						<div>
+						className="w-full 2xl:col-span-1 bg-white p-10 md:p-12 lg:p-14 flex flex-col justify-between h-full min-h-0 overflow-hidden">
+						<div className="min-h-0 flex flex-col">
 							<h3 className="font-serif text-2xl text-luxury-black mb-8 relative inline-block">
 								Lakefront Luxury Expertise
 								<span className="absolute -bottom-3 left-0 w-12 h-px bg-luxury-red"></span>
@@ -258,7 +258,7 @@ export function LuxuryLocations() {
 							</p>
 
 							{/* Location List with hover interaction */}
-							<div className="space-y-6 mb-12">
+							<div className="space-y-6 mb-12 overflow-y-auto max-h-[50vh] md:max-h-none pr-2 -mr-2 overscroll-contain scroll-smooth flex-1 min-h-0">
 								{ncLocations.map((location) => (
 									<div
 										key={location.id}

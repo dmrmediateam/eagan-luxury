@@ -179,37 +179,47 @@ function ContentGridInner() {
 	const [isLoading, setIsLoading] = useState(true);
 	const [filterKey, setFilterKey] = useState(Date.now());
 
-    // Helpers memoized to satisfy exhaustive-deps
-    const extractTextFromContentMemo = useCallback((content: SanityContent[]): string => {
-        if (!content || !Array.isArray(content)) return "";
+	// Helpers memoized to satisfy exhaustive-deps
+	const extractTextFromContentMemo = useCallback(
+		(content: SanityContent[]): string => {
+			if (!content || !Array.isArray(content)) return "";
 
-        return content
-            .filter((block) => block._type === "block" && Array.isArray(block.children))
-            .map((block) => block.children?.map((child: SanityContentChild) => child.text || "").join(" "))
-            .join(" ")
-            .replace(/\s+/g, " ")
-            .trim();
-    }, []);
+			return content
+				.filter(
+					(block) =>
+						block._type === "block" && Array.isArray(block.children)
+				)
+				.map((block) =>
+					block.children
+						?.map((child: SanityContentChild) => child.text || "")
+						.join(" ")
+				)
+				.join(" ")
+				.replace(/\s+/g, " ")
+				.trim();
+		},
+		[]
+	);
 
-    const calculateReadTimeMemo = useCallback(
-        (content: SanityContent[], title = "", excerpt = ""): string => {
-            const WORDS_PER_MINUTE = 200;
-            let totalWords = 0;
+	const calculateReadTimeMemo = useCallback(
+		(content: SanityContent[], title = "", excerpt = ""): string => {
+			const WORDS_PER_MINUTE = 200;
+			let totalWords = 0;
 
-            totalWords += title.split(/\s+/).filter(Boolean).length;
-            totalWords += excerpt.split(/\s+/).filter(Boolean).length;
+			totalWords += title.split(/\s+/).filter(Boolean).length;
+			totalWords += excerpt.split(/\s+/).filter(Boolean).length;
 
-            const textContent = extractTextFromContentMemo(content);
-            totalWords += textContent.split(/\s+/).filter(Boolean).length;
+			const textContent = extractTextFromContentMemo(content);
+			totalWords += textContent.split(/\s+/).filter(Boolean).length;
 
-            const minutes = Math.ceil(totalWords / WORDS_PER_MINUTE) || 1;
-            return minutes <= 1 ? "1 min read" : `${minutes} min read`;
-        },
-        [extractTextFromContentMemo]
-    );
+			const minutes = Math.ceil(totalWords / WORDS_PER_MINUTE) || 1;
+			return minutes <= 1 ? "1 min read" : `${minutes} min read`;
+		},
+		[extractTextFromContentMemo]
+	);
 
-    // Fetch content items based on type
-    useEffect(() => {
+	// Fetch content items based on type
+	useEffect(() => {
 		async function fetchContentItems() {
 			try {
 				setIsLoading(true);
@@ -221,7 +231,7 @@ function ContentGridInner() {
 					);
 
 					// Transform blog posts
-                    const formattedPosts = posts.map(
+					const formattedPosts = posts.map(
 						(post: SanityRawBlogPost) => {
 							// Handle different slug formats
 							let slug = "";
@@ -239,10 +249,11 @@ function ContentGridInner() {
 
 							// Determine excerpt
 							let finalExcerpt = post.excerpt?.trim() || "";
-                            if (!finalExcerpt && post.content) {
+							if (!finalExcerpt && post.content) {
 								// Extract excerpt from content if needed
-                                // This is simplified; you might want to enhance this
-                                const fullTextContent = extractTextFromContentMemo(post.content);
+								// This is simplified; you might want to enhance this
+								const fullTextContent =
+									extractTextFromContentMemo(post.content);
 								finalExcerpt = fullTextContent.slice(0, 150);
 								if (fullTextContent.length > 150) {
 									finalExcerpt += "...";
@@ -251,8 +262,12 @@ function ContentGridInner() {
 
 							// Calculate read time if needed
 							let readTime = post.readTime || "";
-                            if (!readTime && post.content) {
-                                readTime = calculateReadTimeMemo(post.content, post.title, finalExcerpt);
+							if (!readTime && post.content) {
+								readTime = calculateReadTimeMemo(
+									post.content,
+									post.title,
+									finalExcerpt
+								);
 							}
 
 							// Handle image
@@ -337,11 +352,11 @@ function ContentGridInner() {
 			}
 		}
 
-        fetchContentItems();
-    }, [contentType, calculateReadTimeMemo, extractTextFromContentMemo]);
+		fetchContentItems();
+	}, [contentType, calculateReadTimeMemo, extractTextFromContentMemo]);
 
-    // Filter items when category changes or items are loaded
-    useEffect(() => {
+	// Filter items when category changes or items are loaded
+	useEffect(() => {
 		// Force a new filter operation by updating the key
 		setFilterKey(Date.now());
 
@@ -355,9 +370,9 @@ function ContentGridInner() {
 			if (activeCategory === "All" || activeCategory.startsWith("All-")) {
 				items = [...contentItems];
 			} else {
-                items = contentItems.filter((item) =>
-                    item.categories.includes(activeCategory)
-                );
+				items = contentItems.filter((item) =>
+					item.categories.includes(activeCategory)
+				);
 			}
 		}
 
@@ -371,14 +386,14 @@ function ContentGridInner() {
 			setTotalPages(Math.ceil(items.length / ITEMS_PER_PAGE));
 			setCurrentPage(1); // Reset to first page when category changes
 		}, 0);
-    }, [activeCategory, contentItems, setCurrentPage, contentType]);
+	}, [activeCategory, contentItems, setCurrentPage, contentType]);
 
 	// Calculate current items to display
 	const indexOfLastItem = currentPage * ITEMS_PER_PAGE;
 	const indexOfFirstItem = indexOfLastItem - ITEMS_PER_PAGE;
 	const currentItems = filteredItems.slice(indexOfFirstItem, indexOfLastItem);
 
-    // (helper implementations moved into memoized callbacks above)
+	// (helper implementations moved into memoized callbacks above)
 
 	// Helper function to process main image
 	function processMainImage(

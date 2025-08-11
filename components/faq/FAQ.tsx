@@ -141,11 +141,11 @@ export function FAQ({ faqs = [], initialCategory = "all" }: FAQComponentProps) {
 			? allFaqItems
 			: allFaqItems.filter((item) => item.category === selectedCategory);
 
-  // Get unique categories from FAQs (memoized to avoid changing ref each render)
-  const uniqueCategories = useMemo(
-    () => [...new Set(allFaqItems.map((item) => item.category))],
-    [allFaqItems]
-  );
+	// Get unique categories from FAQs (memoized to avoid changing ref each render)
+	const uniqueCategories = useMemo(
+		() => [...new Set(allFaqItems.map((item) => item.category))],
+		[allFaqItems]
+	);
 
 	// Make sure we only show category options that have FAQs
 	const availableCategoryOptions = [
