@@ -259,6 +259,14 @@ export function FooterNew() {
 							className="text-white/50 hover:text-white/80 text-xs tracking-wide transition-colors duration-300">
 							Terms of Service
 						</Link>
+						<Link
+							href="https://www.dmrmedia.org/"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="text-white/50 hover:text-white/80 text-xs tracking-wide transition-colors duration-300">
+							Designed & Developed by
+							<span className="text-luxury-red">DMR Media</span>
+						</Link>
 					</div>
 				</div>
 			</div>
