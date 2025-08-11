@@ -1,0 +1,191 @@
+[
+	{
+		"sold_price": 15000000,
+		"address": "777 Lommel Road, Calistoga, CA 94515",
+		"listing_number": "20888886",
+		"listing_type": "House",
+		"bedrooms": 4,
+		"bathrooms": 4,
+		"square_feet": 9032
+	},
+	{
+		"sold_price": 11125000,
+		"address": "3880 Silverado Trail, Calistoga, CA 94515",
+		"listing_number": "20888875",
+		"listing_type": "House",
+		"bedrooms": 6,
+		"bathrooms": 6,
+		"square_feet": 10000
+	},
+	{
+		"sold_price": 9500000,
+		"address": "1602 Greenwood Avenue, Calistoga, CA 94515",
+		"listing_number": "20888884",
+		"listing_type": "House",
+		"bedrooms": 4,
+		"bathrooms": 4,
+		"square_feet": 6485
+	},
+	{
+		"sold_price": 9600000,
+		"address": "1403 Myrtle, Calistoga, CA 94515",
+		"listing_number": "21754720",
+		"listing_type": "House",
+		"bedrooms": 7,
+		"bathrooms": 7,
+		"square_feet": 4200
+	},
+	{
+		"sold_price": 6950000,
+		"address": "350 Kortum Canyon Road, Calistoga, CA 94515",
+		"listing_number": "323907959",
+		"listing_type": "House",
+		"bedrooms": 7,
+		"bathrooms": 7,
+		"square_feet": 5900
+	},
+	{
+		"sold_price": 6080000,
+		"address": "6100 Cottage Ridge Rd, Santa Rosa, CA 95403",
+		"listing_number": "21529931",
+		"listing_type": "House",
+		"bedrooms": 4,
+		"bathrooms": 4,
+		"square_feet": 3933
+	},
+	{
+		"sold_price": 6200000,
+		"address": "235 Sumac Court, Healdsburg, CA 95448",
+		"listing_number": "20888874",
+		"listing_type": "House",
+		"bedrooms": 4,
+		"bathrooms": 4,
+		"square_feet": 3132
+	},
+	{
+		"sold_price": 4782500,
+		"address": "1871 Sarahs Way, St. Helena, CA 94574",
+		"listing_number": "20890453",
+		"listing_type": "House",
+		"bedrooms": 4,
+		"bathrooms": 4,
+		"square_feet": 3651
+	},
+	{
+		"sold_price": 4555000,
+		"address": "8507 Franz Valley School Road, Calistoga, CA 94515",
+		"listing_number": "21797129",
+		"listing_type": "House",
+		"bedrooms": 4,
+		"bathrooms": 4,
+		"square_feet": 3275
+	},
+	{
+		"sold_price": 5050000,
+		"address": "1460 Foster Road, Napa, CA 94558",
+		"listing_number": "324047230",
+		"listing_type": "House",
+		"bedrooms": 3,
+		"bathrooms": 3,
+		"square_feet": 3653
+	},
+	{
+		"sold_price": 3895000,
+		"address": "4189 Silverado Trail N, Calistoga, CA 94515",
+		"listing_number": "323050947",
+		"listing_type": "House",
+		"bedrooms": 4,
+		"bathrooms": 4,
+		"square_feet": 4791
+	},
+	{
+		"sold_price": 3100000,
+		"address": "1717 Michael Way, Calistoga, CA 94515",
+		"listing_number": "20888885",
+		"listing_type": "House",
+		"bedrooms": 3,
+		"bathrooms": 3,
+		"square_feet": 2563
+	},
+	{
+		"sold_price": 2950000,
+		"address": "160 Petrified Forest Road, Calistoga, CA 94515",
+		"listing_number": "324001807",
+		"listing_type": "House",
+		"bedrooms": 2,
+		"bathrooms": 2,
+		"square_feet": 1288
+	},
+	{
+		"sold_price": 2495000,
+		"address": "150 Petrified Forest Road, Calistoga, CA 94515",
+		"listing_number": "324001771",
+		"listing_type": "House",
+		"bedrooms": 3,
+		"bathrooms": 3,
+		"square_feet": 2177
+	},
+	{
+		"sold_price": 2189000,
+		"address": "1691 Diamond Mountain Road, Calistoga, CA 94515",
+		"listing_number": "323013253",
+		"listing_type": "House",
+		"bedrooms": 3,
+		"bathrooms": 3,
+		"square_feet": 2000
+	},
+	{
+		"sold_price": 2200000,
+		"address": "5860 Sharp Road, Calistoga, CA 94515",
+		"listing_number": "20888887",
+		"listing_type": "House",
+		"bedrooms": 3,
+		"bathrooms": 3,
+		"square_feet": 2406
+	},
+	{
+		"sold_price": 1750000,
+		"address": "3245 State Highway 128, Calistoga, CA 94515",
+		"listing_number": "21243114",
+		"listing_type": "House",
+		"bedrooms": 3,
+		"bathrooms": 3,
+		"square_feet": 1618
+	},
+	{
+		"sold_price": 1075000,
+		"address": "250 Fawn Park, St. Helena, CA 94574",
+		"listing_number": "21582397",
+		"listing_type": "House",
+		"bedrooms": 2,
+		"bathrooms": 2,
+		"square_feet": 1705
+	},
+	{
+		"sold_price": 1570000,
+		"address": "90 Dahlia Street, St. Helena, CA 94574",
+		"listing_number": "21582175",
+		"listing_type": "House",
+		"bedrooms": 4,
+		"bathrooms": 4,
+		"square_feet": 2110
+	},
+	{
+		"sold_price": 1750000,
+		"address": "130 Big Leaf Court, Healdsburg, CA 95448",
+		"listing_number": "20888824",
+		"listing_type": "Lots / Land"
+	},
+	{
+		"sold_price": 1750000,
+		"address": "140 Big Leaf Court, Healdsburg, CA 95448",
+		"listing_number": "20888825",
+		"listing_type": "Lots / Land"
+	},
+	{
+		"sold_price": 1560000,
+		"address": "1487 Oak Avenue, St. Helena, CA 94574",
+		"listing_number": "21582445",
+		"listing_type": "Multi-Unit Residential"
+	}
+]
