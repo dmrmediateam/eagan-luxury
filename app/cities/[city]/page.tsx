@@ -12,122 +12,228 @@ interface CityPageProps {
 	}>
 }
 
-// City data with specific information for each city
-const cityData = {
-	'hackettstown': {
-		name: 'Hackettstown',
-		state: 'NJ',
-		county: 'Warren',
-		description: 'A charming town in Warren County known for its historic downtown, excellent schools, and family-friendly atmosphere. Perfect for those seeking a suburban lifestyle with easy access to major highways.',
-		highlights: ['Historic Downtown', 'Excellent Schools', 'Family-Friendly', 'Easy Commuting', 'Community Events', 'Outdoor Recreation'],
-		marketStats: {
-			medianPrice: 425000,
-			avgDaysOnMarket: 45,
-			pricePerSqFt: 245,
-			avgBeds: 3.2,
-			avgBaths: 2.1,
-			avgSqFt: 1850,
-			priceTrend: '+5.2%',
-			inventoryLevel: 'Low',
-			marketType: 'Seller\'s Market'
+// Helper function to create city slug
+function createCitySlug(cityName: string): string {
+	return cityName.toLowerCase().replace(/\s+/g, '-')
+}
+
+// Helper function to get city info by slug
+function getCityInfoBySlug(slug: string) {
+	// City data with specific information for each city
+	const cityData = {
+		// Warren County
+		'hackettstown': {
+			name: 'Hackettstown',
+			state: 'NJ',
+			county: 'Warren',
+			description: 'A charming town in Warren County known for its historic downtown, excellent schools, and family-friendly atmosphere. Perfect for those seeking a suburban lifestyle with easy access to major highways.',
+			highlights: ['Historic Downtown', 'Excellent Schools', 'Family-Friendly', 'Easy Commuting', 'Community Events', 'Outdoor Recreation'],
+			marketStats: { medianPrice: 425000, avgDaysOnMarket: 45, pricePerSqFt: 245, avgBeds: 3.2, avgBaths: 2.1, avgSqFt: 1850, priceTrend: '+5.2%', inventoryLevel: 'Low', marketType: 'Seller\'s Market' }
+		},
+		'washington': {
+			name: 'Washington',
+			state: 'NJ',
+			county: 'Warren',
+			description: 'A picturesque borough in Warren County offering rural charm with modern conveniences. Known for its beautiful landscapes, outdoor recreation opportunities, and tight-knit community.',
+			highlights: ['Rural Charm', 'Outdoor Recreation', 'Tight-Knit Community', 'Beautiful Landscapes', 'Historic Sites', 'Family-Friendly'],
+			marketStats: { medianPrice: 385000, avgDaysOnMarket: 52, pricePerSqFt: 220, avgBeds: 3.0, avgBaths: 2.0, avgSqFt: 1750, priceTrend: '+3.8%', inventoryLevel: 'Medium', marketType: 'Balanced Market' }
+		},
+		'blairstown': {
+			name: 'Blairstown',
+			state: 'NJ',
+			county: 'Warren',
+			description: 'A historic township in Warren County known for its colonial architecture, excellent schools, and peaceful country setting. Perfect for those seeking a quiet, rural lifestyle.',
+			highlights: ['Historic Architecture', 'Excellent Schools', 'Rural Setting', 'Peaceful Lifestyle', 'Colonial Charm', 'Natural Beauty'],
+			marketStats: { medianPrice: 550000, avgDaysOnMarket: 42, pricePerSqFt: 295, avgBeds: 3.3, avgBaths: 2.2, avgSqFt: 1850, priceTrend: '+7.1%', inventoryLevel: 'Low', marketType: 'Seller\'s Market' }
+		},
+		'phillipsburg': {
+			name: 'Phillipsburg',
+			state: 'NJ',
+			county: 'Warren',
+			description: 'A historic town in Warren County with a rich industrial heritage and convenient location along the Delaware River. Offers affordable housing and easy access to major highways.',
+			highlights: ['Historic Heritage', 'Affordable Housing', 'River Access', 'Convenient Location', 'Industrial History', 'Family-Friendly'],
+			marketStats: { medianPrice: 285000, avgDaysOnMarket: 55, pricePerSqFt: 180, avgBeds: 2.8, avgBaths: 1.8, avgSqFt: 1500, priceTrend: '+2.5%', inventoryLevel: 'Medium', marketType: 'Balanced Market' }
+		},
+		'belvidere': {
+			name: 'Belvidere',
+			state: 'NJ',
+			county: 'Warren',
+			description: 'A charming borough in Warren County known for its Victorian architecture, small-town atmosphere, and scenic Delaware River views.',
+			highlights: ['Victorian Architecture', 'River Views', 'Small-Town Charm', 'Historic District', 'Scenic Beauty', 'Community Events'],
+			marketStats: { medianPrice: 325000, avgDaysOnMarket: 48, pricePerSqFt: 195, avgBeds: 2.9, avgBaths: 1.9, avgSqFt: 1650, priceTrend: '+3.2%', inventoryLevel: 'Low', marketType: 'Seller\'s Market' }
+		},
+		'oxford': {
+			name: 'Oxford',
+			state: 'NJ',
+			county: 'Warren',
+			description: 'A peaceful township in Warren County offering rural living with modern conveniences. Known for its open spaces and family-friendly environment.',
+			highlights: ['Rural Living', 'Open Spaces', 'Family-Friendly', 'Peaceful Setting', 'Modern Conveniences', 'Natural Beauty'],
+			marketStats: { medianPrice: 450000, avgDaysOnMarket: 50, pricePerSqFt: 225, avgBeds: 3.1, avgBaths: 2.0, avgSqFt: 1800, priceTrend: '+4.5%', inventoryLevel: 'Low', marketType: 'Seller\'s Market' }
+		},
+		'pohatcong': {
+			name: 'Pohatcong',
+			state: 'NJ',
+			county: 'Warren',
+			description: 'A scenic township in Warren County featuring rolling hills, farmland, and a mix of residential and agricultural areas.',
+			highlights: ['Rolling Hills', 'Farmland', 'Scenic Views', 'Agricultural Heritage', 'Residential Areas', 'Natural Beauty'],
+			marketStats: { medianPrice: 475000, avgDaysOnMarket: 45, pricePerSqFt: 235, avgBeds: 3.2, avgBaths: 2.1, avgSqFt: 1900, priceTrend: '+5.8%', inventoryLevel: 'Low', marketType: 'Seller\'s Market' }
+		},
+		'franklin': {
+			name: 'Franklin',
+			state: 'NJ',
+			county: 'Warren',
+			description: 'A historic borough in Warren County known for its mining heritage, excellent schools, and family-oriented community.',
+			highlights: ['Mining Heritage', 'Excellent Schools', 'Family-Oriented', 'Historic Sites', 'Community Spirit', 'Educational Opportunities'],
+			marketStats: { medianPrice: 350000, avgDaysOnMarket: 52, pricePerSqFt: 200, avgBeds: 3.0, avgBaths: 1.9, avgSqFt: 1700, priceTrend: '+3.9%', inventoryLevel: 'Medium', marketType: 'Balanced Market' }
+		},
+		// Sussex County
+		'hopatcong': {
+			name: 'Hopatcong',
+			state: 'NJ',
+			county: 'Sussex',
+			description: 'A vibrant borough in Sussex County centered around beautiful Lake Hopatcong, offering waterfront living and recreational opportunities.',
+			highlights: ['Lake Hopatcong', 'Waterfront Living', 'Recreational Activities', 'Water Sports', 'Scenic Views', 'Community Events'],
+			marketStats: { medianPrice: 425000, avgDaysOnMarket: 40, pricePerSqFt: 240, avgBeds: 3.1, avgBaths: 2.0, avgSqFt: 1750, priceTrend: '+6.1%', inventoryLevel: 'Low', marketType: 'Seller\'s Market' }
+		},
+		'sparta': {
+			name: 'Sparta',
+			state: 'NJ',
+			county: 'Sussex',
+			description: 'A prestigious township in Sussex County known for its excellent schools, beautiful homes, and family-friendly atmosphere.',
+			highlights: ['Excellent Schools', 'Prestigious Homes', 'Family-Friendly', 'Quality Education', 'Beautiful Properties', 'Community Excellence'],
+			marketStats: { medianPrice: 675000, avgDaysOnMarket: 35, pricePerSqFt: 320, avgBeds: 3.8, avgBaths: 2.5, avgSqFt: 2200, priceTrend: '+8.2%', inventoryLevel: 'Low', marketType: 'Seller\'s Market' }
+		},
+		'vernon': {
+			name: 'Vernon',
+			state: 'NJ',
+			county: 'Sussex',
+			description: 'A large township in Sussex County featuring mountain views, ski resorts, and year-round recreational opportunities.',
+			highlights: ['Mountain Views', 'Ski Resorts', 'Year-Round Recreation', 'Outdoor Activities', 'Scenic Beauty', 'Adventure Sports'],
+			marketStats: { medianPrice: 425000, avgDaysOnMarket: 48, pricePerSqFt: 230, avgBeds: 3.2, avgBaths: 2.1, avgSqFt: 1850, priceTrend: '+5.5%', inventoryLevel: 'Medium', marketType: 'Seller\'s Market' }
+		},
+		'newton': {
+			name: 'Newton',
+			state: 'NJ',
+			county: 'Sussex',
+			description: 'The county seat of Sussex County, offering a perfect blend of small-town charm and modern amenities with excellent shopping and dining.',
+			highlights: ['County Seat', 'Small-Town Charm', 'Modern Amenities', 'Shopping & Dining', 'Historic District', 'Community Hub'],
+			marketStats: { medianPrice: 375000, avgDaysOnMarket: 45, pricePerSqFt: 210, avgBeds: 3.0, avgBaths: 2.0, avgSqFt: 1750, priceTrend: '+4.2%', inventoryLevel: 'Low', marketType: 'Seller\'s Market' }
+		},
+		'andover': {
+			name: 'Andover',
+			state: 'NJ',
+			county: 'Sussex',
+			description: 'A picturesque borough in Sussex County offering rural charm with modern conveniences. Known for its beautiful landscapes, outdoor recreation opportunities, and tight-knit community.',
+			highlights: ['Rural Charm', 'Outdoor Recreation', 'Tight-Knit Community', 'Beautiful Landscapes', 'Historic Sites', 'Peaceful Setting'],
+			marketStats: { medianPrice: 425000, avgDaysOnMarket: 48, pricePerSqFt: 235, avgBeds: 3.1, avgBaths: 2.0, avgSqFt: 1800, priceTrend: '+4.1%', inventoryLevel: 'Low', marketType: 'Seller\'s Market' }
+		},
+		'byram': {
+			name: 'Byram',
+			state: 'NJ',
+			county: 'Sussex',
+			description: 'A township in Sussex County featuring a mix of residential areas and natural beauty. Home to Lake Musconetcong and offering excellent recreational opportunities for outdoor enthusiasts.',
+			highlights: ['Lake Musconetcong', 'Outdoor Recreation', 'Residential Areas', 'Natural Beauty', 'Water Activities', 'Family-Friendly'],
+			marketStats: { medianPrice: 525000, avgDaysOnMarket: 38, pricePerSqFt: 280, avgBeds: 3.5, avgBaths: 2.5, avgSqFt: 2100, priceTrend: '+6.2%', inventoryLevel: 'Low', marketType: 'Seller\'s Market' }
+		},
+		// Morris County
+		'chester': {
+			name: 'Chester',
+			state: 'NJ',
+			county: 'Morris',
+			description: 'A borough in Morris County offering a perfect blend of small-town charm and modern amenities. Known for its excellent schools, shopping, and convenient location.',
+			highlights: ['Small-Town Charm', 'Modern Amenities', 'Excellent Schools', 'Convenient Location', 'Shopping', 'Family-Friendly'],
+			marketStats: { medianPrice: 675000, avgDaysOnMarket: 35, pricePerSqFt: 320, avgBeds: 3.8, avgBaths: 2.5, avgSqFt: 2200, priceTrend: '+8.3%', inventoryLevel: 'Low', marketType: 'Seller\'s Market' }
+		},
+		'morristown': {
+			name: 'Morristown',
+			state: 'NJ',
+			county: 'Morris',
+			description: 'A historic town in Morris County with a vibrant downtown, excellent restaurants, and rich Revolutionary War history.',
+			highlights: ['Historic Downtown', 'Excellent Restaurants', 'Revolutionary History', 'Vibrant Culture', 'Shopping District', 'Community Events'],
+			marketStats: { medianPrice: 725000, avgDaysOnMarket: 30, pricePerSqFt: 350, avgBeds: 3.5, avgBaths: 2.5, avgSqFt: 2100, priceTrend: '+9.1%', inventoryLevel: 'Low', marketType: 'Seller\'s Market' }
+		},
+		'madison': {
+			name: 'Madison',
+			state: 'NJ',
+			county: 'Morris',
+			description: 'A charming borough in Morris County known for its excellent schools, historic architecture, and family-friendly atmosphere.',
+			highlights: ['Excellent Schools', 'Historic Architecture', 'Family-Friendly', 'Quality Education', 'Charming Downtown', 'Community Spirit'],
+			marketStats: { medianPrice: 875000, avgDaysOnMarket: 28, pricePerSqFt: 380, avgBeds: 3.8, avgBaths: 2.8, avgSqFt: 2300, priceTrend: '+10.2%', inventoryLevel: 'Low', marketType: 'Seller\'s Market' }
+		},
+		'chatham': {
+			name: 'Chatham',
+			state: 'NJ',
+			county: 'Morris',
+			description: 'A prestigious borough in Morris County offering excellent schools, beautiful homes, and a strong sense of community.',
+			highlights: ['Prestigious Homes', 'Excellent Schools', 'Strong Community', 'Beautiful Properties', 'Quality Education', 'Family Excellence'],
+			marketStats: { medianPrice: 925000, avgDaysOnMarket: 25, pricePerSqFt: 400, avgBeds: 4.0, avgBaths: 3.0, avgSqFt: 2400, priceTrend: '+11.5%', inventoryLevel: 'Low', marketType: 'Seller\'s Market' }
+		},
+		// Hunterdon County
+		'flemington': {
+			name: 'Flemington',
+			state: 'NJ',
+			county: 'Hunterdon',
+			description: 'The county seat of Hunterdon County, offering historic charm, excellent shopping, and a vibrant downtown area.',
+			highlights: ['County Seat', 'Historic Charm', 'Excellent Shopping', 'Vibrant Downtown', 'Community Hub', 'Cultural Events'],
+			marketStats: { medianPrice: 525000, avgDaysOnMarket: 42, pricePerSqFt: 280, avgBeds: 3.2, avgBaths: 2.2, avgSqFt: 1900, priceTrend: '+6.8%', inventoryLevel: 'Low', marketType: 'Seller\'s Market' }
+		},
+		'clinton': {
+			name: 'Clinton',
+			state: 'NJ',
+			county: 'Hunterdon',
+			description: 'A picturesque town in Hunterdon County known for its historic mill, beautiful river views, and charming downtown.',
+			highlights: ['Historic Mill', 'River Views', 'Charming Downtown', 'Scenic Beauty', 'Historic Sites', 'Community Events'],
+			marketStats: { medianPrice: 575000, avgDaysOnMarket: 38, pricePerSqFt: 295, avgBeds: 3.3, avgBaths: 2.3, avgSqFt: 1950, priceTrend: '+7.2%', inventoryLevel: 'Low', marketType: 'Seller\'s Market' }
+		},
+		'lambertville': {
+			name: 'Lambertville',
+			state: 'NJ',
+			county: 'Hunterdon',
+			description: 'A vibrant city in Hunterdon County known for its arts scene, antique shops, and beautiful Delaware River location.',
+			highlights: ['Arts Scene', 'Antique Shops', 'Delaware River', 'Cultural Hub', 'Historic Architecture', 'Creative Community'],
+			marketStats: { medianPrice: 625000, avgDaysOnMarket: 35, pricePerSqFt: 310, avgBeds: 3.4, avgBaths: 2.4, avgSqFt: 2000, priceTrend: '+8.1%', inventoryLevel: 'Low', marketType: 'Seller\'s Market' }
 		}
-	},
-	'washington': {
-		name: 'Washington',
-		state: 'NJ',
-		county: 'Warren',
-		description: 'A picturesque borough in Warren County offering rural charm with modern conveniences. Known for its beautiful landscapes, outdoor recreation opportunities, and tight-knit community.',
-		highlights: ['Rural Charm', 'Outdoor Recreation', 'Tight-Knit Community', 'Beautiful Landscapes', 'Historic Sites', 'Family-Friendly'],
-		marketStats: {
-			medianPrice: 385000,
-			avgDaysOnMarket: 52,
-			pricePerSqFt: 220,
-			avgBeds: 3.0,
-			avgBaths: 2.0,
-			avgSqFt: 1750,
-			priceTrend: '+3.8%',
-			inventoryLevel: 'Medium',
-			marketType: 'Balanced Market'
+	}
+
+	// Try exact match first
+	if (cityData[slug as keyof typeof cityData]) {
+		return cityData[slug as keyof typeof cityData]
+	}
+
+	// Try to find by slug conversion
+	for (const [key, city] of Object.entries(cityData)) {
+		if (createCitySlug(city.name) === slug) {
+			return city
 		}
-	},
-	'andover': {
-		name: 'Andover',
+	}
+
+	// Generate generic city info for any other city
+	const cityName = slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
+	
+	// Determine county based on common patterns
+	let county = 'Warren'
+	if (['hopatcong', 'sparta', 'vernon', 'newton', 'andover', 'byram'].includes(slug)) {
+		county = 'Sussex'
+	} else if (['morristown', 'madison', 'chatham', 'chester'].includes(slug)) {
+		county = 'Morris'
+	} else if (['flemington', 'clinton', 'lambertville'].includes(slug)) {
+		county = 'Hunterdon'
+	}
+
+	return {
+		name: cityName,
 		state: 'NJ',
-		county: 'Sussex',
-		description: 'A picturesque borough in Sussex County offering rural charm with modern conveniences. Known for its beautiful landscapes, outdoor recreation opportunities, and tight-knit community.',
-		highlights: ['Rural Charm', 'Outdoor Recreation', 'Tight-Knit Community', 'Beautiful Landscapes', 'Historic Sites', 'Peaceful Setting'],
-		marketStats: {
-			medianPrice: 425000,
-			avgDaysOnMarket: 48,
-			pricePerSqFt: 235,
-			avgBeds: 3.1,
-			avgBaths: 2.0,
-			avgSqFt: 1800,
-			priceTrend: '+4.1%',
-			inventoryLevel: 'Low',
-			marketType: 'Seller\'s Market'
-		}
-	},
-	'byram': {
-		name: 'Byram',
-		state: 'NJ',
-		county: 'Sussex',
-		description: 'A township in Sussex County featuring a mix of residential areas and natural beauty. Home to Lake Musconetcong and offering excellent recreational opportunities for outdoor enthusiasts.',
-		highlights: ['Lake Musconetcong', 'Outdoor Recreation', 'Residential Areas', 'Natural Beauty', 'Water Activities', 'Family-Friendly'],
-		marketStats: {
-			medianPrice: 525000,
-			avgDaysOnMarket: 38,
-			pricePerSqFt: 280,
-			avgBeds: 3.5,
-			avgBaths: 2.5,
-			avgSqFt: 2100,
-			priceTrend: '+6.2%',
-			inventoryLevel: 'Low',
-			marketType: 'Seller\'s Market'
-		}
-	},
-	'blairstown': {
-		name: 'Blairstown',
-		state: 'NJ',
-		county: 'Warren',
-		description: 'A historic township in Warren County known for its colonial architecture, excellent schools, and peaceful country setting. Perfect for those seeking a quiet, rural lifestyle.',
-		highlights: ['Historic Architecture', 'Excellent Schools', 'Rural Setting', 'Peaceful Lifestyle', 'Colonial Charm', 'Natural Beauty'],
-		marketStats: {
-			medianPrice: 550000,
-			avgDaysOnMarket: 42,
-			pricePerSqFt: 295,
-			avgBeds: 3.3,
-			avgBaths: 2.2,
-			avgSqFt: 1850,
-			priceTrend: '+7.1%',
-			inventoryLevel: 'Low',
-			marketType: 'Seller\'s Market'
-		}
-	},
-	'chester': {
-		name: 'Chester',
-		state: 'NJ',
-		county: 'Morris',
-		description: 'A borough in Morris County offering a perfect blend of small-town charm and modern amenities. Known for its excellent schools, shopping, and convenient location.',
-		highlights: ['Small-Town Charm', 'Modern Amenities', 'Excellent Schools', 'Convenient Location', 'Shopping', 'Family-Friendly'],
-		marketStats: {
-			medianPrice: 675000,
-			avgDaysOnMarket: 35,
-			pricePerSqFt: 320,
-			avgBeds: 3.8,
-			avgBaths: 2.5,
-			avgSqFt: 2200,
-			priceTrend: '+8.3%',
-			inventoryLevel: 'Low',
-			marketType: 'Seller\'s Market'
-		}
+		county: county,
+		description: `A beautiful community in ${county} County, New Jersey, offering a perfect blend of suburban living and natural beauty. Known for its excellent schools, family-friendly atmosphere, and convenient location.`,
+		highlights: ['Family-Friendly', 'Excellent Schools', 'Natural Beauty', 'Convenient Location', 'Community Spirit', 'Quality Living'],
+		marketStats: { medianPrice: 425000, avgDaysOnMarket: 45, pricePerSqFt: 240, avgBeds: 3.2, avgBaths: 2.1, avgSqFt: 1850, priceTrend: '+5.0%', inventoryLevel: 'Medium', marketType: 'Balanced Market' }
 	}
 }
 
 // Generate metadata for the city
 export async function generateMetadata({ params }: CityPageProps): Promise<Metadata> {
 	const { city } = await params
-	const cityInfo = cityData[city as keyof typeof cityData]
+	const cityInfo = getCityInfoBySlug(city)
 	
 	if (!cityInfo) {
 		return {
@@ -168,7 +274,7 @@ function serializeListing(listing: any) {
 
 export default async function CityPage({ params }: CityPageProps) {
 	const { city } = await params
-	const cityInfo = cityData[city as keyof typeof cityData]
+	const cityInfo = getCityInfoBySlug(city)
 	
 	if (!cityInfo) {
 		notFound()
@@ -214,6 +320,46 @@ export default async function CityPage({ params }: CityPageProps) {
 	const formatAddress = (listing: any) => {
 		return `${listing.addressFull}, ${listing.city}, ${listing.state} ${listing.postalCode}`
 	}
+
+	// Property type data
+	const propertyTypes = [
+		{
+			type: 'Condos',
+			description: 'Modern condominium living with amenities and low maintenance',
+			icon: '🏢',
+			link: `/cities/${city}/condos`
+		},
+		{
+			type: 'Duplexes',
+			description: 'Multi-family properties perfect for investors or extended families',
+			icon: '🏘️',
+			link: `/cities/${city}/duplexes`
+		},
+		{
+			type: 'Townhomes',
+			description: 'Attached homes offering space and convenience',
+			icon: '🏠',
+			link: `/cities/${city}/townhomes`
+		},
+		{
+			type: 'Commercial',
+			description: 'Business properties and investment opportunities',
+			icon: '🏢',
+			link: `/cities/${city}/commercial`
+		},
+		{
+			type: 'Land',
+			description: 'Buildable lots and acreage for custom homes',
+			icon: '🌲',
+			link: `/cities/${city}/land`
+		},
+		{
+			type: 'Waterfront',
+			description: 'Properties with water access and scenic views',
+			icon: '🌊',
+			link: `/cities/${city}/waterfront`
+		}
+	]
 
 	return (
 		<div className="min-h-screen bg-white">
@@ -457,6 +603,119 @@ export default async function CityPage({ params }: CityPageProps) {
 								))}
 							</div>
 						</div>
+					</div>
+				</div>
+			</section>
+
+			{/* Property Types Section */}
+			<section className="py-20 bg-white">
+				<div className="mx-[5%] md:mx-[10%] lg:mx-[15%]">
+					<div className="text-center mb-12">
+						<h2 className="text-3xl font-serif font-light mb-4">
+							Property Types in {cityInfo.name}
+						</h2>
+						<p className="text-gray-600 max-w-2xl mx-auto">
+							Explore different property types available in {cityInfo.name}, {cityInfo.state}. 
+							From single-family homes to investment properties, we have options for every buyer.
+						</p>
+					</div>
+
+					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+						{propertyTypes.map((propertyType, index) => (
+							<Link
+								key={propertyType.type}
+								href={propertyType.link}
+								className="group"
+							>
+								<div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-all duration-300 hover:border-yellow-500">
+									<div className="text-4xl mb-4">{propertyType.icon}</div>
+									<h3 className="text-xl font-serif font-medium text-gray-900 mb-2 group-hover:text-yellow-600 transition-colors duration-300">
+										{propertyType.type}
+									</h3>
+									<p className="text-gray-600 text-sm mb-4">
+										{propertyType.description}
+									</p>
+									<div className="flex items-center text-yellow-600 font-medium text-sm group-hover:underline">
+										Browse {propertyType.type} →
+									</div>
+								</div>
+							</Link>
+						))}
+					</div>
+				</div>
+			</section>
+
+			{/* Property Types Section */}
+			<section className="py-20 bg-white">
+				<div className="mx-[5%] md:mx-[10%] lg:mx-[15%]">
+					<div className="text-center mb-12">
+						<h2 className="text-3xl font-serif font-light mb-4">
+							Property Types in {cityInfo.name}
+						</h2>
+						<p className="text-gray-600 max-w-2xl mx-auto">
+							Explore different property types available in {cityInfo.name}, {cityInfo.state}. 
+							From single-family homes to investment properties, we have options for every buyer.
+						</p>
+					</div>
+
+					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+						{[
+							{
+								type: 'Condos',
+								description: 'Modern condominium living with amenities and low maintenance',
+								icon: '🏢',
+								link: `/cities/${city}/condos`
+							},
+							{
+								type: 'Duplexes',
+								description: 'Multi-family properties perfect for investors or extended families',
+								icon: '🏘️',
+								link: `/cities/${city}/duplexes`
+							},
+							{
+								type: 'Townhomes',
+								description: 'Attached homes offering space and convenience',
+								icon: '🏠',
+								link: `/cities/${city}/townhomes`
+							},
+							{
+								type: 'Commercial',
+								description: 'Business properties and investment opportunities',
+								icon: '🏢',
+								link: `/cities/${city}/commercial`
+							},
+							{
+								type: 'Land',
+								description: 'Buildable lots and acreage for custom homes',
+								icon: '🌲',
+								link: `/cities/${city}/land`
+							},
+							{
+								type: 'Waterfront',
+								description: 'Properties with water access and scenic views',
+								icon: '🌊',
+								link: `/cities/${city}/waterfront`
+							}
+						].map((propertyType, index) => (
+							<Link
+								key={propertyType.type}
+								href={propertyType.link}
+								className="group"
+							>
+								<div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-all duration-300 hover:border-yellow-500">
+									<div className="text-4xl mb-4">{propertyType.icon}</div>
+									<h3 className="text-xl font-serif font-medium text-gray-900 mb-2 group-hover:text-yellow-600 transition-colors duration-300">
+										{propertyType.type}
+									</h3>
+									<p className="text-gray-600 text-sm mb-4">
+										{propertyType.description}
+									</p>
+									<div className="flex items-center text-yellow-600 font-medium text-sm group-hover:underline">
+										Browse {propertyType.type} →
+									</div>
+								</div>
+							</Link>
+						))}
 					</div>
 				</div>
 			</section>
