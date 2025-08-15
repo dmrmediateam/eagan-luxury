@@ -7,8 +7,8 @@ import NavbarNew from '@/components/home/NavbarNew'
 import Image from 'next/image'
 import type { Metadata } from 'next'
 
-interface ListingPageProps {
-	params: Promise<{
+interface ListingPageProps { 
+	params: Promise<{ 
 		slug: string 
 	}>
 }
