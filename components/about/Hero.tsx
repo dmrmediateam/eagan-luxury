@@ -246,37 +246,37 @@ const Hero = () => {
 					<motion.h1
 						className="text-3xl sm:text-4xl md:text-5xl mb-4 tracking-tight font-serif font-light"
 						variants={itemVariants}>
-						About Us
+						About Cheryl
 					</motion.h1>
 
 					<motion.div
-						className="h-[1.5px] bg-[#B08D57] mb-6"
+						className="h-[1.5px] bg-secondary mb-6"
 						variants={dividerVariants}></motion.div>
 
 					<motion.p
 						className="text-xl md:text-2xl mb-2 font-light font-serif tracking-wide"
 						variants={itemVariants}>
-						Legendary Real Estate
+						Weichert Realtors
 					</motion.p>
 
 					<motion.p
 						className="text-base md:text-lg text-white/80 mb-8 tracking-wide font-light"
 						variants={itemVariants}>
-						Lake Geneva, WI
+						New Jersey
 					</motion.p>
 
 					<motion.div
 						className="flex flex-col sm:flex-row gap-6 w-full"
 						variants={itemVariants}>
 						<button
-							onClick={() => scrollToSection("team")}
+							onClick={() => scrollToSection("about-cheryl")}
 							className="px-10 py-4 border border-white text-white text-base tracking-widest uppercase transition-all duration-300 hover:bg-white hover:text-[#1A1A1A] hover:shadow-[0_10px_25px_rgba(255,255,255,0.2)]">
-							Our Team
+							Learn More
 						</button>
 						<button
 							onClick={() => scrollToSection("contact")}
-							className="px-10 py-4 border border-[#B08D57] text-[#B08D57] text-base tracking-widest uppercase transition-all duration-300 hover:bg-[#B08D57] hover:text-white hover:shadow-[0_10px_25px_rgba(176,141,87,0.3)]">
-							Contact Us
+							className="px-10 py-4 border border-secondary text-secondary text-base tracking-widest uppercase transition-all duration-300 hover:bg-secondary hover:text-[#222223] hover:shadow-[0_10px_25px_rgba(255,215,0,0.3)]">
+							Contact Cheryl
 						</button>
 					</motion.div>
 				</motion.div>

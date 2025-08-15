@@ -1,5 +1,5 @@
 import Hero from "@/components/about/Hero";
-import { Team } from "@/components/about/Team";
+import { AboutCheryl } from "@/components/about/AboutCheryl";
 import { Values } from "@/components/about/Values";
 import { AboutCTA } from "@/components/about/AboutCTA";
 import { Stats } from "@/components/about/Stats";
@@ -10,9 +10,9 @@ import { AwardsScrollBanner } from "@/components/about/AwardsScrollBanner";
 import { ContactFaqs } from "@/components/contact/ContactFaqs";
 
 export const metadata: Metadata = {
-	title: "About Us | Legendary Real Estate | Lake Geneva, WI",
+	title: "About Cheryl Towey | Weichert Realtors | New Jersey",
 	description:
-		"Learn about Legendary Real Estate, our mission, values, and dedicated team of real estate professionals serving Lake Geneva, WI."
+		"Learn about Cheryl Towey, your trusted real estate professional with Weichert Realtors serving New Jersey. Specializing in Hackettstown, Andover, Byram, Blairstown, Chester, and Washington."
 };
 
 export default function About() {
@@ -20,12 +20,12 @@ export default function About() {
 		<>
 			<Hero />
 			<AwardsScrollBanner />
-			<Team />
+			<AboutCheryl />
 			<Stats />
 			<AboutCTA
 				backgroundImage="/images/highlands-estate.jpg"
-				title="Ready to Experience Lake Geneva Living?"
-				subtitle="Let our expert team guide you through the finest properties in the Lake Geneva area."
+				title="Ready to Work with Cheryl?"
+				subtitle="Let Cheryl guide you through finding your perfect home in New Jersey's most desirable communities."
 			/>
 			<Values />
 			<ContactNew />

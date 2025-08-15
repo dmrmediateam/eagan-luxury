@@ -78,26 +78,26 @@ export function MapComponent({
 			.pin-dot {
 				width: 16px;
 				height: 16px;
-				background-color: #B08D57;
+				background-color: #ffd602;
 				border-radius: 50%;
 				z-index: 10;
 				transition: transform 0.3s ease, box-shadow 0.3s ease;
 			}
 			.pin-dot.hovered {
 				transform: scale(1.5);
-				box-shadow: 0 0 12px rgba(176, 141, 87, 0.7);
+				box-shadow: 0 0 12px rgba(255, 214, 2, 0.7);
 			}
 			.pin-pulse {
 				position: absolute;
 				width: 24px;
 				height: 24px;
-				background-color: rgba(176, 141, 87, 0.5);
+				background-color: rgba(255, 214, 2, 0.5);
 				border-radius: 50%;
 				animation: pulse 1.5s infinite;
 			}
 			.pin-pulse.hovered {
 				animation: pulse-hovered 1.5s infinite;
-				background-color: rgba(176, 141, 87, 0.7);
+				background-color: rgba(255, 214, 2, 0.7);
 			}
 			@keyframes pulse {
 				0% {

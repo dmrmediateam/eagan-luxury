@@ -34,13 +34,14 @@ const menuLinks = [
 		]
 	},
 	{
-		title: "Concierge",
-		href: "/concierge",
+		title: "Cities",
+		href: "/cities",
 		subLinks: [
-			{ title: "Buyer Services", href: "/buyers" },
-			{ title: "Seller Services", href: "/sellers" },
-			{ title: "Relocation Services", href: "/concierge/relocation" },
-			{ title: "Property Management", href: "/concierge/management" }
+			{ title: "Hackettstown", href: "/cities/hackettstown" },
+			{ title: "Andover", href: "/cities/andover" },
+			{ title: "Byram", href: "/cities/byram" },
+			{ title: "Blairstown", href: "/cities/blairstown" },
+			{ title: "Chester", href: "/cities/chester" }
 		]
 	},
 	{ title: "Testimonials", href: "/testimonials" },
@@ -214,10 +215,10 @@ const NavbarNew = () => {
 							}}
 							className="relative">
 							<Image
-								src="/lre/lre1.JPG"
-								alt="Logo"
-								height={100}
-								width={100}
+								src="/logos/weichert-logo.svg"
+								alt="Weichert Realtors"
+								height={60}
+								width={200}
 								className=""
 								priority
 							/>
@@ -226,7 +227,7 @@ const NavbarNew = () => {
 				</motion.div>
 
 				{/* Center Navigation Links - Desktop Only */}
-				<nav className="hidden md:flex absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-luxury-black">
+				<nav className="hidden md:flex absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-weichert-charcoal">
 					<ul className="flex items-center space-x-10">
 						{mainNavLinks.map((link, index) => (
 							<motion.li
@@ -238,10 +239,10 @@ const NavbarNew = () => {
 								className="relative group">
 								<Link
 									href={link.href}
-									className="text-luxury-black text-base tracking-[0.2em] font-extralight uppercase block py-1 hover:text-luxury-red transition-colors duration-300">
+									className="text-weichert-charcoal text-base tracking-[0.2em] font-extralight uppercase block py-1 hover:text-secondary transition-colors duration-300">
 									{link.title}
 								</Link>
-								<span className="absolute bottom-0 left-0 w-0 h-[0.5px] bg-luxury-black group-hover:w-full transition-all duration-300 ease-out" />
+								<span className="absolute bottom-0 left-0 w-0 h-[0.5px] bg-weichert-charcoal group-hover:w-full transition-all duration-300 ease-out" />
 							</motion.li>
 						))}
 					</ul>
@@ -261,9 +262,9 @@ const NavbarNew = () => {
 							className="flex flex-col items-center justify-center w-10 h-10 focus:outline-none z-[101]"
 							onClick={toggleDrawer}
 							aria-label="Menu">
-							<span className="w-6 h-px bg-luxury-black block mb-1.5" />
-							<span className="w-6 h-px bg-luxury-black block mb-1.5" />
-							<span className="w-6 h-px bg-luxury-black block" />
+							<span className="w-6 h-px bg-weichert-charcoal block mb-1.5" />
+							<span className="w-6 h-px bg-weichert-charcoal block mb-1.5" />
+							<span className="w-6 h-px bg-weichert-charcoal block" />
 						</motion.button>
 					)}
 				</AnimatePresence>
@@ -299,7 +300,7 @@ const NavbarNew = () => {
 						{/* Close Button (X) */}
 						<motion.button
 							onClick={toggleDrawer}
-							className="absolute top-6 right-6 w-8 h-8 flex items-center justify-center rounded-full hover:bg-luxury-lightgray transition-colors duration-300 focus:outline-none z-[102]"
+															className="absolute top-6 right-6 w-8 h-8 flex items-center justify-center rounded-full hover:bg-weichert-lightgray transition-colors duration-300 focus:outline-none z-[102]"
 							whileHover={{ scale: 1.1 }}
 							whileTap={{ scale: 0.9 }}
 							transition={{ duration: 0.2 }}
@@ -310,7 +311,7 @@ const NavbarNew = () => {
 								height="24"
 								viewBox="0 0 24 24"
 								fill="none"
-								stroke="#890300"
+																	stroke="#222223"
 								strokeWidth="1.5"
 								strokeLinecap="round"
 								strokeLinejoin="round">
@@ -324,14 +325,14 @@ const NavbarNew = () => {
 								<motion.div
 									key={index}
 									variants={menuItemVariants}
-									className="mb-4 border-b border-luxury-lightgray">
+									className="mb-4 border-b border-weichert-lightgray">
 									{link.subLinks ? (
 										<>
 											<button
 												onClick={() =>
 													toggleSubMenu(index)
 												}
-												className="flex justify-between items-center w-full text-luxury-black py-4 text-xl font-extralight tracking-wide transition-all hover:text-luxury-red">
+												className="flex justify-between items-center w-full text-weichert-charcoal py-4 text-xl font-extralight tracking-wide transition-all hover:text-secondary">
 												<span>{link.title}</span>
 												<motion.span
 													animate={{
@@ -345,7 +346,7 @@ const NavbarNew = () => {
 														duration: 0.3,
 														ease: [0.22, 1, 0.36, 1]
 													}}
-													className="w-5 h-5 flex items-center justify-center text-luxury-black">
+													className="w-5 h-5 flex items-center justify-center text-weichert-charcoal">
 													{expandedItems.includes(
 														index
 													)
@@ -384,7 +385,7 @@ const NavbarNew = () => {
 																			href={
 																				subLink.href
 																			}
-																			className="block text-luxury-darkgray text-base font-extralight tracking-wide hover:text-luxury-red transition-colors"
+																			className="block text-weichert-darkgray text-base font-extralight tracking-wide hover:text-secondary transition-colors"
 																			onClick={
 																				toggleDrawer
 																			}>
@@ -403,7 +404,7 @@ const NavbarNew = () => {
 									) : (
 										<Link
 											href={link.href}
-											className="block w-full text-luxury-black py-4 text-xl font-extralight tracking-wide transition-all hover:text-luxury-red"
+											className="block w-full text-weichert-charcoal py-4 text-xl font-extralight tracking-wide transition-all hover:text-secondary"
 											onClick={toggleDrawer}>
 											{link.title}
 										</Link>

@@ -6,16 +6,13 @@ import { OurClients } from "@/components/home/OurClients";
 import { ContactNew } from "@/components/home/ContactNew";
 import { LuxuryLocations } from "@/components/home/NapaMap";
 import { MarketInsights } from "@/components/home/BlogNew";
-import { Socials } from "@/components/home/Socials";
-import { SeenOnNew } from "@/components/home/SeenOnNew";
 import { FooterNew } from "@/components/home/FooterNew";
 import type { Metadata } from "next";
-import { ContactFaqs } from "@/components/contact/ContactFaqs";
 
 export const metadata: Metadata = {
-	title: "Legendary Real Estate | Lake Geneva, WI",
+	title: "Cheryl Towey - New Jersey Real Estate Agent",
 	description:
-		"Legendary Real Estate is a real estate agency in Lake Geneva, WI."
+		"Cheryl Towey is a premier real estate agent with Weichert Realtors serving New Jersey. Specializing in luxury homes and exceptional service in Hackettstown, Andover, Byram, Blairstown, Chester, and Washington."
 };
 
 export default function Home() {
@@ -29,9 +26,6 @@ export default function Home() {
 			<MarketInsights />
 			<OurClients />
 			<ContactNew />
-			<Socials />
-			<SeenOnNew />
-			<ContactFaqs />
 			<FooterNew />
 		</>
 	);

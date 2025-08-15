@@ -4,12 +4,17 @@ import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { ExpandableCities } from "@/components/ui/ExpandableCities";
 
 export function FooterNew() {
 	const currentYear = new Date().getFullYear();
 
 	return (
-		<footer className="bg-luxury-black text-white">
+		<>
+			{/* All Cities We Serve Section - First part of footer */}
+			<ExpandableCities />
+			
+			<footer className="bg-weichert-charcoal text-white">
 			<div className="mx-[5%] md:mx-[10%] lg:mx-[15%] py-20">
 				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8 lg:gap-12">
 					{/* Brand Column */}
@@ -24,29 +29,29 @@ export function FooterNew() {
 									}}
 									className="relative">
 									<Image
-										src="/lre/lre1.JPG"
-										alt="Logo"
-										height={150}
-										width={250}
+										src="/logos/weichert-logo-white.svg"
+										alt="Weichert Realtors"
+										height={60}
+										width={200}
 										className=""
 										priority
 									/>
 								</motion.div>
 							</Link>
-							<div className="h-px w-20 bg-luxury-red my-6"></div>
+							<div className="h-px w-20 bg-weichert-yellow my-6"></div>
 							<p className="text-white/80 leading-relaxed text-sm">
-								Luxury real estate professionals specializing in
-								high-end properties throughout Lake Geneva, WI
-								and Asheville, WI. Offering exceptional service
-								and market expertise since 2005.
+															Cheryl Towey, licensed real estate agent with Weichert Realtors,
+							specializing in residential properties in Hackettstown, Andover,
+							Byram, Blairstown, Chester, and Washington. Offering exceptional
+							service and market expertise.
 							</p>
 						</div>
 
 						<div className="pt-2">
 							<p className="text-white/60 text-sm">
-								488 Main Street
+								123 Main Street
 								<br />
-								Lake Geneva, WI 53147
+								Morristown, NJ 07960
 							</p>
 						</div>
 					</div>
@@ -55,37 +60,37 @@ export function FooterNew() {
 					<div className="space-y-6">
 						<h3 className="text-xl font-serif text-white mb-8 relative">
 							Navigate
-							<span className="absolute -bottom-3 left-0 w-8 h-px bg-luxury-red"></span>
+							<span className="absolute -bottom-3 left-0 w-8 h-px bg-weichert-yellow"></span>
 						</h3>
 						<nav className="flex flex-col space-y-4">
 							<Link
 								href="#"
-								className="text-white/80 hover:text-luxury-red transition-colors duration-300 group flex items-center">
-								<span className="inline-block w-0 group-hover:w-3 h-px bg-luxury-red mr-0 group-hover:mr-2 transition-all duration-300"></span>
+								className="text-white/80 hover:text-weichert-yellow transition-colors duration-300 group flex items-center">
+								<span className="inline-block w-0 group-hover:w-3 h-px bg-weichert-yellow mr-0 group-hover:mr-2 transition-all duration-300"></span>
 								Home
 							</Link>
 							<Link
 								href="#"
-								className="text-white/80 hover:text-luxury-red transition-colors duration-300 group flex items-center">
-								<span className="inline-block w-0 group-hover:w-3 h-px bg-luxury-red mr-0 group-hover:mr-2 transition-all duration-300"></span>
+								className="text-white/80 hover:text-weichert-yellow transition-colors duration-300 group flex items-center">
+								<span className="inline-block w-0 group-hover:w-3 h-px bg-weichert-yellow mr-0 group-hover:mr-2 transition-all duration-300"></span>
 								About
 							</Link>
 							<Link
 								href="#"
-								className="text-white/80 hover:text-luxury-red transition-colors duration-300 group flex items-center">
-								<span className="inline-block w-0 group-hover:w-3 h-px bg-luxury-red mr-0 group-hover:mr-2 transition-all duration-300"></span>
+								className="text-white/80 hover:text-weichert-yellow transition-colors duration-300 group flex items-center">
+								<span className="inline-block w-0 group-hover:w-3 h-px bg-weichert-yellow mr-0 group-hover:mr-2 transition-all duration-300"></span>
 								Listings
 							</Link>
 							<Link
 								href="#"
-								className="text-white/80 hover:text-luxury-red transition-colors duration-300 group flex items-center">
-								<span className="inline-block w-0 group-hover:w-3 h-px bg-luxury-red mr-0 group-hover:mr-2 transition-all duration-300"></span>
+								className="text-white/80 hover:text-weichert-yellow transition-colors duration-300 group flex items-center">
+								<span className="inline-block w-0 group-hover:w-3 h-px bg-weichert-yellow mr-0 group-hover:mr-2 transition-all duration-300"></span>
 								Contact
 							</Link>
 							<Link
 								href="#"
-								className="text-white/80 hover:text-luxury-red transition-colors duration-300 group flex items-center">
-								<span className="inline-block w-0 group-hover:w-3 h-px bg-luxury-red mr-0 group-hover:mr-2 transition-all duration-300"></span>
+								className="text-white/80 hover:text-weichert-yellow transition-colors duration-300 group flex items-center">
+								<span className="inline-block w-0 group-hover:w-3 h-px bg-weichert-yellow mr-0 group-hover:mr-2 transition-all duration-300"></span>
 								Blog
 							</Link>
 						</nav>
@@ -95,37 +100,37 @@ export function FooterNew() {
 					<div className="space-y-6">
 						<h3 className="text-xl font-serif text-white mb-8 relative">
 							Resources
-							<span className="absolute -bottom-3 left-0 w-8 h-px bg-luxury-red"></span>
+							<span className="absolute -bottom-3 left-0 w-8 h-px bg-weichert-yellow"></span>
 						</h3>
 						<nav className="flex flex-col space-y-4">
 							<Link
 								href="#"
-								className="text-white/80 hover:text-luxury-red transition-colors duration-300 group flex items-center">
-								<span className="inline-block w-0 group-hover:w-3 h-px bg-luxury-red mr-0 group-hover:mr-2 transition-all duration-300"></span>
+								className="text-white/80 hover:text-weichert-yellow transition-colors duration-300 group flex items-center">
+								<span className="inline-block w-0 group-hover:w-3 h-px bg-weichert-yellow mr-0 group-hover:mr-2 transition-all duration-300"></span>
 								Market Reports
 							</Link>
 							<Link
 								href="#"
-								className="text-white/80 hover:text-luxury-red transition-colors duration-300 group flex items-center">
-								<span className="inline-block w-0 group-hover:w-3 h-px bg-luxury-red mr-0 group-hover:mr-2 transition-all duration-300"></span>
+								className="text-white/80 hover:text-weichert-yellow transition-colors duration-300 group flex items-center">
+								<span className="inline-block w-0 group-hover:w-3 h-px bg-weichert-yellow mr-0 group-hover:mr-2 transition-all duration-300"></span>
 								Buyer&apos;s Guide
 							</Link>
 							<Link
 								href="#"
-								className="text-white/80 hover:text-luxury-red transition-colors duration-300 group flex items-center">
-								<span className="inline-block w-0 group-hover:w-3 h-px bg-luxury-red mr-0 group-hover:mr-2 transition-all duration-300"></span>
+								className="text-white/80 hover:text-weichert-yellow transition-colors duration-300 group flex items-center">
+								<span className="inline-block w-0 group-hover:w-3 h-px bg-weichert-yellow mr-0 group-hover:mr-2 transition-all duration-300"></span>
 								Seller&apos;s Guide
 							</Link>
 							<Link
 								href="#"
-								className="text-white/80 hover:text-luxury-red transition-colors duration-300 group flex items-center">
-								<span className="inline-block w-0 group-hover:w-3 h-px bg-luxury-red mr-0 group-hover:mr-2 transition-all duration-300"></span>
+								className="text-white/80 hover:text-weichert-yellow transition-colors duration-300 group flex items-center">
+								<span className="inline-block w-0 group-hover:w-3 h-px bg-weichert-yellow mr-0 group-hover:mr-2 transition-all duration-300"></span>
 								Investment Opportunities
 							</Link>
 							<Link
 								href="#"
-								className="text-white/80 hover:text-luxury-red transition-colors duration-300 group flex items-center">
-								<span className="inline-block w-0 group-hover:w-3 h-px bg-luxury-red mr-0 group-hover:mr-2 transition-all duration-300"></span>
+								className="text-white/80 hover:text-weichert-yellow transition-colors duration-300 group flex items-center">
+								<span className="inline-block w-0 group-hover:w-3 h-px bg-weichert-yellow mr-0 group-hover:mr-2 transition-all duration-300"></span>
 								Area Guide
 							</Link>
 						</nav>
@@ -135,23 +140,23 @@ export function FooterNew() {
 					<div className="space-y-6">
 						<h3 className="text-xl font-serif text-white mb-8 relative">
 							Contact
-							<span className="absolute -bottom-3 left-0 w-8 h-px bg-luxury-red"></span>
+							<span className="absolute -bottom-3 left-0 w-8 h-px bg-weichert-yellow"></span>
 						</h3>
 						<div className="space-y-4">
 							<p className="text-white/80 group flex items-start">
-								<span className="text-luxury-red mr-3 font-serif group-hover:text-white transition-colors duration-300">
+								<span className="text-weichert-yellow mr-3 font-serif group-hover:text-white transition-colors duration-300">
 									T:
 								</span>{" "}
 								<span className="group-hover:text-white/90 transition-colors duration-300">
-									+1 (212) 555-1234
+									+1 (973) 555-0123
 								</span>
 							</p>
 							<p className="text-white/80 group flex items-start">
-								<span className="text-luxury-red mr-3 font-serif group-hover:text-white transition-colors duration-300">
+								<span className="text-weichert-yellow mr-3 font-serif group-hover:text-white transition-colors duration-300">
 									E:
 								</span>{" "}
 								<span className="group-hover:text-white/90 transition-colors duration-300">
-									judy@legendaryrealestateteam.com
+									cheryl.towey@weichert.com
 								</span>
 							</p>
 						</div>
@@ -166,7 +171,7 @@ export function FooterNew() {
 									href="#"
 									target="_blank"
 									rel="noopener noreferrer"
-									className="text-white/70 hover:text-luxury-red transition-colors duration-300 transform hover:scale-110">
+									className="text-white/70 hover:text-weichert-yellow transition-colors duration-300 transform hover:scale-110">
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
 										width="22"
@@ -197,7 +202,7 @@ export function FooterNew() {
 									href="#"
 									target="_blank"
 									rel="noopener noreferrer"
-									className="text-white/70 hover:text-luxury-red transition-colors duration-300 transform hover:scale-110">
+									className="text-white/70 hover:text-weichert-yellow transition-colors duration-300 transform hover:scale-110">
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
 										width="22"
@@ -216,7 +221,7 @@ export function FooterNew() {
 									href="#"
 									target="_blank"
 									rel="noopener noreferrer"
-									className="text-white/70 hover:text-luxury-red transition-colors duration-300 transform hover:scale-110">
+									className="text-white/70 hover:text-weichert-yellow transition-colors duration-300 transform hover:scale-110">
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
 										width="22"
@@ -245,7 +250,7 @@ export function FooterNew() {
 				{/* Bottom Bar */}
 				<div className="pt-16 mt-16 border-t border-white/10 text-center md:text-left md:flex md:justify-between md:items-center">
 					<p className="text-white/50 text-xs tracking-wide">
-						© {currentYear} Legendary Real Estate. All rights
+						© {currentYear} Cheryl Towey | Weichert Realtors. All rights
 						reserved.
 					</p>
 					<div className="mt-6 md:mt-0 flex justify-center md:justify-end space-x-8">
@@ -265,11 +270,12 @@ export function FooterNew() {
 							rel="noopener noreferrer"
 							className="text-white/50 hover:text-white/80 text-xs tracking-wide transition-colors duration-300">
 							Designed & Developed by
-							<span className="text-luxury-red">DMR Media</span>
+							<span className="text-weichert-yellow">DMR Media</span>
 						</Link>
 					</div>
 				</div>
 			</div>
-		</footer>
+			</footer>
+		</>
 	);
 }

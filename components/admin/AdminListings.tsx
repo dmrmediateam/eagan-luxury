@@ -1,162 +1,11 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropertyFilters from "./PropertyFilters";
 import PropertyTable from "./PropertyTable";
 import DeletePropertyModal from "./DeletePropertyModal";
 import EditPropertyModal from "./EditPropertyModal";
 import { Sheet } from "../../components/ui/sheet";
-
-// Sample luxury property data for Sonoma and Walworth County
-const luxuryProperties: Property[] = [
-	{
-		id: "prop1",
-		title: "Stunning Vineyard Estate",
-		price: 12500000,
-		location: "St. Helena, Walworth County",
-		beds: 6,
-		baths: 7.5,
-		area: 8500,
-		status: "For Sale",
-		listingStatus: "Featured",
-		image: "/media/gr1.jpg",
-		images: ["/media/gr1.jpg", "/media/gr2.jpg", "/media/gr3.jpg"],
-		createdAt: "2024-05-01",
-		listingType: "house",
-		acres: 46.72,
-		stories: 2,
-		yearBuilt: 2005,
-		garage: 4,
-		description:
-			"A 'Must-See' property ideal as a large family compound or corporate retreat with multiple living structures, sports facilities, lake, vineyards, and more with six bedrooms, six full baths, and 2 half-baths spread among 6 buildings in a campus-like setting only minutes to Calistoga."
-	},
-	{
-		id: "prop2",
-		title: "Modern Lake Geneva area Retreat",
-		price: 7500000,
-		location: "Sonoma, Walworth County",
-		beds: 5,
-		baths: 6,
-		area: 6200,
-		status: "For Sale",
-		listingStatus: "Normal",
-		image: "/media/gr2.jpg",
-		images: ["/media/gr2.jpg", "/media/gr4.jpg"],
-		createdAt: "2024-04-28"
-	},
-	{
-		id: "prop3",
-		title: "Historic Lake Geneva Mansion",
-		price: 18500000,
-		location: "Yountville, Walworth County",
-		beds: 8,
-		baths: 9,
-		area: 12000,
-		status: "Pending",
-		listingStatus: "Featured",
-		image: "/media/gr3.jpg",
-		images: ["/media/gr3.jpg", "/media/gr5.jpg", "/media/gr6.jpg"],
-		createdAt: "2024-04-15"
-	},
-	{
-		id: "prop4",
-		title: "Luxury Vineyard Compound",
-		price: 9250000,
-		location: "Healdsburg, Walworth County",
-		beds: 5,
-		baths: 5.5,
-		area: 7800,
-		status: "For Sale",
-		listingStatus: "Normal",
-		image: "/media/gr4.jpg",
-		images: ["/media/gr4.jpg"],
-		createdAt: "2024-04-10"
-	},
-	{
-		id: "prop5",
-		title: "Prestigious Lake Geneva Estate",
-		price: 22000000,
-		location: "Calistoga, Walworth County",
-		beds: 7,
-		baths: 8,
-		area: 15000,
-		status: "Sold",
-		listingStatus: "Featured",
-		image: "/media/gr5.jpg",
-		images: ["/media/gr5.jpg", "/media/gr1.jpg"],
-		createdAt: "2024-03-22"
-	},
-	{
-		id: "prop6",
-		title: "Contemporary Hilltop Villa",
-		price: 8750000,
-		location: "Glen Ellen, Walworth County",
-		beds: 4,
-		baths: 4.5,
-		area: 5800,
-		status: "For Sale",
-		listingStatus: "Normal",
-		image: "/media/gr6.jpg",
-		images: ["/media/gr6.jpg", "/media/gr2.jpg"],
-		createdAt: "2024-03-18"
-	},
-	{
-		id: "prop7",
-		title: "Lake Geneva area Architectural Masterpiece",
-		price: 16500000,
-		location: "Rutherford, Walworth County",
-		beds: 6,
-		baths: 7,
-		area: 9500,
-		status: "For Sale",
-		listingStatus: "Featured",
-		image: "/media/gr7.jpg",
-		images: ["/media/gr7.jpg", "/media/gr3.jpg"],
-		createdAt: "2024-03-10"
-	},
-	{
-		id: "prop8",
-		title: "Private Sonoma Valley Retreat",
-		price: 7950000,
-		location: "Kenwood, Walworth County",
-		beds: 5,
-		baths: 5,
-		area: 6500,
-		status: "Coming Soon",
-		listingStatus: "Featured",
-		image: "/media/gr8.jpg",
-		images: ["/media/gr8.jpg", "/media/gr4.jpg"],
-		createdAt: "2024-03-05"
-	},
-	{
-		id: "prop9",
-		title: "Lake Geneva Luxury Chateau",
-		price: 24500000,
-		location: "Oakville, Walworth County",
-		beds: 9,
-		baths: 10.5,
-		area: 18000,
-		status: "For Sale",
-		listingStatus: "Featured",
-		image: "/media/gr9.jpg",
-		images: ["/media/gr9.jpg", "/media/gr5.jpg"],
-		createdAt: "2024-02-28"
-	},
-	{
-		id: "prop10",
-		title: "Sonoma Mountain Estate",
-		price: 6750000,
-		location: "Santa Rosa, Walworth County",
-		beds: 4,
-		baths: 4.5,
-		area: 5200,
-		status: "For Sale",
-		listingStatus: "Normal",
-		image: "/media/gr10.jpg",
-		images: ["/media/gr10.jpg", "/media/gr6.jpg"],
-		createdAt: "2024-02-20"
-	}
-];
 
 // Define a type for property listings
 export type Property = {
@@ -181,199 +30,189 @@ export type Property = {
 };
 
 const AdminListings = () => {
-	const [properties, setProperties] = useState<Property[]>(luxuryProperties);
-	const [statusFilter, setStatusFilter] = useState("All");
-	const [listingStatusFilter, setListingStatusFilter] = useState("All");
-	const [sortBy, setSortBy] = useState("newest");
-	const [searchTerm, setSearchTerm] = useState("");
+	const [properties, setProperties] = useState<Property[]>([]);
+	const [loading, setLoading] = useState(true);
+	const [selectedProperty, setSelectedProperty] = useState<Property | null>(null);
 	const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
-	const [propertyToDelete, setPropertyToDelete] = useState<string | null>(
-		null
-	);
 	const [isEditModalOpen, setIsEditModalOpen] = useState(false);
-	const [propertyToEdit, setPropertyToEdit] = useState<Property | null>(null);
-	const [isNewPropertyModalOpen, setIsNewPropertyModalOpen] = useState(false);
+	const [filters, setFilters] = useState({
+		status: "all",
+		priceRange: "all",
+		location: "all"
+	});
 
-	const statuses = ["All", ...new Set(properties.map((p) => p.status))];
-	const listingStatuses = [
-		"All",
-		...new Set(properties.map((p) => p.listingStatus))
-	];
-
-	const filteredProperties = properties
-		.filter((property) => {
-			const matchesSearch =
-				searchTerm === "" ||
-				property.title
-					.toLowerCase()
-					.includes(searchTerm.toLowerCase()) ||
-				property.location
-					.toLowerCase()
-					.includes(searchTerm.toLowerCase()) ||
-				property.price
-					.toString()
-					.toLowerCase()
-					.includes(searchTerm.toLowerCase());
-			const matchesStatus =
-				statusFilter === "All" || property.status === statusFilter;
-			const matchesListingStatus =
-				listingStatusFilter === "All" ||
-				property.listingStatus === listingStatusFilter;
-			return matchesSearch && matchesStatus && matchesListingStatus;
-		})
-		.sort((a, b) => {
-			if (sortBy === "newest") {
-				return (
-					new Date(b.createdAt).getTime() -
-					new Date(a.createdAt).getTime()
-				);
-			} else if (sortBy === "oldest") {
-				return (
-					new Date(a.createdAt).getTime() -
-					new Date(b.createdAt).getTime()
-				);
-			} else if (sortBy === "priceDesc") {
-				return Number(b.price) - Number(a.price);
-			} else if (sortBy === "priceAsc") {
-				return Number(a.price) - Number(b.price);
+	// Fetch properties from database
+	useEffect(() => {
+		async function fetchProperties() {
+			try {
+				const response = await fetch('/api/listings');
+				if (response.ok) {
+					const data = await response.json();
+					// Transform database listings to Property format
+					const transformedProperties: Property[] = data.map((listing: any) => ({
+						id: listing.listingKey,
+						title: `${listing.addressFull}, ${listing.city}`,
+						price: Number(listing.listPrice) || 0,
+						location: `${listing.city}, ${listing.state}`,
+						beds: listing.bedsTotal || 0,
+						baths: listing.bathsFull || 0,
+						area: listing.livingArea || 0,
+						status: listing.standardStatus || 'Unknown',
+						listingStatus: 'Active',
+						image: listing.media?.[0]?.url || '/placeholder.jpg',
+						images: listing.media?.map((m: any) => m.url) || [],
+						createdAt: listing.modificationTimestamp || new Date().toISOString(),
+						listingType: listing.propertyType || 'Residential',
+						acres: Number(listing.lotSizeAcres) || 0,
+						yearBuilt: listing.yearBuilt || 0,
+						description: listing.remarksPublic || ''
+					}));
+					setProperties(transformedProperties);
+				} else {
+					console.error('Failed to fetch properties');
+				}
+			} catch (error) {
+				console.error('Error fetching properties:', error);
+			} finally {
+				setLoading(false);
 			}
-			return 0;
-		});
+		}
 
-	const handleDeleteClick = (id: string) => {
-		setPropertyToDelete(id);
+		fetchProperties();
+	}, []);
+
+	const handleDeleteProperty = (property: Property) => {
+		setSelectedProperty(property);
 		setIsDeleteModalOpen(true);
 	};
 
-	const confirmDelete = () => {
-		if (propertyToDelete) {
-			setProperties(
-				properties.filter(
-					(property) => property.id !== propertyToDelete
-				)
-			);
-			setIsDeleteModalOpen(false);
-			setPropertyToDelete(null);
-		}
-	};
-
-	const handleEditClick = (property: Property) => {
-		setPropertyToEdit({ ...property });
+	const handleEditProperty = (property: Property) => {
+		setSelectedProperty(property);
 		setIsEditModalOpen(true);
 	};
 
-	const saveEditChanges = () => {
-		if (propertyToEdit) {
-			setProperties(
-				properties.map((property) =>
-					property.id === propertyToEdit.id
-						? propertyToEdit
-						: property
-				)
-			);
-			setIsEditModalOpen(false);
-			setPropertyToEdit(null);
+	const handleDeleteConfirm = async () => {
+		if (!selectedProperty) return;
+
+		try {
+			const response = await fetch(`/api/listings/${selectedProperty.id}`, {
+				method: 'DELETE'
+			});
+
+			if (response.ok) {
+				setProperties(properties.filter(p => p.id !== selectedProperty.id));
+				setIsDeleteModalOpen(false);
+				setSelectedProperty(null);
+			} else {
+				console.error('Failed to delete property');
+			}
+		} catch (error) {
+			console.error('Error deleting property:', error);
 		}
 	};
 
-	const emptyProperty: Property = {
-		id: "",
-		title: "",
-		price: 0,
-		location: "",
-		beds: 0,
-		baths: 0,
-		area: 0,
-		status: "For Sale",
-		listingStatus: "Normal",
-		image: "",
-		createdAt: new Date().toISOString()
-	};
+	const handleEditSave = async (updatedProperty: Property) => {
+		if (!selectedProperty) return;
 
-	const handleNewProperty = () => {
-		setPropertyToEdit(emptyProperty);
-		setIsNewPropertyModalOpen(true);
-	};
+		try {
+			const response = await fetch(`/api/listings/${selectedProperty.id}`, {
+				method: 'PUT',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify(updatedProperty)
+			});
 
-	const saveNewProperty = () => {
-		if (propertyToEdit) {
-			const newProperty = {
-				...propertyToEdit,
-				id: `prop${properties.length + 1}` // Simple ID generation
-			};
-			setProperties([...properties, newProperty]);
-			setIsNewPropertyModalOpen(false);
-			setPropertyToEdit(null);
+			if (response.ok) {
+				setProperties(properties.map(p => 
+					p.id === selectedProperty.id ? updatedProperty : p
+				));
+				setIsEditModalOpen(false);
+				setSelectedProperty(null);
+			} else {
+				console.error('Failed to update property');
+			}
+		} catch (error) {
+			console.error('Error updating property:', error);
 		}
 	};
+
+	// Apply filters
+	const filteredProperties = properties.filter(property => {
+		if (filters.status !== "all" && property.status !== filters.status) return false;
+		if (filters.location !== "all" && !property.location.includes(filters.location)) return false;
+		if (filters.priceRange !== "all") {
+			const price = property.price;
+			switch (filters.priceRange) {
+				case "under-500k":
+					return price < 500000;
+				case "500k-1m":
+					return price >= 500000 && price < 1000000;
+				case "1m-2m":
+					return price >= 1000000 && price < 2000000;
+				case "2m-5m":
+					return price >= 2000000 && price < 5000000;
+				case "5m+":
+					return price >= 5000000;
+				default:
+					return true;
+			}
+		}
+		return true;
+	});
+
+	if (loading) {
+		return (
+			<div className="flex items-center justify-center min-h-screen">
+				<div className="text-lg">Loading properties...</div>
+			</div>
+		);
+	}
 
 	return (
-		<div>
-			<div className="flex items-center justify-between mb-6">
-				<h2 className="text-xl font-semibold text-gray-900">
-					Properties
-				</h2>
-				<button
-					onClick={handleNewProperty}
-					className="whitespace-nowrap px-3 py-2 text-sm lg:text-base font-medium text-white bg-black rounded-md hover:bg-gray-800">
-					Add New Property
-				</button>
+		<div className="p-6">
+			<div className="mb-6">
+				<h1 className="text-3xl font-bold text-gray-900">Property Management</h1>
+				<p className="text-gray-600 mt-2">Manage all property listings in the database</p>
 			</div>
 
-			<PropertyFilters
-				statusFilter={statusFilter}
-				setStatusFilter={setStatusFilter}
-				listingStatusFilter={listingStatusFilter}
-				setListingStatusFilter={setListingStatusFilter}
-				sortBy={sortBy}
-				setSortBy={setSortBy}
-				searchTerm={searchTerm}
-				setSearchTerm={setSearchTerm}
-				statuses={statuses}
-				listingStatuses={listingStatuses}
-			/>
+			<div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+				{/* Filters Sidebar */}
+				<div className="lg:col-span-1">
+					<PropertyFilters filters={filters} onFiltersChange={setFilters} />
+				</div>
 
-			<PropertyTable
-				filteredProperties={filteredProperties}
-				handleEditClick={handleEditClick}
-				handleDeleteClick={handleDeleteClick}
-			/>
+				{/* Properties Table */}
+				<div className="lg:col-span-3">
+					<PropertyTable
+						properties={filteredProperties}
+						onDelete={handleDeleteProperty}
+						onEdit={handleEditProperty}
+					/>
+				</div>
+			</div>
 
+			{/* Delete Modal */}
 			<DeletePropertyModal
 				isOpen={isDeleteModalOpen}
-				onClose={() => setIsDeleteModalOpen(false)}
-				onConfirm={confirmDelete}
+				onClose={() => {
+					setIsDeleteModalOpen(false);
+					setSelectedProperty(null);
+				}}
+				onConfirm={handleDeleteConfirm}
+				property={selectedProperty}
 			/>
 
-			<Sheet open={isEditModalOpen} onOpenChange={setIsEditModalOpen}>
-				<EditPropertyModal
-					isOpen={isEditModalOpen}
-					onClose={() => setIsEditModalOpen(false)}
-					property={propertyToEdit}
-					setProperty={setPropertyToEdit}
-					onSave={saveEditChanges}
-					statuses={statuses.filter((status) => status !== "All")}
-					listingStatuses={listingStatuses.filter(
-						(status) => status !== "All"
-					)}
-				/>
-			</Sheet>
-
-			<Sheet
-				open={isNewPropertyModalOpen}
-				onOpenChange={setIsNewPropertyModalOpen}>
-				<EditPropertyModal
-					isOpen={isNewPropertyModalOpen}
-					onClose={() => setIsNewPropertyModalOpen(false)}
-					property={propertyToEdit}
-					setProperty={setPropertyToEdit}
-					onSave={saveNewProperty}
-					statuses={statuses.filter((status) => status !== "All")}
-					listingStatuses={listingStatuses.filter(
-						(status) => status !== "All"
-					)}
-				/>
-			</Sheet>
+			{/* Edit Modal */}
+			<EditPropertyModal
+				isOpen={isEditModalOpen}
+				onClose={() => {
+					setIsEditModalOpen(false);
+					setSelectedProperty(null);
+				}}
+				onSave={handleEditSave}
+				property={selectedProperty}
+			/>
 		</div>
 	);
 };

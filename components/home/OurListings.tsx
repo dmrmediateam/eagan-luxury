@@ -33,110 +33,47 @@ const buttonVariant = {
 	}
 };
 
-// Dummy listing data interface
+// Database listing interface
 interface Listing {
 	id: string;
-	title: string;
-	slug: string;
-	price: number;
-	address: {
-		street: string;
-		region: string;
-		state: string;
-		zipCode: string;
-	};
-	propertyDetails: {
-		beds: number;
-		baths: number;
-		sqft: number;
-	};
-	imageUrl: string;
+	listingKey: string;
+	addressFull: string;
+	city: string;
+	state: string;
+	postalCode: string;
+	listPrice: number;
+	bedsTotal: number;
+	bathsFull: number;
+	livingArea: number;
+	media: Array<{
+		id: string;
+		url: string;
+		order: number;
+	}>;
 }
-
-// Dummy data for luxury properties
-const dummyListings: Listing[] = [
-	{
-		id: "listing-001",
-		title: "S110W30520 YMCA Camp Rd",
-		slug: "581-sagee-woods-drive",
-		price: 32000000,
-		address: {
-			street: "S110W30520 YMCA Camp Rd",
-			region: "Lake Geneva",
-			state: "WI",
-			zipCode: "28741"
-		},
-		propertyDetails: {
-			beds: 7,
-			baths: 1,
-			sqft: 3200
-		},
-		imageUrl: "/lre/lre3.jpg" // Replace with your actual image path
-	},
-	{
-		id: "listing-002",
-		title: "1121 & 1131 Garnet Rock Trail",
-		slug: "1121-1131-garnet-rock-trail",
-		price: 12500000,
-		address: {
-			street: "1121 & 1131 Garnet Rock Trail",
-			region: "Lake Geneva",
-			state: "WI",
-			zipCode: "28741"
-		},
-		propertyDetails: {
-			beds: 6,
-			baths: 7,
-			sqft: 8500
-		},
-		imageUrl: "/ja/ja5.webp" // Replace with your actual image path
-	},
-	{
-		id: "listing-003",
-		title: "1121 & 1131 Garnet Rock Trail",
-		slug: "1121-1131-garnet-rock-trail",
-		price: 15500000,
-		address: {
-			street: "1121 & 1131 Garnet Rock Trail",
-			region: "Lake Geneva",
-			state: "WI",
-			zipCode: "28741"
-		},
-		propertyDetails: {
-			beds: 5,
-			baths: 7,
-			sqft: 9847
-		},
-		imageUrl:
-			"https://img-v2.gtsstatic.net/reno/imagereader.aspx?url=https%3A%2F%2Fm.sothebysrealty.com%2F1103i215%2Faa3jnnkxyfjqmb6te1a48em3e3i215&w=3840&q=75&option=N&permitphotoenlargement=false&fallbackimageurl=https%3A%2F%2Fsothebysrealty.com%2Fassets%2Fimages%2Fcommon%2Fnophoto%2Flisting.jpg" // Replace with your actual image path
-	},
-	{
-		id: "listing-004",
-		title: "18019 Harbor Light Boulevard",
-		slug: "18019-harbor-light-boulevard",
-		price: 14500000,
-		address: {
-			street: "18019 Harbor Light Boulevard",
-			region: "Cornelius",
-			state: "WI",
-			zipCode: "28031"
-		},
-		propertyDetails: {
-			beds: 6,
-			baths: 11,
-			sqft: 15048
-		},
-		imageUrl:
-			"https://img-v2.gtsstatic.net/reno/imagereader.aspx?url=https%3A%2F%2Fm.sothebysrealty.com%2F1103i215%2Ftpf4kbtymj4zmjecsfwn0jsry1i215&w=3840&q=75&option=N&permitphotoenlargement=false&fallbackimageurl=https%3A%2F%2Fsothebysrealty.com%2Fassets%2Fimages%2Fcommon%2Fnophoto%2Flisting.jpg" // Replace with your actual image path
-	}
-];
 
 export function OurListings() {
 	const [listings, setListings] = useState<Listing[]>([]);
+	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
-		// Set dummy data instead of fetching from Sanity
-		setListings(dummyListings);
+		async function fetchListings() {
+			try {
+				const response = await fetch('/api/listings?status=Active&limit=4');
+				if (response.ok) {
+					const dbListings = await response.json();
+					setListings(dbListings);
+				} else {
+					console.error('Failed to fetch listings');
+				}
+			} catch (error) {
+				console.error('Error fetching listings:', error);
+			} finally {
+				setLoading(false);
+			}
+		}
+
+		fetchListings();
 	}, []);
 
 	// Format price
@@ -162,14 +99,140 @@ export function OurListings() {
 	};
 
 	// Format address
-	const formatAddress = (address?: {
-		street?: string;
-		region?: string;
-		state?: string;
-		zipCode?: string;
-	}) => {
-		if (!address) return "";
-		return `${address.street || ""}, ${address.region || ""}, ${address.state || ""} ${address.zipCode || ""}`;
+	const formatAddress = (listing: Listing) => {
+		return `${listing.addressFull}, ${listing.city}, ${listing.state} ${listing.postalCode}`;
+	};
+
+	// Render loading cards
+	const renderLoadingCards = () => {
+		return Array.from({ length: 4 }).map((_, index) => (
+			<motion.div
+				key={`loading-${index}`}
+				initial="hidden"
+				whileInView="visible"
+				viewport={{ once: true, margin: "-50px" }}
+				custom={index + 2}
+				variants={cardVariants}
+				className="bg-white overflow-hidden border border-weichert-lightgray shadow-[0_5px_20px_rgba(0,0,0,0.03)] animate-pulse">
+				<div className="relative h-80 md:h-96 lg:h-[28rem] xl:h-[30rem] 2xl:h-[32rem] bg-gray-200" />
+				<div className="p-8 lg:p-10 border-t border-weichert-lightgray">
+					<div className="h-6 bg-gray-200 rounded mb-3" />
+					<div className="h-4 bg-gray-200 rounded mb-6" />
+					<div className="h-4 bg-gray-200 rounded w-1/3" />
+				</div>
+			</motion.div>
+		));
+	};
+
+	// Render listing cards
+	const renderListingCards = () => {
+		return listings.map((listing, index) => (
+			<motion.div
+				key={listing.id}
+				initial="hidden"
+				whileInView="visible"
+				viewport={{ once: true, margin: "-50px" }}
+				custom={index + 2}
+				variants={cardVariants}
+				className="bg-white overflow-hidden border border-weichert-lightgray shadow-[0_5px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.08)] transition-all duration-700 group cursor-pointer">
+				{/* Property Image - Taller on larger screens */}
+				<Link href={`/listing/${listing.listingKey}`}>
+					<div className="relative h-80 md:h-96 lg:h-[28rem] xl:h-[30rem] 2xl:h-[32rem] overflow-hidden">
+						<Image
+							src={listing.media[0]?.url || '/chery-towey.jpg'}
+							alt={formatAddress(listing)}
+							className="object-cover object-center w-full h-full transition-transform duration-1000 group-hover:scale-105"
+							width={800}
+							height={600}
+						/>
+						<div className="absolute top-0 left-0 m-5 py-3 px-5 bg-white/95 backdrop-blur-sm shadow-md group-hover:shadow-lg transition-all duration-500">
+							<span className="text-secondary font-serif text-xs uppercase tracking-widest mb-1 block font-light">
+								Offered at
+							</span>
+							<div className="flex items-baseline">
+								<span className="text-secondary text-xl mr-1 font-medium">
+									$
+								</span>
+								<p className="text-[#222223] font-serif text-xl md:text-2xl lg:text-3xl font-medium tracking-tight">
+									{formatPrice(listing.listPrice)}
+								</p>
+							</div>
+						</div>
+						<div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+					</div>
+
+					{/* Property Details */}
+					<div className="p-8 lg:p-10 border-t border-weichert-lightgray">
+						<h3 className="text-[#222223] font-serif text-xl md:text-2xl mb-3 truncate font-light">
+							{formatAddress(listing)}
+						</h3>
+
+						<p className="text-[#222223]/70 mb-6 font-sans text-sm">
+							{listing.bedsTotal} Beds | {listing.bathsFull} Baths | {listing.livingArea?.toLocaleString()} Sq Ft
+						</p>
+
+						<span className="inline-flex items-center text-secondary hover:text-secondary-dark transition-colors duration-300 text-sm uppercase tracking-wider font-sans gap-1">
+							<span>View Details</span>
+							<span className="inline-block transform translate-x-0 group-hover:translate-x-1 transition-transform duration-300">
+								→
+							</span>
+						</span>
+					</div>
+				</Link>
+			</motion.div>
+		));
+	};
+
+	// Render placeholder cards
+	const renderPlaceholderCards = () => {
+		return Array.from({ length: 4 }).map((_, index) => (
+			<motion.div
+				key={`placeholder-${index}`}
+				initial="hidden"
+				whileInView="visible"
+				viewport={{ once: true, margin: "-50px" }}
+				custom={index + 2}
+				variants={cardVariants}
+				className="bg-white overflow-hidden rounded-sm border border-weichert-lightgray shadow-[0_5px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.08)] transition-all duration-700 group">
+				{/* Placeholder Image - Taller on larger screens */}
+				<div className="relative h-80 md:h-96 lg:h-[28rem] overflow-hidden bg-[#F5F5F5]">
+					<div className="absolute top-0 left-0 m-5 py-3 px-5 bg-white/95 backdrop-blur-sm shadow-md group-hover:shadow-lg transition-all duration-500">
+						<span className="text-[#B08D57] font-serif text-xs uppercase tracking-widest mb-1 block font-light">
+							Offered at
+						</span>
+						<div className="flex items-baseline">
+							<span className="text-[#B08D57] text-xl mr-1 font-medium">
+								$
+							</span>
+							<p className="text-[#1A1A1A] font-serif text-xl md:text-2xl lg:text-3xl font-medium tracking-tight">
+								3.5 Million
+							</p>
+						</div>
+					</div>
+					<div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+				</div>
+
+				{/* Placeholder Details */}
+				<div className="p-8 lg:p-10 border-t border-[#F0F0F0]">
+					<h3 className="text-[#1A1A1A] font-serif text-xl md:text-2xl mb-3 truncate font-light">
+						Luxury Property, New York
+					</h3>
+
+					<p className="text-[#2B2B2B]/70 mb-6 font-sans text-sm">
+						4 Beds | 3.5 Baths | 3,200 Sq Ft
+					</p>
+
+					<Link
+						href="/listings/active"
+						className="inline-flex items-center text-weichert-yellow hover:text-weichert-darkyellow transition-colors duration-300 text-sm uppercase tracking-wider font-sans group-hover:gap-1">
+						<span>View Details</span>
+						<span className="inline-block transform translate-x-0 group-hover:translate-x-1 transition-transform duration-300">
+							→
+						</span>
+					</Link>
+				</div>
+			</motion.div>
+		));
 	};
 
 	return (
@@ -177,122 +240,16 @@ export function OurListings() {
 			<div className="mx-[5%] md:mx-[10%] lg:mx-[15%]">
 				{/* Section Title using the new component */}
 				<SectionTitle
-					title="Current Listings"
-					subtitle="Discover our selection of exceptional properties and luxury estates"
+					title="Cheryl&apos;s Featured Properties"
+					subtitle="Discover exceptional properties in Hackettstown, Andover, Byram, Blairstown, Chester, and Washington"
 					className="mb-20"
 				/>
 
 				{/* Listings Grid - Changed to 2x2 grid */}
 				<div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16">
-					{listings.length > 0
-						? listings.map((listing, index) => (
-								<motion.div
-									key={listing.id}
-									initial="hidden"
-									whileInView="visible"
-									viewport={{ once: true, margin: "-50px" }}
-									custom={index + 2}
-									variants={cardVariants}
-									className="bg-white overflow-hidden border border-luxury-lightgray shadow-[0_5px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.08)] transition-all duration-700 group cursor-pointer">
-									{/* Property Image - Taller on larger screens */}
-									<Link href={`/listings/${listing.slug}`}>
-										<div className="relative h-80 md:h-96 lg:h-[28rem] xl:h-[30rem] 2xl:h-[32rem] overflow-hidden">
-											<Image
-												src={listing.imageUrl}
-												alt={listing.title}
-												className="object-cover object-center w-full h-full transition-transform duration-1000 group-hover:scale-105"
-												width={800}
-												height={600}
-											/>
-											<div className="absolute top-0 left-0 m-5 py-3 px-5 bg-white/95 backdrop-blur-sm shadow-md group-hover:shadow-lg transition-all duration-500">
-												<span className="text-luxury-red font-serif text-xs uppercase tracking-widest mb-1 block font-light">
-													Offered at
-												</span>
-												<div className="flex items-baseline">
-													<span className="text-luxury-red text-xl mr-1 font-medium">
-														$
-													</span>
-													<p className="text-luxury-black font-serif text-xl md:text-2xl lg:text-3xl font-medium tracking-tight">
-														{formatPrice(
-															listing.price
-														)}
-													</p>
-												</div>
-											</div>
-											<div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-										</div>
-
-										{/* Property Details */}
-										<div className="p-8 lg:p-10 border-t border-luxury-lightgray">
-											<h3 className="text-luxury-black font-serif text-xl md:text-2xl mb-3 truncate font-light">
-												{formatAddress(listing.address)}
-											</h3>
-
-											<p className="text-luxury-darkgray/70 mb-6 font-sans text-sm">
-												{listing.propertyDetails
-													? `${listing.propertyDetails.beds} Beds | ${listing.propertyDetails.baths} Baths | ${listing.propertyDetails.sqft.toLocaleString()} Sq Ft`
-													: ""}
-											</p>
-
-											<span className="inline-flex items-center text-luxury-red hover:text-luxury-darkred transition-colors duration-300 text-sm uppercase tracking-wider font-sans gap-1">
-												<span>View Details</span>
-												<span className="inline-block transform translate-x-0 group-hover:translate-x-1 transition-transform duration-300">
-													→
-												</span>
-											</span>
-										</div>
-									</Link>
-								</motion.div>
-							))
-						: // Placeholder cards when no listings are available
-							Array.from({ length: 4 }).map((_, index) => (
-								<motion.div
-									key={`placeholder-${index}`}
-									initial="hidden"
-									whileInView="visible"
-									viewport={{ once: true, margin: "-50px" }}
-									custom={index + 2}
-									variants={cardVariants}
-									className="bg-white overflow-hidden rounded-sm border border-luxury-lightgray shadow-[0_5px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.08)] transition-all duration-700 group">
-									{/* Placeholder Image - Taller on larger screens */}
-									<div className="relative h-80 md:h-96 lg:h-[28rem] overflow-hidden bg-[#F5F5F5]">
-										<div className="absolute top-0 left-0 m-5 py-3 px-5 bg-white/95 backdrop-blur-sm shadow-md group-hover:shadow-lg transition-all duration-500">
-											<span className="text-[#B08D57] font-serif text-xs uppercase tracking-widest mb-1 block font-light">
-												Offered at
-											</span>
-											<div className="flex items-baseline">
-												<span className="text-[#B08D57] text-xl mr-1 font-medium">
-													$
-												</span>
-												<p className="text-[#1A1A1A] font-serif text-xl md:text-2xl lg:text-3xl font-medium tracking-tight">
-													3.5 Million
-												</p>
-											</div>
-										</div>
-										<div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-									</div>
-
-									{/* Placeholder Details */}
-									<div className="p-8 lg:p-10 border-t border-[#F0F0F0]">
-										<h3 className="text-[#1A1A1A] font-serif text-xl md:text-2xl mb-3 truncate font-light">
-											Luxury Property, New York
-										</h3>
-
-										<p className="text-[#2B2B2B]/70 mb-6 font-sans text-sm">
-											4 Beds | 3.5 Baths | 3,200 Sq Ft
-										</p>
-
-										<Link
-											href="/listings/active"
-											className="inline-flex items-center text-luxury-red hover:text-luxury-darkred transition-colors duration-300 text-sm uppercase tracking-wider font-sans group-hover:gap-1">
-											<span>View Details</span>
-											<span className="inline-block transform translate-x-0 group-hover:translate-x-1 transition-transform duration-300">
-												→
-											</span>
-										</Link>
-									</div>
-								</motion.div>
-							))}
+					{loading && renderLoadingCards()}
+					{!loading && listings.length > 0 && renderListingCards()}
+					{!loading && listings.length === 0 && renderPlaceholderCards()}
 				</div>
 
 				{/* View All Button */}
@@ -304,7 +261,7 @@ export function OurListings() {
 					className="flex justify-center mt-20">
 					<Link
 						href="/listings/active"
-						className="inline-block px-10 py-4 bg-luxury-red text-white hover:bg-luxury-darkred transition-colors duration-500 text-sm uppercase tracking-wider font-sans">
+						className="inline-block px-10 py-4 bg-secondary text-[#222223] hover:bg-secondary-dark transition-colors duration-500 text-sm uppercase tracking-wider font-sans">
 						View All Listings
 					</Link>
 				</motion.div>

@@ -150,10 +150,10 @@ export function OurClients() {
 					<div className="flex flex-col justify-center p-10 md:p-16 lg:p-20 bg-white">
 						{/* Index indicator */}
 						<div className="mb-10 flex items-center space-x-3">
-							<span className="text-[#890300] font-serif text-2xl md:text-3xl">
+							<span className="text-secondary font-serif text-2xl md:text-3xl">
 								{String(currentIndex + 1).padStart(2, "0")}
 							</span>
-							<div className="w-12 h-px bg-[#890300]"></div>
+							<div className="w-12 h-px bg-secondary"></div>
 							<span className="text-[#2B2B2B]/50 font-serif text-base">
 								0{testimonials.length}
 							</span>
@@ -183,7 +183,7 @@ export function OurClients() {
 									exit="exit"
 									variants={fadeVariants}
 									className="space-y-8 z-10">
-									<p className="text-[#1A1A1A] leading-relaxed font-serif text-lg md:text-xl">
+									<p className="text-[#222223] leading-relaxed font-serif text-lg md:text-xl">
 										{currentTestimonial.quote}
 									</p>
 								</motion.div>
@@ -192,15 +192,15 @@ export function OurClients() {
 
 						{/* Navigation Controls */}
 						<div className="flex justify-between items-center mt-12 pt-8 border-t border-[#F0F0F0]">
-							<div className="text-[#890300] text-sm uppercase tracking-widest font-sans">
-								Client Experience
+							<div className="text-secondary text-sm uppercase tracking-widest font-sans">
+								Cheryl&apos;s Client Experience
 							</div>
 
 							<div className="flex space-x-5">
 								<button
 									onClick={goToPrevious}
 									disabled={isAnimating}
-									className={`w-12 h-12 flex items-center justify-center border border-[#E5E5E5] text-[#1A1A1A] hover:border-[#890300] hover:text-[#890300] transition-all duration-300 ${
+									className={`w-12 h-12 flex items-center justify-center border border-[#E5E5E5] text-[#222223] hover:border-secondary hover:text-secondary transition-all duration-300 ${
 										isAnimating
 											? "opacity-50 cursor-not-allowed"
 											: ""
@@ -222,7 +222,7 @@ export function OurClients() {
 								<button
 									onClick={goToNext}
 									disabled={isAnimating}
-									className={`w-12 h-12 flex items-center justify-center border border-[#E5E5E5] text-[#1A1A1A] hover:border-[#B08D57] hover:text-[#B08D57] transition-all duration-300 ${
+									className={`w-12 h-12 flex items-center justify-center border border-[#E5E5E5] text-[#222223] hover:border-[#B08D57] hover:text-[#B08D57] transition-all duration-300 ${
 										isAnimating
 											? "opacity-50 cursor-not-allowed"
 											: ""

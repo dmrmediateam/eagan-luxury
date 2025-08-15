@@ -97,7 +97,7 @@ const Hero = ({
 			{/* Hero section (no longer fixed) */}
 			<section
 				id="hero"
-				className="relative w-full h-screen bg-luxury-black z-0">
+				className="relative w-full h-screen bg-weichert-charcoal z-0">
 				{/* Video Background */}
 				<div
 					className="absolute inset-0 overflow-hidden"
@@ -130,7 +130,7 @@ const Hero = ({
 							Your browser does not support the video tag.
 						</video>
 						{/* Improved video overlay with more sophisticated gradient - using red tint */}
-						<div className="absolute inset-0 bg-gradient-to-b from-black/60 via-luxury-red/10 to-black/80"></div>
+						<div className="absolute inset-0 bg-gradient-to-b from-black/60 via-weichert-red/10 to-black/80"></div>
 					</div>
 				</div>
 
@@ -146,7 +146,7 @@ const Hero = ({
 								<motion.h1
 									variants={itemVariants}
 									className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white font-light font-serif tracking-tight leading-tight">
-									The Legendary Real Estate Team
+									Cheryl Towey
 								</motion.h1>
 
 								<motion.div
@@ -158,13 +158,13 @@ const Hero = ({
 								<motion.p
 									variants={itemVariants}
 									className="text-2xl sm:text-3xl md:text-4xl font-light text-white/90 tracking-wide font-serif">
-									Luxury Real Estate
+									Weichert Realtors
 								</motion.p>
 
 								<motion.p
 									variants={itemVariants}
 									className="text-lg md:text-xl text-white/90 font-light tracking-wide">
-									Lake Geneva, WI
+									Serving New Jersey: Hackettstown • Andover • Byram • Blairstown • Chester • Washington
 								</motion.p>
 							</motion.div>
 
@@ -175,12 +175,12 @@ const Hero = ({
 									onClick={() =>
 										scrollToSection("our-listings")
 									}
-									className="px-10 py-4 bg-luxury-red border-2 border-luxury-red text-white font-sans text-base tracking-widest uppercase transition-all duration-300 hover:bg-luxury-darkred hover:border-luxury-darkred hover:shadow-[0_10px_25px_rgba(137,3,0,0.4)]">
+									className="px-10 py-4 bg-secondary border-2 border-secondary text-[#222223] font-sans text-base tracking-widest uppercase transition-all duration-300 hover:bg-secondary-dark hover:border-secondary-dark hover:shadow-[0_10px_25px_rgba(255,215,0,0.4)]">
 									View Listings
 								</button>
 								<button
 									onClick={() => scrollToSection("contact")}
-									className="px-10 py-4 border-2 border-white text-white bg-transparent font-sans text-base tracking-widest uppercase transition-all duration-300 hover:bg-white hover:text-luxury-black hover:shadow-[0_10px_25px_rgba(255,223,94,0.3)]">
+									className="px-10 py-4 border-2 border-white text-white bg-transparent font-sans text-base tracking-widest uppercase transition-all duration-300 hover:bg-white hover:text-[#222223] hover:shadow-[0_10px_25px_rgba(255,215,0,0.3)]">
 									Contact Us
 								</button>
 							</motion.div>

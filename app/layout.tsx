@@ -2,9 +2,13 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-	title: "Legendary Real Estate | Lake Geneva, WI",
+	title: "Cheryl Towey - New Jersey Real Estate Agent",
 	description:
-		"The Legendary Real Estate Team is a luxury real estate team that specializes in selling and renting high-end properties."
+		"Cheryl Towey is a premier real estate agent with Weichert Realtors serving New Jersey. Specializing in luxury homes and exceptional service in Hackettstown, Andover, Byram, Blairstown, Chester, and Washington.",
+	icons: {
+		icon: '/favicon.svg',
+		apple: '/favicon.svg',
+	},
 };
 
 export const viewport: Viewport = {

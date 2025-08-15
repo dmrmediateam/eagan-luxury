@@ -5,6 +5,13 @@
 @tailwind components;
 @tailwind utilities;
 
+/* CSS Custom Properties */
+:root {
+	--color-secondary: #FFD700;
+	--color-secondary-dark: #FFB300;
+	--color-secondary-light: #FFF59D;
+}
+
 /* Hide scrollbar for all elements across the site */
 @layer utilities {
 	/* Hide scrollbar for Chrome, Safari and Opera */
@@ -18,11 +25,6 @@
 		scrollbar-width: none; /* Firefox */
 	}
 }
-
-/* Replace the old plugin with proper Tailwind directives */
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
 
 /* Prevent overscroll behavior showing white background */
 html {
@@ -252,7 +254,7 @@ body,
 	}
 
 	body {
-		@apply bg-white text-luxury-black;
+		@apply bg-white text-[#222223];
 	}
 
 	h1,
@@ -288,23 +290,49 @@ body,
 	}
 
 	.btn-primary {
-		@apply bg-luxury-red border border-luxury-red text-white px-8 py-3 text-sm uppercase tracking-wider font-sans transition-all duration-300 hover:bg-luxury-darkred hover:border-luxury-darkred;
+		background-color: var(--color-secondary);
+		border: 1px solid var(--color-secondary);
+		color: #222223;
+		padding: 0.75rem 2rem;
+		font-size: 0.875rem;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		font-family: sans-serif;
+		transition: all 0.3s;
+	}
+
+	.btn-primary:hover {
+		background-color: var(--color-secondary-dark);
+		border-color: var(--color-secondary-dark);
 	}
 
 	.btn-secondary {
-		@apply bg-transparent border border-luxury-gold text-luxury-black px-8 py-3 text-sm uppercase tracking-wider font-sans transition-all duration-300 hover:bg-luxury-gold hover:text-luxury-black;
+		background-color: transparent;
+		border: 1px solid var(--color-secondary);
+		color: #222223;
+		padding: 0.75rem 2rem;
+		font-size: 0.875rem;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		font-family: sans-serif;
+		transition: all 0.3s;
+	}
+
+	.btn-secondary:hover {
+		background-color: var(--color-secondary);
+		color: #222223;
 	}
 
 	.text-accent {
-		@apply text-luxury-gold;
+		color: var(--color-secondary);
 	}
 
 	.bg-accent {
-		@apply bg-luxury-gold;
+		background-color: var(--color-secondary);
 	}
 
 	.border-accent {
-		@apply border-luxury-gold;
+		border-color: var(--color-secondary);
 	}
 
 	.section-padding {
@@ -312,6 +340,9 @@ body,
 	}
 
 	.luxury-divider {
-		@apply w-20 h-[1px] bg-luxury-red my-6;
+		width: 5rem;
+		height: 1px;
+		background-color: var(--color-secondary);
+		margin: 1.5rem 0;
 	}
 }

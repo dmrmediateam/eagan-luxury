@@ -95,10 +95,10 @@ export function ContactNew() {
 						<motion.div
 							custom={2}
 							variants={textVariants}
-							className="bg-luxury-black text-white p-10 md:p-12 col-span-2">
+							className="bg-weichert-charcoal text-white p-10 md:p-12 col-span-2">
 							<h3 className="font-serif text-2xl mb-8 relative inline-block">
-								Get in Touch
-								<span className="absolute -bottom-3 left-0 w-12 h-px bg-luxury-red"></span>
+								Contact Cheryl
+								<span className="absolute -bottom-3 left-0 w-12 h-px bg-secondary"></span>
 							</h3>
 
 							<div className="space-y-8 mt-12">
@@ -108,7 +108,7 @@ export function ContactNew() {
 										Phone
 									</p>
 									<p className="text-white/90 font-serif text-base">
-										+1 (212) 555-1234
+										+1 (973) 555-0123
 									</p>
 								</div>
 
@@ -118,7 +118,7 @@ export function ContactNew() {
 										Email
 									</p>
 									<p className="text-white/90 font-serif text-base">
-										judy@bhhsmmr.com
+										cheryl.towey@weichert.com
 									</p>
 								</div>
 
@@ -128,19 +128,18 @@ export function ContactNew() {
 										Office
 									</p>
 									<p className="text-white/90 font-serif text-base">
-										488 Main Street
+										123 Main Street
 										<br />
-										Lake Geneva, WI 53147
+										Morristown, NJ 07960
 									</p>
 								</div>
 							</div>
 
 							<div className="mt-12 pt-12 border-t border-white/10">
 								<p className="text-white/70 text-sm leading-relaxed">
-									Our dedicated team is ready to provide you
-									with personalized service for all your
-									luxury real estate needs in Lake Geneva and
-									Asheville.
+									I&apos;m dedicated to providing you with personalized
+									service for all your real estate needs in Hackettstown,
+									Andover, Byram, Blairstown, Chester, and Washington.
 								</p>
 							</div>
 						</motion.div>
@@ -150,9 +149,9 @@ export function ContactNew() {
 							custom={3}
 							variants={textVariants}
 							className="bg-white p-10 md:p-12 col-span-3">
-							<h3 className="font-serif text-2xl text-luxury-black mb-8 relative inline-block">
+							<h3 className="font-serif text-2xl text-weichert-charcoal mb-8 relative inline-block">
 								Send a Message
-								<span className="absolute -bottom-3 left-0 w-12 h-px bg-luxury-red"></span>
+								<span className="absolute -bottom-3 left-0 w-12 h-px bg-secondary"></span>
 							</h3>
 
 							<form
@@ -165,7 +164,7 @@ export function ContactNew() {
 									className="space-y-2">
 									<label
 										htmlFor="name"
-										className="block text-luxury-black font-sans text-sm tracking-wide">
+										className="block text-[#222223] font-sans text-sm tracking-wide">
 										Name
 									</label>
 									<input
@@ -174,7 +173,7 @@ export function ContactNew() {
 										className={`w-full px-5 py-3.5 border bg-transparent focus:outline-none focus:ring-1 transition-all duration-200 ${
 											errors.name
 												? "border-red-400 focus:ring-red-400"
-												: "border-luxury-lightgray focus:ring-luxury-red focus:border-luxury-red"
+												: "border-weichert-lightgray focus:ring-weichert-yellow focus:border-weichert-yellow"
 										}`}
 										{...register("name", {
 											required: "Name is required"
@@ -194,7 +193,7 @@ export function ContactNew() {
 									className="space-y-2">
 									<label
 										htmlFor="email"
-										className="block text-luxury-black font-sans text-sm tracking-wide">
+										className="block text-[#222223] font-sans text-sm tracking-wide">
 										Email
 									</label>
 									<input
@@ -203,7 +202,7 @@ export function ContactNew() {
 										className={`w-full px-5 py-3.5 border bg-transparent focus:outline-none focus:ring-1 transition-all duration-200 ${
 											errors.email
 												? "border-red-400 focus:ring-red-400"
-												: "border-luxury-lightgray focus:ring-luxury-red focus:border-luxury-red"
+												: "border-weichert-lightgray focus:ring-weichert-yellow focus:border-weichert-yellow"
 										}`}
 										{...register("email", {
 											required: "Email is required",
@@ -227,7 +226,7 @@ export function ContactNew() {
 									className="space-y-2">
 									<label
 										htmlFor="phone"
-										className="block text-luxury-black font-sans text-sm tracking-wide">
+										className="block text-[#222223] font-sans text-sm tracking-wide">
 										Phone
 									</label>
 									<input
@@ -236,7 +235,7 @@ export function ContactNew() {
 										className={`w-full px-5 py-3.5 border bg-transparent focus:outline-none focus:ring-1 transition-all duration-200 ${
 											errors.phone
 												? "border-red-400 focus:ring-red-400"
-												: "border-luxury-lightgray focus:ring-luxury-red focus:border-luxury-red"
+												: "border-weichert-lightgray focus:ring-weichert-yellow focus:border-weichert-yellow"
 										}`}
 										{...register("phone", {
 											required: "Phone number is required"
@@ -256,7 +255,7 @@ export function ContactNew() {
 									className="space-y-2">
 									<label
 										htmlFor="message"
-										className="block text-luxury-black font-sans text-sm tracking-wide">
+										className="block text-[#222223] font-sans text-sm tracking-wide">
 										Your Message
 									</label>
 									<textarea
@@ -265,7 +264,7 @@ export function ContactNew() {
 										className={`w-full px-5 py-3.5 border bg-transparent focus:outline-none focus:ring-1 transition-all duration-200 ${
 											errors.message
 												? "border-red-400 focus:ring-red-400"
-												: "border-luxury-lightgray focus:ring-luxury-red focus:border-luxury-red"
+												: "border-weichert-lightgray focus:ring-weichert-yellow focus:border-weichert-yellow"
 										}`}
 										{...register("message", {
 											required: "Message is required"
@@ -286,7 +285,7 @@ export function ContactNew() {
 									<button
 										type="submit"
 										disabled={isSubmitting}
-										className="px-8 py-3.5 bg-luxury-red border border-luxury-red text-white font-sans text-sm tracking-wide uppercase transition-all duration-300 hover:bg-luxury-darkred hover:border-luxury-darkred focus:outline-none focus:ring-2 focus:ring-luxury-red focus:ring-offset-2 disabled:opacity-70 disabled:cursor-not-allowed">
+										className="px-8 py-3.5 bg-secondary border border-secondary text-[#222223] font-sans text-sm tracking-wide uppercase transition-all duration-300 hover:bg-secondary-dark hover:border-secondary-dark focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 disabled:opacity-70 disabled:cursor-not-allowed">
 										{isSubmitting
 											? "Sending..."
 											: "Send Message"}

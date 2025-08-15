@@ -1,18 +1,16 @@
+import { Metadata } from "next";
 import BuyersHero from "@/components/buyers/BuyersHero";
 import BuyerProcess from "@/components/buyers/BuyerProcess";
-import BuyerLocations from "@/components/buyers/BuyerLocations";
 import SearchHomes from "@/components/buyers/SearchHomes";
 import SellToo from "@/components/buyers/SellToo";
-import { FooterNew } from "@/components/home/FooterNew";
+import BuyerLocations from "@/components/buyers/BuyerLocations";
 import { ContactNew } from "@/components/home/ContactNew";
-import { Socials } from "@/components/home/Socials";
-import { SeenOnNew } from "@/components/home/SeenOnNew";
-import type { Metadata } from "next";
+import { FooterNew } from "@/components/home/FooterNew";
 
 export const metadata: Metadata = {
-	title: "Buyer Services | Legendary Real Estate | Lake Geneva, WI",
+	title: "Buyer Services | Cheryl Towey - New Jersey Real Estate Agent",
 	description:
-		"Find your dream home in Lake Geneva, WI with Legendary Real Estate. Personalized buying experience from consultation to closing."
+		"Find your dream home in New Jersey with Cheryl Towey at Weichert Realtors. Personalized buying experience from consultation to closing."
 };
 
 export default function BuyersPage() {
@@ -24,8 +22,6 @@ export default function BuyersPage() {
 			<SellToo />
 			<BuyerLocations />
 			<ContactNew />
-			<Socials />
-			<SeenOnNew />
 			<FooterNew />
 		</>
 	);

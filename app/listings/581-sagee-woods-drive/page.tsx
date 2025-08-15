@@ -292,7 +292,7 @@ export default function SageeWoodsListingPage() {
 
 								<motion.div
 									variants={dividerVariants}
-									className="h-[1.5px] bg-[#890300] w-20"></motion.div>
+									className="h-[1.5px] bg-[#FFD700] w-20"></motion.div>
 							</motion.div>
 
 							<motion.div className="space-y-4 mt-8">
@@ -319,8 +319,8 @@ export default function SageeWoodsListingPage() {
 								</a>
 								<a
 									href="#contact"
-									className="px-10 py-4 border border-[#890300] text-white font-sans text-base tracking-widest uppercase transition-all duration-300 bg-[#890300]">
-									Contact Agent
+									className="px-10 py-4 border border-[#FFD700] text-weichert-charcoal font-sans text-base tracking-widest uppercase transition-all duration-300 bg-[#FFD700]">
+									Contact Cheryl
 								</a>
 							</motion.div>
 						</motion.div>
@@ -341,7 +341,7 @@ export default function SageeWoodsListingPage() {
 						{/* Property Highlights */}
 						<div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
 							<div className="flex flex-col items-center text-center p-6 border border-gray-200">
-								<span className="text-2xl md:text-3xl font-light font-serif text-[#890300] mb-2">
+								<span className="text-2xl md:text-3xl font-light font-serif text-[#FFD700] mb-2">
 									7
 								</span>
 								<span className="text-sm uppercase tracking-wider text-gray-600">
@@ -349,7 +349,7 @@ export default function SageeWoodsListingPage() {
 								</span>
 							</div>
 							<div className="flex flex-col items-center text-center p-6 border border-gray-200">
-								<span className="text-2xl md:text-3xl font-light font-serif text-[#890300] mb-2">
+								<span className="text-2xl md:text-3xl font-light font-serif text-[#FFD700] mb-2">
 									11
 								</span>
 								<span className="text-sm uppercase tracking-wider text-gray-600">
@@ -357,7 +357,7 @@ export default function SageeWoodsListingPage() {
 								</span>
 							</div>
 							<div className="flex flex-col items-center text-center p-6 border border-gray-200">
-								<span className="text-2xl md:text-3xl font-light font-serif text-[#890300] mb-2">
+								<span className="text-2xl md:text-3xl font-light font-serif text-[#FFD700] mb-2">
 									25.92
 								</span>
 								<span className="text-sm uppercase tracking-wider text-gray-600">
@@ -365,7 +365,7 @@ export default function SageeWoodsListingPage() {
 								</span>
 							</div>
 							<div className="flex flex-col items-center text-center p-6 border border-gray-200">
-								<span className="text-2xl md:text-3xl font-light font-serif text-[#890300] mb-2">
+								<span className="text-2xl md:text-3xl font-light font-serif text-[#FFD700] mb-2">
 									2001
 								</span>
 								<span className="text-sm uppercase tracking-wider text-gray-600">
@@ -383,7 +383,7 @@ export default function SageeWoodsListingPage() {
 										e.preventDefault();
 										setActiveTab("overview");
 									}}
-									className={`px-6 py-3 font-sans text-sm tracking-wider uppercase transition-all duration-300 mx-2 ${activeTab === "overview" ? "text-[#890300] border-b-2 border-[#890300]" : "text-gray-500 hover:text-gray-800"}`}>
+									className={`px-6 py-3 font-sans text-sm tracking-wider uppercase transition-all duration-300 mx-2 ${activeTab === "overview" ? "text-[#D32F2F] border-b-2 border-[#D32F2F]" : "text-gray-500 hover:text-gray-800"}`}>
 									Overview
 								</button>
 								<button
@@ -391,7 +391,7 @@ export default function SageeWoodsListingPage() {
 										e.preventDefault();
 										setActiveTab("interior");
 									}}
-									className={`px-6 py-3 font-sans text-sm tracking-wider uppercase transition-all duration-300 mx-2 ${activeTab === "interior" ? "text-[#890300] border-b-2 border-[#890300]" : "text-gray-500 hover:text-gray-800"}`}>
+									className={`px-6 py-3 font-sans text-sm tracking-wider uppercase transition-all duration-300 mx-2 ${activeTab === "interior" ? "text-[#D32F2F] border-b-2 border-[#D32F2F]" : "text-gray-500 hover:text-gray-800"}`}>
 									Interior
 								</button>
 								<button
@@ -399,7 +399,7 @@ export default function SageeWoodsListingPage() {
 										e.preventDefault();
 										setActiveTab("exterior");
 									}}
-									className={`px-6 py-3 font-sans text-sm tracking-wider uppercase transition-all duration-300 mx-2 ${activeTab === "exterior" ? "text-[#890300] border-b-2 border-[#890300]" : "text-gray-500 hover:text-gray-800"}`}>
+									className={`px-6 py-3 font-sans text-sm tracking-wider uppercase transition-all duration-300 mx-2 ${activeTab === "exterior" ? "text-[#D32F2F] border-b-2 border-[#D32F2F]" : "text-gray-500 hover:text-gray-800"}`}>
 									Exterior
 								</button>
 								<button
@@ -407,7 +407,7 @@ export default function SageeWoodsListingPage() {
 										e.preventDefault();
 										setActiveTab("construction");
 									}}
-									className={`px-6 py-3 font-sans text-sm tracking-wider uppercase transition-all duration-300 mx-2 ${activeTab === "construction" ? "text-[#890300] border-b-2 border-[#890300]" : "text-gray-500 hover:text-gray-800"}`}>
+									className={`px-6 py-3 font-sans text-sm tracking-wider uppercase transition-all duration-300 mx-2 ${activeTab === "construction" ? "text-[#D32F2F] border-b-2 border-[#D32F2F]" : "text-gray-500 hover:text-gray-800"}`}>
 									Construction
 								</button>
 								<button
@@ -415,7 +415,7 @@ export default function SageeWoodsListingPage() {
 										e.preventDefault();
 										setActiveTab("financial");
 									}}
-									className={`px-6 py-3 font-sans text-sm tracking-wider uppercase transition-all duration-300 mx-2 ${activeTab === "financial" ? "text-[#890300] border-b-2 border-[#890300]" : "text-gray-500 hover:text-gray-800"}`}>
+									className={`px-6 py-3 font-sans text-sm tracking-wider uppercase transition-all duration-300 mx-2 ${activeTab === "financial" ? "text-[#D32F2F] border-b-2 border-[#D32F2F]" : "text-gray-500 hover:text-gray-800"}`}>
 									Financial
 								</button>
 							</div>
@@ -482,7 +482,7 @@ export default function SageeWoodsListingPage() {
 														<div
 															key={index}
 															className="flex items-center py-2">
-															<div className="w-2 h-2 bg-[#890300] mr-3"></div>
+															<div className="w-2 h-2 bg-[#D32F2F] mr-3"></div>
 															<span className="text-gray-700">
 																{feature}
 															</span>
@@ -508,7 +508,7 @@ export default function SageeWoodsListingPage() {
 															<li
 																key={index}
 																className="flex items-center py-1">
-																<div className="w-2 h-2 bg-[#890300] mr-3"></div>
+																<div className="w-2 h-2 bg-[#D32F2F] mr-3"></div>
 																<span className="text-gray-700">
 																	{item}
 																</span>
@@ -526,7 +526,7 @@ export default function SageeWoodsListingPage() {
 															<li
 																key={index}
 																className="flex items-center py-1">
-																<div className="w-2 h-2 bg-[#890300] mr-3"></div>
+																<div className="w-2 h-2 bg-[#D32F2F] mr-3"></div>
 																<span className="text-gray-700">
 																	{item}
 																</span>
@@ -546,7 +546,7 @@ export default function SageeWoodsListingPage() {
 															<li
 																key={index}
 																className="flex items-center py-1">
-																<div className="w-2 h-2 bg-[#890300] mr-3"></div>
+																<div className="w-2 h-2 bg-[#ffd602] mr-3"></div>
 																<span className="text-gray-700">
 																	{item}
 																</span>
@@ -564,7 +564,7 @@ export default function SageeWoodsListingPage() {
 															<li
 																key={index}
 																className="flex items-center py-1">
-																<div className="w-2 h-2 bg-[#890300] mr-3"></div>
+																<div className="w-2 h-2 bg-[#ffd602] mr-3"></div>
 																<span className="text-gray-700">
 																	{item}
 																</span>
@@ -610,7 +610,7 @@ export default function SageeWoodsListingPage() {
 															<li
 																key={index}
 																className="flex items-center py-1">
-																<div className="w-2 h-2 bg-[#890300] mr-3"></div>
+																<div className="w-2 h-2 bg-[#ffd602] mr-3"></div>
 																<span className="text-gray-700">
 																	{item}
 																</span>
@@ -628,7 +628,7 @@ export default function SageeWoodsListingPage() {
 															<li
 																key={index}
 																className="flex items-center py-1">
-																<div className="w-2 h-2 bg-[#890300] mr-3"></div>
+																<div className="w-2 h-2 bg-[#ffd602] mr-3"></div>
 																<span className="text-gray-700">
 																	{item}
 																</span>
@@ -650,7 +650,7 @@ export default function SageeWoodsListingPage() {
 														<li
 															key={index}
 															className="flex items-center py-1">
-															<div className="w-2 h-2 bg-[#890300] mr-3"></div>
+															<div className="w-2 h-2 bg-[#ffd602] mr-3"></div>
 															<span className="text-gray-700">
 																{item}
 															</span>
@@ -667,7 +667,7 @@ export default function SageeWoodsListingPage() {
 															<li
 																key={index}
 																className="flex items-center py-1">
-																<div className="w-2 h-2 bg-[#890300] mr-3"></div>
+																<div className="w-2 h-2 bg-[#ffd602] mr-3"></div>
 																<span className="text-gray-700">
 																	{item}
 																</span>
@@ -694,7 +694,7 @@ export default function SageeWoodsListingPage() {
 															<li
 																key={index}
 																className="flex items-center py-1">
-																<div className="w-2 h-2 bg-[#890300] mr-3"></div>
+																<div className="w-2 h-2 bg-[#ffd602] mr-3"></div>
 																<span className="text-gray-700">
 																	{item}
 																</span>
@@ -712,7 +712,7 @@ export default function SageeWoodsListingPage() {
 															<li
 																key={index}
 																className="flex items-center py-1">
-																<div className="w-2 h-2 bg-[#890300] mr-3"></div>
+																<div className="w-2 h-2 bg-[#ffd602] mr-3"></div>
 																<span className="text-gray-700">
 																	{item}
 																</span>
@@ -732,13 +732,13 @@ export default function SageeWoodsListingPage() {
 															<li
 																key={index}
 																className="flex items-center py-1">
-																<div className="w-2 h-2 bg-[#890300] mr-3"></div>
+																<div className="w-2 h-2 bg-[#ffd602] mr-3"></div>
 																<span className="text-gray-700">{`Foundation: ${item}`}</span>
 															</li>
 														)
 													)}
 													<li className="flex items-center py-1">
-														<div className="w-2 h-2 bg-[#890300] mr-3"></div>
+														<div className="w-2 h-2 bg-[#ffd602] mr-3"></div>
 														<span className="text-gray-700">{`Roof Type: ${constructionDetails.roofType}`}</span>
 													</li>
 												</ul>
@@ -757,7 +757,7 @@ export default function SageeWoodsListingPage() {
 															<li
 																key={index}
 																className="flex items-center py-1">
-																<div className="w-2 h-2 bg-[#890300] mr-3"></div>
+																<div className="w-2 h-2 bg-[#ffd602] mr-3"></div>
 																<span className="text-gray-700">{`${key.charAt(0).toUpperCase() + key.slice(1)}: ${values.join(", ")}`}</span>
 															</li>
 														)
@@ -786,7 +786,7 @@ export default function SageeWoodsListingPage() {
 												</h3>
 												<ul className="space-y-6">
 													<li className="flex flex-col py-1">
-														<span className="text-lg font-medium text-[#890300]">
+														<span className="text-lg font-medium text-[#D32F2F]">
 															Listing Price
 														</span>
 														<span className="text-2xl font-light text-gray-800 mt-2">
@@ -796,7 +796,7 @@ export default function SageeWoodsListingPage() {
 													{financialDetails.pricePerSqFt >
 														0 && (
 														<li className="flex flex-col py-1">
-															<span className="text-lg font-medium text-[#890300]">
+															<span className="text-lg font-medium text-[#D32F2F]">
 																Price Per Square
 																Foot
 															</span>
@@ -817,7 +817,7 @@ export default function SageeWoodsListingPage() {
 													{financialDetails.taxAssessedValue >
 														0 && (
 														<li className="flex flex-col py-1">
-															<span className="text-lg font-medium text-[#890300]">
+															<span className="text-lg font-medium text-[#D32F2F]">
 																Tax Assessed
 																Value
 															</span>
@@ -830,7 +830,7 @@ export default function SageeWoodsListingPage() {
 													{financialDetails.annualTaxAmount >
 														0 && (
 														<li className="flex flex-col py-1">
-															<span className="text-lg font-medium text-[#890300]">
+															<span className="text-lg font-medium text-[#D32F2F]">
 																Annual Property
 																Taxes
 															</span>

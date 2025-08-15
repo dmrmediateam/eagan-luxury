@@ -14,6 +14,10 @@ const nextConfig = {
 			{
 				protocol: 'https',
 				hostname: 'img-v2.gtsstatic.net'
+			},
+			{
+				protocol: 'https',
+				hostname: 'images.weichert.com'
 			}
 		],
 		formats: ["image/webp"]

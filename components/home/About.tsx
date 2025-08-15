@@ -21,12 +21,12 @@ const textVariants = {
 // Stats data
 const stats = [
 	{
-		value: "$1B+",
-		label: "COMBINED LIFETIME SALES"
+		value: "15+",
+		label: "YEARS OF EXPERIENCE"
 	},
 	{
-		value: "100+",
-		label: "COMBINED YEARS OF EXPERIENCE"
+		value: "500+",
+		label: "HAPPY FAMILIES SERVED"
 	},
 	{
 		value: "100%",
@@ -45,8 +45,8 @@ export function About() {
 					className="max-w-5xl mx-auto">
 					{/* Header */}
 					<SectionTitle
-						title="Modern Expertise. Timeless Service."
-						subtitle="Our commitment to excellence and client satisfaction is at the heart of everything we do."
+						title="About Cheryl Towey"
+						subtitle="Dedicated real estate professional with a passion for helping families find their perfect home in New Jersey's most desirable communities."
 						className="mb-20"
 					/>
 
@@ -62,13 +62,13 @@ export function About() {
 									className={`text-center flex flex-col items-center justify-center ${
 										index !== 0 &&
 										index !== stats.length - 1
-											? "md:border-x md:border-luxury-lightgray md:px-12"
+											? "md:border-x md:border-weichert-lightgray md:px-12"
 											: ""
 									}`}>
-									<p className="text-luxury-red font-serif text-4xl md:text-5xl mb-4 font-light">
+									<p className="text-secondary font-serif text-4xl md:text-5xl mb-4 font-light">
 										{stat.value}
 									</p>
-									<p className="text-luxury-black/70 text-xs tracking-[0.2em] font-sans">
+									<p className="text-[#222223]/70 text-xs tracking-[0.2em] font-sans">
 										{stat.label}
 									</p>
 								</div>
@@ -83,8 +83,8 @@ export function About() {
 						className="flex justify-center">
 						<Link
 							href="#contact"
-							className="inline-block px-8 py-3 bg-luxury-red text-white font-sans text-sm tracking-widest uppercase transition-all duration-300 hover:bg-luxury-darkred">
-							Connect With Us
+															className="inline-block px-8 py-3 bg-secondary text-[#222223] font-sans text-sm tracking-widest uppercase transition-all duration-300 hover:bg-secondary-dark">
+							Learn More About Cheryl
 						</Link>
 					</motion.div>
 				</motion.div>
