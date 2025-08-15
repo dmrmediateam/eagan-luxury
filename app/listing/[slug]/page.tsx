@@ -9,7 +9,7 @@ import type { Metadata } from 'next'
 
 interface ListingPageProps {
 	params: Promise<{
-		slug: string
+		slug: string 
 	}>
 }
 
