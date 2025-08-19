@@ -1,7 +1,14 @@
-<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Yellow background -->
-  <rect width="32" height="32" fill="#FFD602"/>
-  
-  <!-- Black "W" -->
-  <path d="M6 8L10 20L14 12L18 20L22 8H24V24H22L20 16L16 24L12 16L10 24H8V8H6Z" fill="#000000"/>
+<svg width="200" height="60" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+	<defs>
+		<linearGradient id="weichertGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+			<stop offset="0%" style="stop-color:#222223;stop-opacity:1" />
+			<stop offset="100%" style="stop-color:#222223;stop-opacity:1" />
+		</linearGradient>
+	</defs>
+	<text x="10" y="35" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="url(#weichertGradient)">
+		WEICHERT
+	</text>
+	<text x="10" y="50" font-family="Arial, sans-serif" font-size="12" font-weight="normal" fill="#222223">
+		REALTORS
+	</text>
 </svg>

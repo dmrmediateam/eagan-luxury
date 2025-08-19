@@ -15,14 +15,14 @@ interface LocationProps {
 const locations: LocationProps[] = [
 	{
 		id: "highlands",
-		name: "Lake Geneva",
+		name: "New Jersey",
 		image: "/mr/mr1.webp",
 		description:
 			"Known for its charming downtown, upscale dining, and arts scene."
 	},
 	{
 		id: "cashiers",
-		name: "Lake Geneva",
+		name: "New Jersey",
 		image: "/mr/mr1.webp",
 		description:
 			"A scenic village offering outdoor recreation and mountain views."
@@ -70,7 +70,7 @@ export function BuyerLocations() {
 		<section className="bg-[#F8F8F8] py-24" id="explore-locations">
 			<div className="mx-[5%] md:mx-[10%] lg:mx-[15%]">
 				<SectionTitle
-					title="Explore The Lake Geneva Lake Geneva Plateau"
+					title="Explore The New Jersey New Jersey Plateau"
 					subtitle="Let's find you a home in an area you love"
 					centered={true}
 					className="mb-16"

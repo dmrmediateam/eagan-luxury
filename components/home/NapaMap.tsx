@@ -65,7 +65,7 @@ const hoverCardVariants = {
 	}
 };
 
-// Cheryl Towey's primary service areas in New Jersey
+// Cheryl Towey Services's primary service areas in New Jersey
 const ncLocations: Location[] = [
 	{
 		id: "hackettstown",
@@ -156,7 +156,7 @@ const LocationHoverCard = ({
 						{location.description}
 					</p>
 					<Link
-						href={`/listings/active`}
+						href={`/properties`}
 													className="mt-4 inline-flex items-center text-weichert-yellow text-xs uppercase tracking-wider font-sans group w-fit">
 						<span className="inline-block w-0 group-hover:w-3 h-px bg-weichert-yellow mr-0 group-hover:mr-2 transition-all duration-300"></span>
 						View Properties
@@ -208,7 +208,7 @@ export function LuxuryLocations() {
 				{/* Header */}
 				<SectionTitle
 					title="Our Locations"
-					subtitle="Discover exceptional properties in Lake Geneva's most prestigious waterfront communities"
+					subtitle="Discover exceptional properties in New Jersey's most prestigious waterfront communities"
 					className="mb-20"
 				/>
 
@@ -304,7 +304,7 @@ export function LuxuryLocations() {
 
 						{/* CTA Link */}
 						<Link
-							href="/listings/active"
+							href="/properties"
 															className="inline-flex items-center px-8 py-3.5 bg-secondary text-[#222223] hover:bg-secondary-dark transition-all duration-300 text-sm uppercase tracking-wider font-sans w-fit self-start">
 							View Properties
 							<span className="ml-2 transform translate-x-0 group-hover:translate-x-1 transition-transform duration-300">

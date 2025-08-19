@@ -274,7 +274,7 @@ const buildStructure = (S: StructureBuilder) =>
 
 export default defineConfig({
 	name: "michaud-rauers",
-	title: "Legendary Real Estate",
+	title: "Cheryl Towey",
 	projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
 	dataset: process.env.NEXT_PUBLIC_SANITY_DATASET!,
 	basePath: "/studio",

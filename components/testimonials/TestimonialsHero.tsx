@@ -262,7 +262,7 @@ const TestimonialsHero = () => {
 					<motion.p
 						className="text-base md:text-lg text-white/80 mb-8 tracking-wide font-light"
 						variants={itemVariants}>
-						Legendary Real Estate | Lake Geneva, WI
+						Cheryl Towey | New Jersey, WI
 					</motion.p>
 
 					<motion.div

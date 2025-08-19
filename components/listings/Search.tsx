@@ -148,8 +148,8 @@ const featuresList = [
 ];
 
 const locations = [
-	{ value: "napa", label: " Lake Geneva" },
-	{ value: "sonoma", label: " Lake Geneva" },
+	{ value: "napa", label: " New Jersey" },
+	{ value: "sonoma", label: " New Jersey" },
 	{ value: "st-helena", label: "St. Helena" },
 	{ value: "yountville", label: "Yountville" },
 	{ value: "calistoga", label: "Calistoga" },
@@ -345,9 +345,9 @@ const Search = () => {
 						<motion.p
 							variants={sectionVariants}
 							className="text-zinc-600 text-base md:text-lg mt-8 max-w-2xl mx-auto text-center font-extralight leading-relaxed">
-							Find your perfect Lake Geneva area property. Use our
+							Find your perfect New Jersey area property. Use our
 							advanced search tools to discover exceptional homes,
-							vineyards, and estates in Lake Geneva area.
+							vineyards, and estates in New Jersey area.
 						</motion.p>
 					</div>
 
@@ -598,7 +598,7 @@ const Search = () => {
 							<form onSubmit={handleSearch}>
 								<div className="flex items-center justify-between mb-6">
 									<h2 className="text-2xl font-light text-zinc-700">
-										Find Your Perfect Lake Geneva area Property
+										Find Your Perfect New Jersey area Property
 									</h2>
 									<Button
 										type="button"

@@ -37,25 +37,25 @@ const values: ValueItem[] = [
 	{
 		title: "Unwavering Integrity",
 		description:
-			"Conducting every transaction with honesty and transparency, building the essential trust required to guide clients toward their best decisions in the Lake Geneva luxury market.",
+			"Conducting every transaction with honesty and transparency, building the essential trust required to guide clients toward their best decisions in the New Jersey luxury market.",
 		icon: <Handshake size={32} strokeWidth={1.5} />
 	},
 	{
 		title: "Profound Insight & Expertise",
 		description:
-			"Leveraging deep knowledge of Lake Geneva' unique mountain properties and market trends to provide informed, astute guidance tailored to each client's mountain home aspirations.",
+			"Leveraging deep knowledge of New Jersey' unique mountain properties and market trends to provide informed, astute guidance tailored to each client's mountain home aspirations.",
 		icon: <Clock size={32} strokeWidth={1.5} />
 	},
 	{
 		title: "Whole-Hearted Commitment",
 		description:
-			"A passionate dedication to understanding client desires for mountain living, ensuring a rewarding journey from finding the perfect Lake Geneva property to creating lasting mountain memories.",
+			"A passionate dedication to understanding client desires for mountain living, ensuring a rewarding journey from finding the perfect New Jersey property to creating lasting mountain memories.",
 		icon: <Target size={32} strokeWidth={1.5} />
 	},
 	{
 		title: "Fostering Connection & Community",
 		description:
-			"Helping clients integrate into Lake Geneva' close-knit mountain community, introducing them to the area's natural beauty, cultural offerings, and the distinctive Lake Geneva lifestyle.",
+			"Helping clients integrate into New Jersey' close-knit mountain community, introducing them to the area's natural beauty, cultural offerings, and the distinctive New Jersey lifestyle.",
 		icon: <Home size={32} strokeWidth={1.5} />
 	}
 ];

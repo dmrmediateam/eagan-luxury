@@ -32,41 +32,69 @@ model Mls {
   @@map("mls")
 }
 
-// Core listing (RESO Property)
+// Core listing (RentCast Property)
 model Listing {
   id                    BigInt    @id @default(autoincrement())
   mlsId                 Int
-  listingKey            String // RESO ListingKey (unique per MLS)
+  listingKey            String // Unique identifier from RentCast or MLS
   listingId             String? // public-facing ID
-  standardStatus        String? // RESO StandardStatus
+  rentcastPropertyId    String? // RentCast property ID
+  standardStatus        String? // Active, Pending, Sold, etc.
   propertyType          String?
   propertySubType       String?
   listPrice             Decimal?  @db.Decimal(14, 2)
   closePrice            Decimal?  @db.Decimal(14, 2)
   originalListPrice     Decimal?  @db.Decimal(14, 2)
+  estimatedValue        Decimal?  @db.Decimal(14, 2) // RentCast AVM
+  estimatedRent         Decimal?  @db.Decimal(14, 2) // RentCast rent estimate
+  pricePerSquareFoot    Decimal?  @db.Decimal(10, 2)
   listDate              DateTime? @db.Timestamptz(6)
   onMarketDate          DateTime? @db.Timestamptz(6)
   offMarketDate         DateTime? @db.Timestamptz(6)
   closeDate             DateTime? @db.Timestamptz(6)
+  lastSaleDate          DateTime? @db.Timestamptz(6)
+  lastSalePrice         Decimal?  @db.Decimal(14, 2)
+  daysOnMarket          Int?
   bedsTotal             Int?
   bathsFull             Int?
   bathsHalf             Int?
   livingArea            Int?
+  lotSize               Decimal?  @db.Decimal(10, 4) // in square feet
   lotSizeAcres          Decimal?  @db.Decimal(10, 4)
+  stories               Int?
   yearBuilt             Int?
   latitude              Decimal?  @db.Decimal(9, 6)
   longitude             Decimal?  @db.Decimal(9, 6)
   addressFull           String?
+  addressLine1          String?
   city                  String?
   state                 String?
   postalCode            String?
   county                String?
   subdivision           String?
+  zoning                String?
   remarksPublic         String?
+  description           String?
+  features              Json      @default("[]") // Array of property features
+  amenities             Json      @default("[]") // Array of amenities
+  heating               String?
+  cooling               String?
+  parking               String?
+  ownerName             String?
+  ownerType             String?
+  propertyTaxes         Decimal?  @db.Decimal(10, 2)
+  schoolElementary      String?
+  schoolMiddle          String?
+  schoolHigh            String?
+  schoolDistrict        String?
   listingAgentKey       String?
   listingOfficeKey      String?
+  agentName             String?
+  brokerageName         String?
+  mlsNumber             String?
   deletedYn             Boolean   @default(false)
   modificationTimestamp DateTime? @db.Timestamptz(6)
+  rentcastUpdatedAt     DateTime? @db.Timestamptz(6)
   extrasJson            Json      @default("{}")
 
   // Relations

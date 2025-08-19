@@ -39,7 +39,7 @@ export default defineType({
 					{ title: "Vineyard Properties", value: "vineyard" },
 					{ title: "Luxury Properties", value: "luxury" },
 					{ title: "Relocation", value: "relocation" },
-					{ title: "Lake Geneva area", value: "wine-country" },
+					{ title: "New Jersey area", value: "wine-country" },
 					{ title: "Services", value: "services" }
 				]
 			},

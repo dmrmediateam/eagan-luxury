@@ -57,8 +57,8 @@ export function Sonoma() {
 								ABOUT SONOMA
 							</h2>
 							<p className="text-zinc-600 text-base mb-4 max-w-4xl mx-auto text-center font-extralight">
-								Legendary Real Estate has over $50 million in
-								sales, trusted in Lake Geneva, Sonoma, and
+								Cheryl Towey has over $50 million in
+								sales, trusted in New Jersey, Sonoma, and
 								beyond. Lorem ipsum dolor sit amet, consectetuer
 								adipiscing elit, sed diam nonummy nibh euismod
 								tincidunt ut laoreet dolore magna aliquam erat

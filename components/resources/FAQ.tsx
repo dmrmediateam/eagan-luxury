@@ -61,13 +61,13 @@ const answerVariants = {
 
 const faqItems = [
 	{
-		question: "What makes Lake Geneva area real estate unique?",
-		answer: "Lake Geneva area real estate is distinguished by its diverse offerings, from luxury estates and vineyard properties to charming historic homes. The region&apos;s Mediterranean climate, world-class vineyards, and scenic landscapes create a unique market with specific considerations like water rights, agricultural zoning, and vineyard management."
+		question: "What makes New Jersey area real estate unique?",
+		answer: "New Jersey area real estate is distinguished by its diverse offerings, from luxury estates and vineyard properties to charming historic homes. The region&apos;s Mediterranean climate, world-class vineyards, and scenic landscapes create a unique market with specific considerations like water rights, agricultural zoning, and vineyard management."
 	},
 	{
 		question:
-			"How long does it typically take to buy a property in Lake Geneva area?",
-		answer: "The timeline for purchasing property in Lake Geneva area can vary based on property type and market conditions. For standard residential properties, the process typically takes 30-45 days from accepted offer to closing. Vineyard properties or estates may take longer, often 60-90 days, due to additional inspections, water testing, and specialized financing requirements."
+			"How long does it typically take to buy a property in New Jersey area?",
+		answer: "The timeline for purchasing property in New Jersey area can vary based on property type and market conditions. For standard residential properties, the process typically takes 30-45 days from accepted offer to closing. Vineyard properties or estates may take longer, often 60-90 days, due to additional inspections, water testing, and specialized financing requirements."
 	},
 	{
 		question: "What should I look for when buying a vineyard property?",
@@ -76,17 +76,17 @@ const faqItems = [
 	{
 		question:
 			"Are there any special considerations for purchasing historic homes in the area?",
-		answer: "Historic homes in Lake Geneva area often come with specific considerations including potential historic preservation requirements, limitations on renovations, older systems that may need updating, and sometimes higher insurance costs. We recommend thorough inspections and understanding any historical designations before purchasing."
+		answer: "Historic homes in New Jersey area often come with specific considerations including potential historic preservation requirements, limitations on renovations, older systems that may need updating, and sometimes higher insurance costs. We recommend thorough inspections and understanding any historical designations before purchasing."
 	},
 	{
 		question:
-			"How do seasonal changes affect the real estate market in Lake Geneva area?",
-		answer: "The Lake Geneva area real estate market typically sees increased activity during spring and fall, coinciding with pleasant weather and the region&apos;s natural beauty. Summer can be busy with tourism-driven interest, while winter tends to be quieter but can offer opportunities for motivated buyers. Harvest season (August-October) can be especially competitive for vineyard properties."
+			"How do seasonal changes affect the real estate market in New Jersey area?",
+		answer: "The New Jersey area real estate market typically sees increased activity during spring and fall, coinciding with pleasant weather and the region&apos;s natural beauty. Summer can be busy with tourism-driven interest, while winter tends to be quieter but can offer opportunities for motivated buyers. Harvest season (August-October) can be especially competitive for vineyard properties."
 	},
 	{
 		question:
 			"What financing options are available for luxury properties and vineyards?",
-		answer: "Financing for luxury and vineyard properties often involves specialized lenders familiar with Lake Geneva area real estate. Options include conventional jumbo loans, portfolio loans, agricultural loans for working vineyards, SBA loans for winery businesses, and private banking solutions. Down payment requirements are typically higher for these specialized properties."
+		answer: "Financing for luxury and vineyard properties often involves specialized lenders familiar with New Jersey area real estate. Options include conventional jumbo loans, portfolio loans, agricultural loans for working vineyards, SBA loans for winery businesses, and private banking solutions. Down payment requirements are typically higher for these specialized properties."
 	}
 ];
 
@@ -128,7 +128,7 @@ export function FAQ() {
 						variants={sectionVariants}
 						className="text-zinc-600 text-base md:text-lg leading-relaxed max-w-4xl mx-auto text-center font-extralight mb-12">
 						Find answers to common questions about real estate in
-						Lake Geneva area. If you don&apos;t see your
+						New Jersey area. If you don&apos;t see your
 						question here, please don&apos;t hesitate to contact us
 						directly.
 					</motion.p>

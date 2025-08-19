@@ -19,7 +19,7 @@ export const generalMarketStats = defineType({
 			title: "Subheading",
 			type: "string",
 			initialValue:
-				"Key performance indicators for the Lake Geneva area real estate markets",
+				"Key performance indicators for the New Jersey area real estate markets",
 			description: "Subheading text below the main heading.",
 			validation: (Rule) => Rule.required()
 		}),

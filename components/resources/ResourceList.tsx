@@ -80,28 +80,28 @@ const resourceItems = [
 	{
 		title: "Buyer's Guide",
 		description:
-			"Essential information for purchasing property in Lake Geneva area.",
+			"Essential information for purchasing property in New Jersey area.",
 		icon: "M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7",
 		link: "/resources/buyers-guide"
 	},
 	{
 		title: "Seller's Guide",
 		description:
-			"Strategic advice for selling your property in Lake Geneva area.",
+			"Strategic advice for selling your property in New Jersey area.",
 		icon: "M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2",
 		link: "/resources/sellers-guide"
 	},
 	{
 		title: "Financing Options",
 		description:
-			"Information about mortgage options and financing in California Lake Geneva area.",
+			"Information about mortgage options and financing in California New Jersey area.",
 		icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
 		link: "/resources/financing"
 	},
 	{
 		title: "Market Reports",
 		description:
-			"Latest real estate market trends and data for Lake Geneva area.",
+			"Latest real estate market trends and data for New Jersey area.",
 		icon: "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z",
 		link: "/resources/market-reports"
 	}
@@ -143,7 +143,7 @@ export function ResourceList() {
 						variants={sectionVariants}
 						className="text-zinc-600 text-base md:text-lg leading-relaxed max-w-4xl mx-auto text-center font-extralight mb-12">
 						Access our collection of resources designed to help you
-						navigate the real estate process in Lake Geneva area
+						navigate the real estate process in New Jersey area
 						County. From comprehensive guides to useful tools,
 						we&apos;ve compiled everything you need for a successful
 						real estate experience.

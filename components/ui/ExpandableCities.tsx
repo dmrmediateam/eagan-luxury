@@ -3,37 +3,31 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { getAllServiceAreas } from "@/lib/cheryl-service-areas";
 
-// All cities in the MLS area
-const allCities = [
-	// Warren County
-	"Allamuchy", "Alpha", "Belvidere", "Blairstown", "Franklin", "Frelinghuysen", "Greenwich", "Hackettstown", "Hardwick", "Harmony", "Hope", "Independence", "Knowlton", "Liberty", "Lopatcong", "Mansfield", "Oxford", "Phillipsburg", "Pohatcong", "Washington", "White",
-	
-	// Sussex County
-	"Andover", "Branchville", "Byram", "Frankford", "Franklin", "Fredon", "Green", "Hamburg", "Hampton", "Hardyston", "Hopatcong", "Lafayette", "Montague", "Newton", "Ogdensburg", "Sandyston", "Sparta", "Stanhope", "Stillwater", "Sussex", "Vernon", "Walpack", "Wantage",
-	
-	// Morris County
-	"Boonton", "Butler", "Chatham", "Chester", "Denville", "Dover", "East Hanover", "Florham Park", "Hanover", "Harding", "Jefferson", "Kinnelon", "Lincoln Park", "Long Hill", "Madison", "Mendham", "Mine Hill", "Montville", "Morris", "Morristown", "Mount Arlington", "Mount Olive", "Netcong", "Parsippany-Troy Hills", "Pequannock", "Randolph", "Riverdale", "Rockaway", "Roxbury", "Washington", "Wharton",
-	
-	// Hunterdon County
-	"Alexandria", "Bethlehem", "Bloomsbury", "Califon", "Clinton", "Clinton Township", "Delaware", "East Amwell", "Flemington", "Franklin", "Frenchtown", "Glen Gardner", "Hampton", "High Bridge", "Holland", "Kingwood", "Lambertville", "Lebanon", "Lebanon Township", "Milford", "Raritan", "Readington", "Stockton", "Tewksbury", "Union", "West Amwell"
-];
+// Get all service areas and group by county
+const allServiceAreas = getAllServiceAreas();
 
-// Group cities by county
-const citiesByCounty = {
-	"Warren County": allCities.filter(city => 
-		["Allamuchy", "Alpha", "Belvidere", "Blairstown", "Franklin", "Frelinghuysen", "Greenwich", "Hackettstown", "Hardwick", "Harmony", "Hope", "Independence", "Knowlton", "Liberty", "Lopatcong", "Mansfield", "Oxford", "Phillipsburg", "Pohatcong", "Washington", "White"].includes(city)
-	),
-	"Sussex County": allCities.filter(city => 
-		["Andover", "Branchville", "Byram", "Frankford", "Franklin", "Fredon", "Green", "Hamburg", "Hampton", "Hardyston", "Hopatcong", "Lafayette", "Montague", "Newton", "Ogdensburg", "Sandyston", "Sparta", "Stanhope", "Stillwater", "Sussex", "Vernon", "Walpack", "Wantage"].includes(city)
-	),
-	"Morris County": allCities.filter(city => 
-		["Boonton", "Butler", "Chatham", "Chester", "Denville", "Dover", "East Hanover", "Florham Park", "Hanover", "Harding", "Jefferson", "Kinnelon", "Lincoln Park", "Long Hill", "Madison", "Mendham", "Mine Hill", "Montville", "Morris", "Morristown", "Mount Arlington", "Mount Olive", "Netcong", "Parsippany-Troy Hills", "Pequannock", "Randolph", "Riverdale", "Rockaway", "Roxbury", "Washington", "Wharton"].includes(city)
-	),
-	"Hunterdon County": allCities.filter(city => 
-		["Alexandria", "Bethlehem", "Bloomsbury", "Califon", "Clinton", "Clinton Township", "Delaware", "East Amwell", "Flemington", "Franklin", "Frenchtown", "Glen Gardner", "Hampton", "High Bridge", "Holland", "Kingwood", "Lambertville", "Lebanon", "Lebanon Township", "Milford", "Raritan", "Readington", "Stockton", "Tewksbury", "Union", "West Amwell"].includes(city)
-	)
-};
+// Group cities by county, ensuring unique entries
+const citiesByCounty = allServiceAreas.reduce((acc, area) => {
+	const countyName = `${area.county} County`;
+	if (!acc[countyName]) {
+		acc[countyName] = [];
+	}
+	// Only add if not already present (prevent duplicates)
+	if (!acc[countyName].some(city => city.name === area.name)) {
+		acc[countyName].push({
+			name: area.name,
+			slug: area.slug
+		});
+	}
+	return acc;
+}, {} as Record<string, Array<{ name: string; slug: string }>>);
+
+// Sort cities within each county alphabetically
+Object.keys(citiesByCounty).forEach(county => {
+	citiesByCounty[county].sort((a, b) => a.name.localeCompare(b.name));
+});
 
 export function ExpandableCities() {
 	const [isExpanded, setIsExpanded] = useState(false);
@@ -94,11 +88,11 @@ export function ExpandableCities() {
 												<div className="space-y-2">
 													{cities.map((city) => (
 														<Link
-															key={city}
-															href={`/cities/${city.toLowerCase().replace(/\s+/g, '-')}`}
+															key={`${county}-${city.slug}`}
+															href={`/cities/${city.slug}`}
 															className="text-[#222223]/70 hover:text-[#222223] transition-colors duration-200 cursor-pointer text-sm block"
 														>
-															{city}
+															{city.name}
 														</Link>
 													))}
 												</div>

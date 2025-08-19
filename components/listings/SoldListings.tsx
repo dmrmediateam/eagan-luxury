@@ -79,7 +79,7 @@ const SoldListings: React.FC<SoldListingsProps> = async ({
 					<div className="flex flex-col items-center justify-center">
 						<SectionTitle
 							title="Sold Properties"
-							subtitle="Explore our portfolio of successfully sold properties. Each transaction represents our commitment to excellent service and achieving optimal results for our clients in Lake Geneva, WI."
+							subtitle="Explore our portfolio of successfully sold properties. Each transaction represents our commitment to excellent service and achieving optimal results for our clients in New Jersey, WI."
 							centered={true}
 						/>
 					</div>

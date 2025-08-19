@@ -100,7 +100,7 @@ export const Listing = defineType({
 					name: "region",
 					type: "string",
 					title: "Region",
-					description: "e.g., Calistoga, Lake Geneva",
+					description: "e.g., Calistoga, New Jersey",
 					validation: (rule) => rule.required()
 				},
 				{

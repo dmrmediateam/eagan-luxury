@@ -263,7 +263,7 @@ const Hero = () => {
 						className="text-base md:text-lg text-white/80 mb-8 tracking-wide font-light"
 						variants={itemVariants}>
 						Browse our portfolio of recently sold exceptional
-						properties in Lake Geneva area
+						properties in New Jersey area
 					</motion.p>
 
 					<motion.div

@@ -82,7 +82,7 @@ export function SimilarListings({ listings, currentListing }: SimilarListingsPro
             href="/listings/active"
             className="inline-flex items-center px-8 py-4 bg-yellow-500 text-black font-sans text-sm tracking-wider uppercase transition-all duration-300 hover:bg-yellow-600"
           >
-            View All Listings
+            View All Properties
             <span className="ml-2">→</span>
           </Link>
         </div>

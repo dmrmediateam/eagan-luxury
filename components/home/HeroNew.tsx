@@ -47,7 +47,7 @@ interface HeroProps {
 }
 
 const Hero = ({
-	/* name = "Legendary Real Estate",
+	/* name = "Cheryl Towey",
 	title = "Luxury Real Estate Agents",
 	location = "Napa & Sonoma, California" */
 }: HeroProps = {}) => {
@@ -158,7 +158,7 @@ const Hero = ({
 								<motion.p
 									variants={itemVariants}
 									className="text-2xl sm:text-3xl md:text-4xl font-light text-white/90 tracking-wide font-serif">
-									Weichert Realtors
+									w/ Weichert Realtors
 								</motion.p>
 
 								<motion.p

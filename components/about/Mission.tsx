@@ -71,19 +71,19 @@ export function Mission() {
 					<motion.p
 						variants={sectionVariants}
 						className="text-zinc-600 text-base md:text-lg leading-relaxed max-w-4xl mx-auto text-center font-extralight">
-						At Legendary Real Estate, we believe that real estate, at
+						At Cheryl Towey, we believe that real estate, at
 						its finest, transcends mere transactions. It is an art
 						form, an endeavor fueled by passion, creativity, and an
 						unwavering sense of purpose. Our mission is to guide
 						discerning clients through a meaningful and rewarding
 						real estate journey within the unparalleled landscapes
-						of Lake Geneva area Valleys.
+						of New Jersey area Valleys.
 						<br />
 						<br />
 						It begins with being truly present, listening intently
 						to understand not just needs, but aspirations; honoring
 						the unique vision each client holds for their life in
-						Lake Geneva area. We are committed to forging enduring
+						New Jersey area. We are committed to forging enduring
 						relationships grounded in clarity, trust, and
 						whole-hearted dedication. Leveraging our profound sense
 						of place and keenly honed market insight, we provide

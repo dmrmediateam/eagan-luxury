@@ -33,7 +33,7 @@ export const ContactConfirmationEmail = ({
 	return (
 		<Html>
 			<Head />
-			<Preview>Thank you for contacting Legendary Real Estate</Preview>
+			<Preview>Thank you for contacting Cheryl Towey</Preview>
 			<Body style={main}>
 				<Container style={container}>
 					{/* Top margin space */}
@@ -46,7 +46,7 @@ export const ContactConfirmationEmail = ({
 							src={goodrichLogoUrl}
 							width="240"
 							height="72"
-							alt="Legendary Real Estate"
+							alt="Cheryl Towey"
 							style={{ margin: "0 auto" }}
 						/>
 					</Section>
@@ -60,7 +60,7 @@ export const ContactConfirmationEmail = ({
 					<Section style={section}>
 						<Text style={salutationText}>Dear {name},</Text>
 						<Text style={text}>
-							We appreciate your interest in Legendary Real Estate.
+							We appreciate your interest in Cheryl Towey.
 							We have received your inquiry and will be in touch
 							shortly.
 						</Text>
@@ -75,10 +75,10 @@ export const ContactConfirmationEmail = ({
 						)}
 
 						<Text style={text}>
-							Legendary Real Estate delivers an unparalleled level of
+							Cheryl Towey delivers an unparalleled level of
 							expertise and personalized service to each client.
 							We look forward to assisting you with your real
-							estate journey in Lake Geneva area Valley.
+							estate journey in New Jersey area Valley.
 						</Text>
 
 						<Button
@@ -92,7 +92,7 @@ export const ContactConfirmationEmail = ({
 
 					{/* Footer */}
 					<Section style={footer}>
-						<Text style={footerText}>Legendary Real Estate</Text>
+						<Text style={footerText}>Cheryl Towey</Text>
 						<Text style={footerAddress}>
 							1381 Main Street, Suite 01 | St. Helena, California
 							94574
@@ -117,7 +117,7 @@ export const ContactConfirmationEmail = ({
 						</Section>
 
 						<Text style={footerCopyright}>
-							© {new Date().getFullYear()} Legendary Real Estate
+							© {new Date().getFullYear()} Cheryl Towey
 						</Text>
 
 						<Text style={footerDisclaimer}>

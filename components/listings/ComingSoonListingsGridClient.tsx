@@ -97,6 +97,7 @@ const ComingSoonListingsGridClient: React.FC<
 								listing={listing} // Pass the whole listing object
 								index={index}
 								isClickable={false} // Coming Soon listings are typically not clickable
+								variant="default"
 							/>
 						</motion.div>
 					))

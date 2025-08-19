@@ -15,7 +15,7 @@ export interface SanityListing {
 	address?: {
 		// Address object
 		street?: string;
-		region?: string; // e.g., Calistoga, Lake Geneva
+		region?: string; // e.g., Calistoga, New Jersey
 		state?: string;
 		zipCode?: string;
 	};

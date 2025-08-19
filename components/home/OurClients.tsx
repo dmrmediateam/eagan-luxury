@@ -17,44 +17,44 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
 	{
 		id: "testimonial-1",
-		quote: "Legendary Real Estate exceeded all expectations. Their extensive knowledge of the Lake Geneva market and tireless dedication to finding our dream lakefront retreat made the entire process seamless. They were available whenever we needed them and negotiated skillfully on our behalf.",
-		author: "Thomas & Jennifer Reynolds",
-		location: "Lake Geneva Cliffs Residence, WI",
+		quote: "We absolutely LOVED working with Cheryl. She is extremely professional, personable, and very knowledgeable. She works with you every step of the way to ensure you get exactly what you’re looking for which is how we landed our dream home. We have referred her to a few family members looking to either sell or buy because she is just THAT great.",
+		author: "Diana Milian",
+		location: "Sparta, NJ",
 		image: "/mr/mr2.webp"
 	},
 	{
 		id: "testimonial-2",
-		quote: "Working with the Legendary Real Estate was a pleasure from start to finish. Their expertise in the Lake Geneva area communities is unparalleled. They represented us professionally as both buyers and sellers, and we couldn't be more satisfied with the results.",
-		author: "Alexandra & David Peterson",
-		location: "Satulah Mountain Estate, Lake Geneva, WI",
+		quote: "Cheryl was great to work with. Her years of experience as an appraiser came in handy. She answered all of my phone calls and text messages promptly. I would recommend her to anyone.",
+		author: "Anthony Annecchiarico",
+		location: "Hampton twp., NJ",
 		image: "/ja/ja5.webp"
 	},
 	{
 		id: "testimonial-3",
-		quote: "The Legendary Real Estate team works tirelessly and is always responsive to calls and emails. Their market knowledge and ability to recall details about so many properties is truly impressive. We feel completely confident referring friends and family to them.",
-		author: "Richard & Catherine Montgomery",
-		location: "Cullasaja Club Property, Lake Geneva, WI",
+		quote: "Cheryl is the only realtor I will ever consider for myself, or reccommend to anyone else. She really knows her business and is always available when needed. Her knowledge and enthusiasm to get things done was very helpful in finding the right house for us. My husband and I are first time home buyers, Cheryl guided us the whole way through the home buying process with such care and professionalism. She always responded to our texts and questions in a couple of seconds and we would recommend her to anyone looking to purchase or sell.",
+		author: "Smitha R",
+		location: "New Jersey",
 		image: "https://img-v2.gtsstatic.net/reno/imagereader.aspx?url=https%3A%2F%2Fm.sothebysrealty.com%2F1103i215%2Faa3jnnkxyfjqmb6te1a48em3e3i215&w=3840&q=75&option=N&permitphotoenlargement=false&fallbackimageurl=https%3A%2F%2Fsothebysrealty.com%2Fassets%2Fimages%2Fcommon%2Fnophoto%2Flisting.jpg"
 	},
 	{
 		id: "testimonial-4",
-		quote: "Legendary Real Estate's deep knowledge of Wisconsin's luxury market was invaluable. Their discretion and ability to access off-market properties made all the difference in our search for the perfect lakefront residence. The entire process was handled with exceptional professionalism.",
-		author: "Sarah & James Morton",
-		location: "Lake Geneva, WI",
+		quote: "Highly recommend Cheryl Towey as a realtor. Cheryl helped us sell our home in New Providence within 3 months. Cheryl went above and beyond to keep us informed and make good decisions better than any other real estate professional with whom we had worked with previously. She is honest, strategic, unbelievably patient, and utterly professional. She also understands the real estate market exceedingly well. I will definitely contact her in the future when I'm ready to purchase new home.",
+		author: "Wendy Azevedo",
+		location: "New providence boro, NJ",
 		image: "/mr/mr2.webp"
 	},
 	{
 		id: "testimonial-5",
-		quote: "Working with Legendary Real Estate exceeded our expectations at every turn. Their strategic approach to marketing our Lake Geneva property resulted in multiple offers above asking price. Their network of high-net-worth buyers and meticulous attention to detail truly set them apart.",
-		author: "Robert & Elizabeth Wilson",
-		location: "Sagee Woods Drive, Lake Geneva, WI",
+		quote: "Cheryl is the most caring, professional, and hard working realtor there is! She will always go above and beyond for her clients and makes you feel like family. I had the pleasure of working with her through the buying process and selling process and could not imagine doing it without her. Highly recommend her!!",
+		author: "Alyssa Michelle",
+		location: "New Jersey",
 		image: "https://img-v2.gtsstatic.net/reno/imagereader.aspx?url=https%3A%2F%2Fm.sothebysrealty.com%2F1103i215%2Ftpf4kbtymj4zmjecsfwn0jsry1i215&w=3840&q=75&option=N&permitphotoenlargement=false&fallbackimageurl=https%3A%2F%2Fsothebysrealty.com%2Fassets%2Fimages%2Fcommon%2Fnophoto%2Flisting.jpg"
 	},
 	{
 		id: "testimonial-6",
-		quote: "After months of searching for our ideal lakefront retreat, Legendary Real Estate found us the perfect property within weeks. Their negotiation expertise saved us significantly, and their connections with local architects and designers proved invaluable during the renovation process.",
-		author: "Michael Chen & Family",
-		location: "Williams Bay, WI",
+		quote: "I’ve worked with Cheryl on several real estate deals over the last decade. I’ve referred her to my family and friends for years. No one will work harder for you. Cheryl will always put her clients needs above her own and will work with meticulous care and integrity. She will always go above and beyond for you. Cheryl will provide you with the peace of mind that comes from her expertise and dedication to her clients. I cannot recommend Cheryl enough.",
+		author: "Staci Garibaldi",
+		location: "New Jersey",
 		image: "/ja/ja5.webp"
 	}
 ];
@@ -125,7 +125,7 @@ export function OurClients() {
 										currentTestimonial.image ||
 										"/mr/mrg.jpg"
 									}
-									alt={`${currentTestimonial.author} - Legendary Real Estate Client`}
+									alt={`${currentTestimonial.author} - Cheryl Towey Client`}
 									fill
 									priority
 									sizes="(max-width: 768px) 100vw, 50vw"

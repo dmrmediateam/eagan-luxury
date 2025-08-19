@@ -7,9 +7,9 @@ import type { Metadata } from "next";
 import TermsOfServiceContent from "@/components/terms/TermsOfServiceContent";
 
 export const metadata: Metadata = {
-	title: "Terms of Service | Legendary Real Estate | Lake Geneva, WI",
+	title: "Terms of Service | Cheryl Towey | New Jersey, WI",
 	description:
-		"Learn about Legendary Real Estate's Terms of Service, including website usage rules, content licensing, and liability limitations."
+		"Learn about Cheryl Towey's Terms of Service, including website usage rules, content licensing, and liability limitations."
 };
 
 export default function TermsOfServicePage() {

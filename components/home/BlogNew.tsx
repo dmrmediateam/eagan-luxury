@@ -49,9 +49,9 @@ interface Resource {
 const marketResources: Resource[] = [
 	{
 		id: "market-report-q2-2025",
-		title: "Lake Geneva area Market Report",
+		title: "New Jersey area Market Report",
 		description:
-			"Comprehensive analysis of current trends, pricing insights, and emerging opportunities in the Lake Geneva area luxury mountain real estate market.",
+			"Comprehensive analysis of current trends, pricing insights, and emerging opportunities in the New Jersey area luxury mountain real estate market.",
 		image: "/mr/mr2.webp",
 		slug: "/insights/market-report-highlands",
 		type: "Market Report"

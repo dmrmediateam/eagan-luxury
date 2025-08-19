@@ -26,7 +26,7 @@ interface TestimonialsGridProps {
 const TestimonialsGrid: React.FC<TestimonialsGridProps> = ({
 	testimonials = [],
 	title = "Client Testimonials",
-	subtitle = "Hear what our clients have to say about their experience working with Cheryl Towey.",
+	subtitle = "Hear what our clients have to say about their experience working with Cheryl Towey Services.",
 	showAll = false
 }) => {
 	// Filter out dummy data if showAll is false

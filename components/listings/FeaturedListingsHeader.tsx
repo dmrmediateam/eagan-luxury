@@ -74,9 +74,9 @@ const FeaturedListingsHeader: React.FC = () => {
 				viewport={{ once: true }}
 				className="text-zinc-600 text-base md:text-lg mt-8 max-w-2xl mx-auto text-center font-extralight leading-relaxed">
 				Immerse yourself in our curated selection of exceptional
-				properties. Each listing represents the finest in Lake Geneva area
+				properties. Each listing represents the finest in New Jersey area
 				living, showcasing the natural beauty and sophisticated
-				lifestyle of Lake Geneva area.
+				lifestyle of New Jersey area.
 			</motion.p>
 		</div>
 	);

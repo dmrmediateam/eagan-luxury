@@ -7,9 +7,9 @@ import { FooterNew } from "@/components/home/FooterNew";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-	title: "Our Results | Legendary Real Estate | Lake Geneva, WI",
+	title: "Our Results | Cheryl Towey | New Jersey, WI",
 	description:
-		"Explore Legendary Real Estate's track record of success in Lake Geneva area real estate with sales statistics and client testimonials."
+		"Explore Cheryl Towey's track record of success in New Jersey area real estate with sales statistics and client testimonials."
 };
 
 export default function Results() {

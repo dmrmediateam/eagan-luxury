@@ -8,9 +8,9 @@ import { ContactNew } from "@/components/home/ContactNew";
 import { FooterNew } from "@/components/home/FooterNew";
 
 export const metadata: Metadata = {
-	title: "Buyer Services | Cheryl Towey - New Jersey Real Estate Agent",
+	title: "Buyer Services | Cheryl Towey Services - New Jersey Cheryl Towey Services",
 	description:
-		"Find your dream home in New Jersey with Cheryl Towey at Weichert Realtors. Personalized buying experience from consultation to closing."
+		"Find your dream home in New Jersey with Cheryl Towey Services at Cheryl Towey Services. Personalized buying experience from consultation to closing."
 };
 
 export default function BuyersPage() {
@@ -18,9 +18,7 @@ export default function BuyersPage() {
 		<>
 			<BuyersHero />
 			<BuyerProcess />
-			<SearchHomes />
 			<SellToo />
-			<BuyerLocations />
 			<ContactNew />
 			<FooterNew />
 		</>

@@ -105,7 +105,7 @@ export default function PressContact() {
 										</svg>
 									</div>
 									<span className="text-lg font-light group-hover:text-zinc-800 transition-colors duration-300">
-										+1 (800) 555-1234
+										+1 (262) 204-5534
 									</span>
 								</li>
 								<li className="flex items-start group">

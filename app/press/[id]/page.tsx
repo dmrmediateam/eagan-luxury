@@ -34,13 +34,13 @@ export async function generateMetadata({
 
 	if (!pressRelease) {
 		return {
-			title: "Press Release Not Found | Legendary Real Estate | Lake Geneva, WI",
+			title: "Press Release Not Found | Cheryl Towey | New Jersey, WI",
 			description: "The requested press release could not be found."
 		};
 	}
 
 	return {
-		title: `${pressRelease.title} | Legendary Real Estate | Lake Geneva, WI`,
+		title: `${pressRelease.title} | Cheryl Towey | New Jersey, WI`,
 		description: pressRelease.excerpt
 	};
 }

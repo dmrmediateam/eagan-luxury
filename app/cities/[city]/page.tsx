@@ -2,6 +2,9 @@ import { notFound } from 'next/navigation'
 import { prisma } from '@/lib/db'
 import { FooterNew } from '@/components/home/FooterNew'
 import NavbarNew from '@/components/home/NavbarNew'
+import CityPropertiesView from '@/components/properties/CityPropertiesView'
+import PropertyCard from '@/components/properties/PropertyCard'
+import { getAllServiceAreas } from '@/lib/cheryl-service-areas'
 import Image from 'next/image'
 import Link from 'next/link'
 import type { Metadata } from 'next'
@@ -442,7 +445,7 @@ export default async function CityPage({ params }: CityPageProps) {
 
 						<div className="relative">
 							<Image
-								src="/mr/mrg.jpg"
+								src="/house-906644.jpg"
 								alt={`${cityInfo.name}, ${cityInfo.state}`}
 								width={600}
 								height={400}
@@ -453,75 +456,6 @@ export default async function CityPage({ params }: CityPageProps) {
 				</div>
 			</section>
 
-			{/* Property Listings */}
-			<section id="listings" className="py-20">
-				<div className="mx-[5%] md:mx-[10%] lg:mx-[15%]">
-					<div className="text-center mb-12">
-						<h2 className="text-3xl font-serif font-light mb-4">
-							Current Listings in {cityInfo.name}
-						</h2>
-						<p className="text-gray-600 max-w-2xl mx-auto">
-							Browse our current selection of homes for sale in {cityInfo.name}, {cityInfo.state}. 
-							Each listing represents a unique opportunity to find your perfect home.
-						</p>
-					</div>
-
-					{serializedListings.length > 0 ? (
-						<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-							{serializedListings.map((listing: any, index: number) => (
-								<div
-									key={listing.id}
-									className="group"
-								>
-									<Link href={`/listing/${listing.listingKey}`}>
-										<div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300">
-											<div className="relative aspect-[4/3] overflow-hidden">
-												<Image
-													src={listing.media?.[0]?.url || '/placeholder.jpg'}
-													alt={formatAddress(listing)}
-													fill
-													className="object-cover group-hover:scale-105 transition-transform duration-300"
-												/>
-												<div className="absolute top-4 left-4 bg-white/90 px-3 py-1 rounded text-sm font-medium">
-													{formatPrice(listing.listPrice)}
-												</div>
-												<div className="absolute top-4 right-4 bg-yellow-500 text-black px-2 py-1 rounded text-xs font-medium uppercase tracking-wide">
-													{listing.standardStatus}
-												</div>
-											</div>
-											
-											<div className="p-6">
-												<h3 className="font-medium text-gray-900 mb-2 line-clamp-1">
-													{formatAddress(listing)}
-												</h3>
-												<p className="text-gray-600 text-sm mb-4">{listing.city}, {listing.state}</p>
-												<div className="flex items-center justify-between text-sm text-gray-500">
-													<span>{listing.bedsTotal} Beds</span>
-													<span>{listing.bathsFull} Baths</span>
-													<span>{listing.livingArea?.toLocaleString()} Sq Ft</span>
-												</div>
-											</div>
-										</div>
-									</Link>
-								</div>
-							))}
-						</div>
-					) : (
-						<div className="text-center py-12">
-							<div className="text-gray-500 mb-4">
-								<p className="text-lg">No active listings in {cityInfo.name} at this time.</p>
-								<p className="text-sm mt-2">Contact Cheryl to be notified when new properties become available.</p>
-							</div>
-							<Link
-								href="/contact"
-								className="inline-flex items-center px-8 py-4 bg-yellow-500 text-black font-sans text-sm tracking-wider uppercase transition-all duration-300 hover:bg-yellow-600"
-							>
-								Contact Cheryl
-							</Link>
-						</div>
-					)}
-				</div>
-			</section>
 
 			{/* Market Statistics */}
 			<section id="market-stats" className="py-20 bg-gray-50">
@@ -607,41 +541,23 @@ export default async function CityPage({ params }: CityPageProps) {
 				</div>
 			</section>
 
-			{/* Property Types Section */}
-			<section className="py-20 bg-white">
+			{/* Properties Section */}
+			<section className="py-20 bg-gray-50">
 				<div className="mx-[5%] md:mx-[10%] lg:mx-[15%]">
 					<div className="text-center mb-12">
-						<h2 className="text-3xl font-serif font-light mb-4">
-							Property Types in {cityInfo.name}
+						<h2 className="text-4xl font-serif font-light text-gray-900 mb-4">
+							Available Properties in {cityInfo.name}
 						</h2>
-						<p className="text-gray-600 max-w-2xl mx-auto">
-							Explore different property types available in {cityInfo.name}, {cityInfo.state}. 
-							From single-family homes to investment properties, we have options for every buyer.
+						<p className="text-lg text-gray-600 max-w-3xl mx-auto">
+							Explore current listings and find your perfect home in {cityInfo.name}, {cityInfo.state}.
 						</p>
 					</div>
-
-					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-						{propertyTypes.map((propertyType, index) => (
-							<Link
-								key={propertyType.type}
-								href={propertyType.link}
-								className="group"
-							>
-								<div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-all duration-300 hover:border-yellow-500">
-									<div className="text-4xl mb-4">{propertyType.icon}</div>
-									<h3 className="text-xl font-serif font-medium text-gray-900 mb-2 group-hover:text-yellow-600 transition-colors duration-300">
-										{propertyType.type}
-									</h3>
-									<p className="text-gray-600 text-sm mb-4">
-										{propertyType.description}
-									</p>
-									<div className="flex items-center text-yellow-600 font-medium text-sm group-hover:underline">
-										Browse {propertyType.type} →
-									</div>
-								</div>
-							</Link>
-						))}
-					</div>
+					
+					<CityPropertiesView
+						city={cityInfo.name}
+						showSearch={false}
+						variant="default"
+					/>
 				</div>
 			</section>
 
@@ -719,6 +635,7 @@ export default async function CityPage({ params }: CityPageProps) {
 					</div>
 				</div>
 			</section>
+
 
 			{/* CTA Section */}
 			<section className="py-20 bg-[#222223] text-white">

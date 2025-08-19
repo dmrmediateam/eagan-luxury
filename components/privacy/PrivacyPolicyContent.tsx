@@ -37,7 +37,7 @@ export default function PrivacyPolicyContent() {
 					Introduction
 				</h2>
 				<p>
-					Legendary Real Estate (&ldquo;we,&rdquo; &ldquo;our,&rdquo; or
+					Cheryl Towey (&ldquo;we,&rdquo; &ldquo;our,&rdquo; or
 					&ldquo;us&rdquo;) is committed to protecting your privacy.
 					This Privacy Policy explains how we collect, use, disclose,
 					and safeguard your information when you visit our website or
@@ -207,28 +207,28 @@ export default function PrivacyPolicyContent() {
 				</p>
 				<p className="not-prose">
 					<span className="block text-zinc-700 font-light">
-						Legendary Real Estate
+						Cheryl Towey
 					</span>
 					<span className="block text-zinc-700 font-light">
-						1381 Main Street, Suite 01
+						1625 NJ-10 East
 					</span>
 					<span className="block text-zinc-700 font-light">
-						St. Helena, California 94574
+					Morris Plains, NJ 07950
 					</span>
 					<span className="block text-zinc-700 font-light mt-2">
 						Email:{" "}
 						<a
-							href="mailto:privacy@goodrichgroup.com"
+							href="mailto:cheryl.towey@weichert.com"
 							className="text-zinc-700 hover:text-zinc-900 underline">
-							privacy@goodrichgroup.com
+							cheryl.towey@weichert.com
 						</a>
 					</span>
 					<span className="block text-zinc-700 font-light">
 						Phone:{" "}
 						<a
-							href="tel:+14157358779"
+							href="tel:+1 (908) 334-0971"
 							className="text-zinc-700 hover:text-zinc-900">
-							(415) 735-8779
+							+1 (908) 334-0971
 						</a>
 					</span>
 				</p>

@@ -79,7 +79,7 @@ export function Newsletter() {
 								className="font-sans max-w-2xl mx-auto mb-6 text-gray-100">
 								Join our community and receive curated insights
 								on luxury properties, market trends, and
-								exclusive opportunities in Lake Geneva area.
+								exclusive opportunities in New Jersey area.
 							</motion.p>
 
 							{/* Gold accent line */}

@@ -108,7 +108,7 @@ export function ContactNew() {
 										Phone
 									</p>
 									<p className="text-white/90 font-serif text-base">
-										+1 (973) 555-0123
+										+1 (908) 334-0971
 									</p>
 								</div>
 
@@ -128,9 +128,9 @@ export function ContactNew() {
 										Office
 									</p>
 									<p className="text-white/90 font-serif text-base">
-										123 Main Street
+									1625 NJ-10 East
 										<br />
-										Morristown, NJ 07960
+										Morris Plains, NJ 07950
 									</p>
 								</div>
 							</div>

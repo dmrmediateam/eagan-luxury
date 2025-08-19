@@ -6,9 +6,9 @@ import { ContactNew } from "@/components/home/ContactNew";
 import { FooterNew } from "@/components/home/FooterNew";
 
 export const metadata: Metadata = {
-	title: "Seller Services | Cheryl Towey - New Jersey Real Estate Agent",
+	title: "Seller Services | Cheryl Towey Services - New Jersey Cheryl Towey Services",
 	description:
-		"Sell your home with Cheryl Towey at Weichert Realtors. Expert marketing, staging, and negotiation to maximize your property's value in New Jersey."
+		"Sell your home with Cheryl Towey Services at Cheryl Towey Services. Expert marketing, staging, and negotiation to maximize your property's value in New Jersey."
 };
 
 export default function SellersPage() {

@@ -256,7 +256,7 @@ const Hero = () => {
 					<motion.p
 						className="text-xl md:text-2xl mb-2 font-light font-serif tracking-wide"
 						variants={itemVariants}>
-						Weichert Realtors
+						Cheryl Towey Services
 					</motion.p>
 
 					<motion.p

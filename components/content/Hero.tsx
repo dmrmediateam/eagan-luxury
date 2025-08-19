@@ -285,7 +285,7 @@ export default function Hero({ contentType }: HeroProps) {
 					<motion.p
 						className="text-xl md:text-2xl mb-2 font-light font-serif tracking-wide"
 						variants={itemVariants}>
-						Legendary Real Estate
+						Cheryl Towey
 					</motion.p>
 
 					<motion.p

@@ -2,13 +2,56 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-	title: "Cheryl Towey - New Jersey Real Estate Agent",
-	description:
-		"Cheryl Towey is a premier real estate agent with Weichert Realtors serving New Jersey. Specializing in luxury homes and exceptional service in Hackettstown, Andover, Byram, Blairstown, Chester, and Washington.",
-	icons: {
-		icon: '/favicon.svg',
-		apple: '/favicon.svg',
-	},
+  title: {
+    default: 'Cheryl Towey - New Jersey Real Estate Agent and Realtor',
+    template: '%s | Cheryl Towey - New Jersey Real Estate Agent and Realtor'
+  },
+  description: 'Cheryl Towey is a dedicated real estate agent providing personalized service and expertise in Napa Valley and Sonoma County. Find your dream home with professional guidance.',
+  keywords: [
+    'Napa Valley', 'Sonoma County', 'St. Helena', 'Calistoga', 'Yountville', 'Healdsburg',
+    'real estate',
+    'homes for sale',
+    'Napa Valley Properties', 'Sonoma County Homes', 'Luxury Real Estate', 'Wine Country Properties', 'Cheryl Towey', 'Real Estate Agent'
+  ].join(', '),
+  authors: [{ name: 'Cheryl Towey' }],
+  creator: 'Cheryl Towey',
+  publisher: 'Cheryl Towey',
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://legendaryrealestateservices.com',
+    siteName: 'Cheryl Towey Real Estate',
+    title: 'Cheryl Towey - New Jersey Real Estate Agent and Realtor',
+    description: 'Cheryl Towey is a dedicated real estate agent providing personalized service and expertise in Napa Valley and Sonoma County. Find your dream home with professional guidance.',
+    images: [
+      {
+        url: '/cheryl-towey.jpeg',
+        width: 1200,
+        height: 630,
+        alt: 'Cheryl Towey - New Jersey Real Estate Agent and Realtor'
+      }
+    ]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Cheryl Towey - New Jersey Real Estate Agent and Realtor',
+    description: 'Cheryl Towey is a dedicated real estate agent providing personalized service and expertise in Napa Valley and Sonoma County. Find your dream home with professional guidance.',
+    images: ['/cheryl-towey.jpeg']
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: 'your-google-verification-code',
+  },
 };
 
 export const viewport: Viewport = {

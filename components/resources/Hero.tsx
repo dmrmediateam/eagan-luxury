@@ -283,13 +283,13 @@ const Hero = () => {
 					<motion.p
 						className="text-sm md:text-base mb-1 font-light"
 						variants={itemVariants}>
-						Legendary Real Estate
+						Cheryl Towey
 					</motion.p>
 
 					<motion.p
 						className="text-sm md:text-base font-light text-white/80 mb-6"
 						variants={itemVariants}>
-						Lake Geneva area, CA
+						New Jersey area, CA
 					</motion.p>
 
 					<motion.div

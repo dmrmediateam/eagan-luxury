@@ -49,9 +49,9 @@ export function FooterNew() {
 
 						<div className="pt-2">
 							<p className="text-white/60 text-sm">
-								123 Main Street
+							1625 NJ-10 East
 								<br />
-								Morristown, NJ 07960
+								Morris Plains, NJ 07950
 							</p>
 						</div>
 					</div>
@@ -64,31 +64,31 @@ export function FooterNew() {
 						</h3>
 						<nav className="flex flex-col space-y-4">
 							<Link
-								href="#"
+								href="/"
 								className="text-white/80 hover:text-weichert-yellow transition-colors duration-300 group flex items-center">
 								<span className="inline-block w-0 group-hover:w-3 h-px bg-weichert-yellow mr-0 group-hover:mr-2 transition-all duration-300"></span>
 								Home
 							</Link>
 							<Link
-								href="#"
+								href="/about"
 								className="text-white/80 hover:text-weichert-yellow transition-colors duration-300 group flex items-center">
 								<span className="inline-block w-0 group-hover:w-3 h-px bg-weichert-yellow mr-0 group-hover:mr-2 transition-all duration-300"></span>
 								About
 							</Link>
 							<Link
-								href="#"
+								href="/properties"
 								className="text-white/80 hover:text-weichert-yellow transition-colors duration-300 group flex items-center">
 								<span className="inline-block w-0 group-hover:w-3 h-px bg-weichert-yellow mr-0 group-hover:mr-2 transition-all duration-300"></span>
-								Listings
+								Properties
 							</Link>
 							<Link
-								href="#"
+								href="/contact"
 								className="text-white/80 hover:text-weichert-yellow transition-colors duration-300 group flex items-center">
 								<span className="inline-block w-0 group-hover:w-3 h-px bg-weichert-yellow mr-0 group-hover:mr-2 transition-all duration-300"></span>
 								Contact
 							</Link>
 							<Link
-								href="#"
+								href="/blog"
 								className="text-white/80 hover:text-weichert-yellow transition-colors duration-300 group flex items-center">
 								<span className="inline-block w-0 group-hover:w-3 h-px bg-weichert-yellow mr-0 group-hover:mr-2 transition-all duration-300"></span>
 								Blog
@@ -104,31 +104,31 @@ export function FooterNew() {
 						</h3>
 						<nav className="flex flex-col space-y-4">
 							<Link
-								href="#"
+								href="/cities"
 								className="text-white/80 hover:text-weichert-yellow transition-colors duration-300 group flex items-center">
 								<span className="inline-block w-0 group-hover:w-3 h-px bg-weichert-yellow mr-0 group-hover:mr-2 transition-all duration-300"></span>
 								Market Reports
 							</Link>
 							<Link
-								href="#"
+								href="/buyers"
 								className="text-white/80 hover:text-weichert-yellow transition-colors duration-300 group flex items-center">
 								<span className="inline-block w-0 group-hover:w-3 h-px bg-weichert-yellow mr-0 group-hover:mr-2 transition-all duration-300"></span>
 								Buyer&apos;s Guide
 							</Link>
 							<Link
-								href="#"
+								href="/sellers"
 								className="text-white/80 hover:text-weichert-yellow transition-colors duration-300 group flex items-center">
 								<span className="inline-block w-0 group-hover:w-3 h-px bg-weichert-yellow mr-0 group-hover:mr-2 transition-all duration-300"></span>
 								Seller&apos;s Guide
 							</Link>
 							<Link
-								href="#"
+								href="/testimonials"
 								className="text-white/80 hover:text-weichert-yellow transition-colors duration-300 group flex items-center">
 								<span className="inline-block w-0 group-hover:w-3 h-px bg-weichert-yellow mr-0 group-hover:mr-2 transition-all duration-300"></span>
-								Investment Opportunities
+								Testimonials
 							</Link>
 							<Link
-								href="#"
+								href="/cities"
 								className="text-white/80 hover:text-weichert-yellow transition-colors duration-300 group flex items-center">
 								<span className="inline-block w-0 group-hover:w-3 h-px bg-weichert-yellow mr-0 group-hover:mr-2 transition-all duration-300"></span>
 								Area Guide
@@ -168,8 +168,8 @@ export function FooterNew() {
 							</h4>
 							<div className="flex space-x-5">
 								<a
-									href="#"
-									target="_blank"
+									href="https://www.instagram.com/at_home_with_cheryl/?hl=en"
+									target="https://www.instagram.com/at_home_with_cheryl/?hl=en"
 									rel="noopener noreferrer"
 									className="text-white/70 hover:text-weichert-yellow transition-colors duration-300 transform hover:scale-110">
 									<svg
@@ -199,8 +199,8 @@ export function FooterNew() {
 									</svg>
 								</a>
 								<a
-									href="#"
-									target="_blank"
+									href="https://www.facebook.com/homewithcheryl/"
+									target="https://www.facebook.com/homewithcheryl/"
 									rel="noopener noreferrer"
 									className="text-white/70 hover:text-weichert-yellow transition-colors duration-300 transform hover:scale-110">
 									<svg
@@ -218,8 +218,8 @@ export function FooterNew() {
 									</svg>
 								</a>
 								<a
-									href="#"
-									target="_blank"
+									href="https://www.linkedin.com/in/cheryl-towey-35384864"
+									target="https://www.linkedin.com/in/cheryl-towey-35384864"
 									rel="noopener noreferrer"
 									className="text-white/70 hover:text-weichert-yellow transition-colors duration-300 transform hover:scale-110">
 									<svg
@@ -255,19 +255,19 @@ export function FooterNew() {
 					</p>
 					<div className="mt-6 md:mt-0 flex justify-center md:justify-end space-x-8">
 						<Link
-							href="#"
+							href="/privacy-policy"
 							className="text-white/50 hover:text-white/80 text-xs tracking-wide transition-colors duration-300">
 							Privacy Policy
 						</Link>
 						<Link
-							href="#"
+							href="/terms-of-service"
 							className="text-white/50 hover:text-white/80 text-xs tracking-wide transition-colors duration-300">
 							Terms of Service
 						</Link>
 						<Link
 							href="https://www.dmrmedia.org/"
 							target="_blank"
-							rel="noopener noreferrer"
+							rel="noopener noreferrer dofollow"
 							className="text-white/50 hover:text-white/80 text-xs tracking-wide transition-colors duration-300">
 							Designed & Developed by
 							<span className="text-weichert-yellow">DMR Media</span>

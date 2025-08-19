@@ -19,11 +19,11 @@ const contentVariants = {
 	})
 };
 
-// Cheryl Towey's information
+// Cheryl Towey Services's information
 const teamMember = {
-	name: "Cheryl Towey",
-	role: "Weichert Realtors Agent",
-	bio: "Cheryl Towey is a dedicated real estate professional serving New Jersey's most desirable communities. With over 15 years of experience in the real estate industry, Cheryl specializes in residential properties throughout Hackettstown, Andover, Byram, Blairstown, Chester, and Washington. Her deep knowledge of local markets, commitment to exceptional client service, and personalized approach make her the trusted choice for buyers and sellers throughout New Jersey. Cheryl understands that buying or selling a home is one of life's most important decisions, and she is committed to guiding her clients through every step of the process with professionalism, integrity, and care.",
+	name: "Cheryl Towey Services",
+	role: "Cheryl Towey Services Agent",
+	bio: "Cheryl Towey Services is a dedicated real estate professional serving New Jersey's most desirable communities. With over 15 years of experience in the real estate industry, Cheryl specializes in residential properties throughout Hackettstown, Andover, Byram, Blairstown, Chester, and Washington. Her deep knowledge of local markets, commitment to exceptional client service, and personalized approach make her the trusted choice for buyers and sellers throughout New Jersey. Cheryl understands that buying or selling a home is one of life's most important decisions, and she is committed to guiding her clients through every step of the process with professionalism, integrity, and care.",
 	image: "/chery-towey.jpg"
 };
 
@@ -38,7 +38,7 @@ export function Team() {
 					className="max-w-7xl mx-auto">
 					{/* Use the SectionTitle component for consistent styling */}
 					<SectionTitle
-						title="Meet Cheryl Towey"
+						title="Meet Cheryl Towey Services"
 						subtitle="Your trusted real estate professional in New Jersey"
 						className="mb-16 md:mb-24"
 					/>
@@ -57,7 +57,7 @@ export function Team() {
 									{/* Image */}
 									<Image
 										src="/chery-towey.jpg"
-										alt="Cheryl Towey - Weichert Realtors Agent"
+										alt="Cheryl Towey Services - Cheryl Towey Services Agent"
 										width={1000}
 										height={750}
 										className="w-full h-auto object-cover transition-all duration-700 ease-in-out group-hover:scale-105 group-hover:brightness-95 z-10 relative"

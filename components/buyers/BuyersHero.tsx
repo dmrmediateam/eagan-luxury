@@ -262,7 +262,7 @@ const BuyersHero = () => {
 						className="flex flex-col sm:flex-row gap-6 w-full"
 						variants={itemVariants}>
 						<a
-							href="#search-homes"
+							href="/properties"
 							className="px-10 py-4 border border-white text-white text-base tracking-widest uppercase transition-all duration-300 hover:bg-white hover:text-[#1A1A1A] hover:shadow-[0_10px_25px_rgba(255,255,255,0.2)]">
 							Search for Homes
 						</a>

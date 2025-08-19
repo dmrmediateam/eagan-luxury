@@ -7,9 +7,9 @@ import type { Metadata } from "next";
 import { AboutCTA } from "@/components/about/AboutCTA";
 
 export const metadata: Metadata = {
-	title: "Contact Us | Legendary Real Estate | Lake Geneva, WI",
+	title: "Contact Us | Cheryl Towey | New Jersey, WI",
 	description:
-		"Get in touch with Legendary Real Estate for your luxury real estate needs in Lake Geneva, WI and surrounding areas. We're here to assist you with any questions or inquiries."
+		"Get in touch with Cheryl Towey for your luxury real estate needs in New Jersey, WI and surrounding areas. We're here to assist you with any questions or inquiries."
 };
 
 export default function Contact() {
@@ -19,10 +19,9 @@ export default function Contact() {
 			<ContactNew />
 			<OfficeMap />
 			<AboutCTA
-				title="Ready to Experience Lake Geneva Living?"
-				subtitle="Let our expert team guide you through the finest properties in the Lake Geneva area."
+				title="Ready to Experience New Jersey Living?"
+				subtitle="Let our expert team guide you through the finest properties in the New Jersey area."
 			/>
-			<ContactFaqs />
 			<FooterNew />
 		</>
 	);

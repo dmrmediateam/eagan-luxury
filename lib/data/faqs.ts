@@ -81,7 +81,7 @@ export function getCategoryDisplayName(category: string): string {
 		vineyard: "Vineyard Properties",
 		luxury: "Luxury Real Estate",
 		relocation: "Relocation Services",
-		"wine-country": "Lake Geneva area Living",
+		"wine-country": "New Jersey area Living",
 		services: "Our Services"
 	};
 

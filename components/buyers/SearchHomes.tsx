@@ -49,7 +49,7 @@ export function SearchHomes() {
 
 							<p className="text-[#2B2B2B]/80 leading-relaxed mt-4">
 								Browse our curated selection of luxury
-								properties in the Lake Geneva area. Our
+								properties in the New Jersey area. Our
 								advanced search tools allow you to filter by
 								location, price range, amenities, and more to
 								find the perfect match for your lifestyle.
@@ -57,9 +57,9 @@ export function SearchHomes() {
 
 							<div className="pt-8">
 								<Link
-									href="/listings"
+									href="/listings/search"
 									className="inline-block px-10 py-4 border border-[#B08D57] text-[#B08D57] font-sans text-sm tracking-widest uppercase transition-all duration-300 hover:bg-[#B08D57] hover:text-white">
-									SEARCH ALL LISTINGS
+									SEARCH ALL PROPERTIES
 								</Link>
 							</div>
 						</div>
@@ -84,10 +84,10 @@ export function SearchHomes() {
 											Select Location
 										</option>
 										<option value="highlands">
-											Lake Geneva
+											New Jersey
 										</option>
 										<option value="cashiers">
-											Lake Geneva
+											New Jersey
 										</option>
 										<option value="glenville">
 											Glenville

@@ -263,7 +263,7 @@ const ComingSoonHero = () => {
 						className="text-base md:text-lg text-white/80 mb-8 tracking-wide font-light"
 						variants={itemVariants}>
 						Get a sneak peek at our upcoming exceptional properties
-						in Lake Geneva area. Stay ahead of the market with
+						in New Jersey area. Stay ahead of the market with
 						our preview of soon-to-be-available homes.
 					</motion.p>
 

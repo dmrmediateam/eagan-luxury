@@ -39,7 +39,7 @@ export function AboutCheryl() {
 					className="space-y-16">
 					
 					<SectionTitle
-						title="About Cheryl Towey"
+						title="About Cheryl Towey Services"
 						subtitle="Your trusted real estate professional in New Jersey"
 					/>
 
@@ -54,7 +54,7 @@ export function AboutCheryl() {
 							className="relative aspect-[4/5] w-full overflow-hidden group">
 							<Image
 								src="/chery-towey.jpg"
-								alt="Cheryl Towey - Weichert Realtors Agent"
+								alt="Cheryl Towey Services - Cheryl Towey Services Agent"
 								height={800}
 								width={640}
 								className="object-cover w-full h-full transition-all duration-700 ease-in-out group-hover:scale-105"
@@ -70,17 +70,17 @@ export function AboutCheryl() {
 							
 							<div className="space-y-4">
 								<h3 className="text-2xl md:text-3xl text-[#222223] font-serif font-medium">
-									Cheryl Towey
+									Cheryl Towey Services
 								</h3>
 								<p className="text-secondary font-sans text-sm uppercase tracking-wider font-medium">
-									Weichert Realtors Agent
+									Cheryl Towey Services Agent
 								</p>
 								<div className="h-px w-16 bg-secondary/30"></div>
 							</div>
 
 							<div className="space-y-6 text-[#222223]/80">
 								<p className="text-[#222223]/80 leading-relaxed mb-6">
-									Cheryl Towey is a dedicated real estate professional serving New Jersey&apos;s most desirable communities. With years of experience in the local market, Cheryl has built a reputation for exceptional service, deep market knowledge, and unwavering commitment to her clients&apos; success.
+									Cheryl Towey Services is a dedicated real estate professional serving New Jersey&apos;s most desirable communities. With years of experience in the local market, Cheryl has built a reputation for exceptional service, deep market knowledge, and unwavering commitment to her clients&apos; success.
 								</p>
 
 								<p className="text-[#222223]/80 leading-relaxed mb-6">

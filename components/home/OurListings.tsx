@@ -1,10 +1,9 @@
 "use client";
-
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { SectionTitle } from "@/components/ui/SectionTitle";
+import UnifiedListingCard from "@/components/ui/UnifiedListingCard";
 
 // More subtle and sophisticated animation for cards
 const cardVariants = {
@@ -33,23 +32,31 @@ const buttonVariant = {
 	}
 };
 
-// Database listing interface
+// Database listing interface - matching UnifiedListingCard expected structure
 interface Listing {
-	id: string;
+	id: string | bigint;
 	listingKey: string;
 	addressFull: string;
+	addressLine1: string;
 	city: string;
 	state: string;
 	postalCode: string;
-	listPrice: number;
+	propertyType: string;
+	listPrice: any;
 	bedsTotal: number;
 	bathsFull: number;
+	bathsHalf: number;
 	livingArea: number;
+	yearBuilt: number;
+	standardStatus: string;
 	media: Array<{
-		id: string;
-		url: string;
+		id: string | bigint;
+		mediaUrl: string;
 		order: number;
 	}>;
+	mls: {
+		name: string;
+	};
 }
 
 export function OurListings() {
@@ -59,10 +66,29 @@ export function OurListings() {
 	useEffect(() => {
 		async function fetchListings() {
 			try {
-				const response = await fetch('/api/listings?status=Active&limit=4');
+				// First try to fetch by highest price
+				let response = await fetch('/api/listings?status=Active&limit=6&sort=price_desc');
 				if (response.ok) {
-					const dbListings = await response.json();
-					setListings(dbListings);
+					const data = await response.json();
+					// Handle both array and object responses
+					const dbListings = Array.isArray(data) ? data : data.listings || [];
+					
+					// Check if any listings have prices, if not fall back to date sorting
+					const hasValidPrices = dbListings.some((listing: Listing) => listing.listPrice && listing.listPrice > 0);
+					
+					if (!hasValidPrices && dbListings.length > 0) {
+						// Fall back to newest listings if no prices are available
+						response = await fetch('/api/listings?status=Active&limit=6&sort=date_desc');
+						if (response.ok) {
+							const fallbackData = await response.json();
+							const fallbackListings = Array.isArray(fallbackData) ? fallbackData : fallbackData.listings || [];
+							setListings(fallbackListings);
+						} else {
+							setListings(dbListings); // Use original response if fallback fails
+						}
+					} else {
+						setListings(dbListings);
+					}
 				} else {
 					console.error('Failed to fetch listings');
 				}
@@ -76,55 +102,34 @@ export function OurListings() {
 		fetchListings();
 	}, []);
 
-	// Format price
-	const formatPrice = (price?: number) => {
-		if (!price) return "";
-
-		// Format the price with commas
-		const formatted = new Intl.NumberFormat("en-US", {
-			maximumFractionDigits: 0
-		}).format(price);
-
-		// For luxury properties over a million, add special formatting
-		if (price >= 1000000) {
-			const parts = formatted.split(",");
-			if (parts.length >= 2) {
-				// Return millions with elegant spacing
-				return `${parts[0]}.${parts[1].substring(0, 1)} Million`;
-			}
-		}
-
-		// Return the standard formatted price for properties under a million
-		return formatted;
-	};
-
-	// Format address
-	const formatAddress = (listing: Listing) => {
-		return `${listing.addressFull}, ${listing.city}, ${listing.state} ${listing.postalCode}`;
-	};
-
-	// Render loading cards
+	// Render loading cards using UnifiedListingCard style
 	const renderLoadingCards = () => {
-		return Array.from({ length: 4 }).map((_, index) => (
+		return Array.from({ length: 6 }).map((_, index) => (
 			<motion.div
 				key={`loading-${index}`}
 				initial="hidden"
 				whileInView="visible"
 				viewport={{ once: true, margin: "-50px" }}
-				custom={index + 2}
+				custom={index}
 				variants={cardVariants}
-				className="bg-white overflow-hidden border border-weichert-lightgray shadow-[0_5px_20px_rgba(0,0,0,0.03)] animate-pulse">
-				<div className="relative h-80 md:h-96 lg:h-[28rem] xl:h-[30rem] 2xl:h-[32rem] bg-gray-200" />
-				<div className="p-8 lg:p-10 border-t border-weichert-lightgray">
+				className="group relative overflow-hidden bg-white shadow-sm transition-all duration-500 flex flex-col h-full animate-pulse"
+			>
+				<div className="relative h-64 lg:h-80 w-full overflow-hidden bg-gray-200" />
+				<div className="p-4 md:p-6 flex flex-col flex-grow">
 					<div className="h-6 bg-gray-200 rounded mb-3" />
-					<div className="h-4 bg-gray-200 rounded mb-6" />
-					<div className="h-4 bg-gray-200 rounded w-1/3" />
+					<div className="h-4 bg-gray-200 rounded mb-3" />
+					<div className="h-4 bg-gray-200 rounded w-2/3 mb-4" />
+					<div className="flex justify-between text-sm text-gray-400 mt-auto">
+						<div className="h-4 bg-gray-200 rounded w-1/4" />
+						<div className="h-4 bg-gray-200 rounded w-1/4" />
+						<div className="h-4 bg-gray-200 rounded w-1/4" />
+					</div>
 				</div>
 			</motion.div>
 		));
 	};
 
-	// Render listing cards
+	// Render listing cards using UnifiedListingCard
 	const renderListingCards = () => {
 		return listings.map((listing, index) => (
 			<motion.div
@@ -132,105 +137,17 @@ export function OurListings() {
 				initial="hidden"
 				whileInView="visible"
 				viewport={{ once: true, margin: "-50px" }}
-				custom={index + 2}
+				custom={index}
 				variants={cardVariants}
-				className="bg-white overflow-hidden border border-weichert-lightgray shadow-[0_5px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.08)] transition-all duration-700 group cursor-pointer">
-				{/* Property Image - Taller on larger screens */}
-				<Link href={`/listing/${listing.listingKey}`}>
-					<div className="relative h-80 md:h-96 lg:h-[28rem] xl:h-[30rem] 2xl:h-[32rem] overflow-hidden">
-						<Image
-							src={listing.media[0]?.url || '/chery-towey.jpg'}
-							alt={formatAddress(listing)}
-							className="object-cover object-center w-full h-full transition-transform duration-1000 group-hover:scale-105"
-							width={800}
-							height={600}
-						/>
-						<div className="absolute top-0 left-0 m-5 py-3 px-5 bg-white/95 backdrop-blur-sm shadow-md group-hover:shadow-lg transition-all duration-500">
-							<span className="text-secondary font-serif text-xs uppercase tracking-widest mb-1 block font-light">
-								Offered at
-							</span>
-							<div className="flex items-baseline">
-								<span className="text-secondary text-xl mr-1 font-medium">
-									$
-								</span>
-								<p className="text-[#222223] font-serif text-xl md:text-2xl lg:text-3xl font-medium tracking-tight">
-									{formatPrice(listing.listPrice)}
-								</p>
-							</div>
-						</div>
-						<div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-					</div>
-
-					{/* Property Details */}
-					<div className="p-8 lg:p-10 border-t border-weichert-lightgray">
-						<h3 className="text-[#222223] font-serif text-xl md:text-2xl mb-3 truncate font-light">
-							{formatAddress(listing)}
-						</h3>
-
-						<p className="text-[#222223]/70 mb-6 font-sans text-sm">
-							{listing.bedsTotal} Beds | {listing.bathsFull} Baths | {listing.livingArea?.toLocaleString()} Sq Ft
-						</p>
-
-						<span className="inline-flex items-center text-secondary hover:text-secondary-dark transition-colors duration-300 text-sm uppercase tracking-wider font-sans gap-1">
-							<span>View Details</span>
-							<span className="inline-block transform translate-x-0 group-hover:translate-x-1 transition-transform duration-300">
-								→
-							</span>
-						</span>
-					</div>
-				</Link>
-			</motion.div>
-		));
-	};
-
-	// Render placeholder cards
-	const renderPlaceholderCards = () => {
-		return Array.from({ length: 4 }).map((_, index) => (
-			<motion.div
-				key={`placeholder-${index}`}
-				initial="hidden"
-				whileInView="visible"
-				viewport={{ once: true, margin: "-50px" }}
-				custom={index + 2}
-				variants={cardVariants}
-				className="bg-white overflow-hidden rounded-sm border border-weichert-lightgray shadow-[0_5px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.08)] transition-all duration-700 group">
-				{/* Placeholder Image - Taller on larger screens */}
-				<div className="relative h-80 md:h-96 lg:h-[28rem] overflow-hidden bg-[#F5F5F5]">
-					<div className="absolute top-0 left-0 m-5 py-3 px-5 bg-white/95 backdrop-blur-sm shadow-md group-hover:shadow-lg transition-all duration-500">
-						<span className="text-[#B08D57] font-serif text-xs uppercase tracking-widest mb-1 block font-light">
-							Offered at
-						</span>
-						<div className="flex items-baseline">
-							<span className="text-[#B08D57] text-xl mr-1 font-medium">
-								$
-							</span>
-							<p className="text-[#1A1A1A] font-serif text-xl md:text-2xl lg:text-3xl font-medium tracking-tight">
-								3.5 Million
-							</p>
-						</div>
-					</div>
-					<div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-				</div>
-
-				{/* Placeholder Details */}
-				<div className="p-8 lg:p-10 border-t border-[#F0F0F0]">
-					<h3 className="text-[#1A1A1A] font-serif text-xl md:text-2xl mb-3 truncate font-light">
-						Luxury Property, New York
-					</h3>
-
-					<p className="text-[#2B2B2B]/70 mb-6 font-sans text-sm">
-						4 Beds | 3.5 Baths | 3,200 Sq Ft
-					</p>
-
-					<Link
-						href="/listings/active"
-						className="inline-flex items-center text-weichert-yellow hover:text-weichert-darkyellow transition-colors duration-300 text-sm uppercase tracking-wider font-sans group-hover:gap-1">
-						<span>View Details</span>
-						<span className="inline-block transform translate-x-0 group-hover:translate-x-1 transition-transform duration-300">
-							→
-						</span>
-					</Link>
-				</div>
+				className="h-full"
+			>
+				<UnifiedListingCard
+					listing={listing}
+					index={index}
+					variant="default"
+					isClickable={true}
+					showAnimation={false}
+				/>
 			</motion.div>
 		));
 	};
@@ -240,16 +157,16 @@ export function OurListings() {
 			<div className="mx-[5%] md:mx-[10%] lg:mx-[15%]">
 				{/* Section Title using the new component */}
 				<SectionTitle
-					title="Cheryl&apos;s Featured Properties"
-					subtitle="Discover exceptional properties in Hackettstown, Andover, Byram, Blairstown, Chester, and Washington"
+					title="New Jersey Properties"
+					subtitle="Discover our most exclusive and high-value properties in Hackettstown, Andover, Byram, Blairstown, Chester, and Washington"
 					className="mb-20"
 				/>
 
-				{/* Listings Grid - Changed to 2x2 grid */}
-				<div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16">
+				{/* Listings Grid - 3x2 grid (3 columns, 2 rows, 6 properties) */}
+				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 					{loading && renderLoadingCards()}
 					{!loading && listings.length > 0 && renderListingCards()}
-					{!loading && listings.length === 0 && renderPlaceholderCards()}
+					{!loading && listings.length === 0 && renderLoadingCards()}
 				</div>
 
 				{/* View All Button */}
@@ -260,9 +177,9 @@ export function OurListings() {
 					variants={buttonVariant}
 					className="flex justify-center mt-20">
 					<Link
-						href="/listings/active"
+						href="/properties"
 						className="inline-block px-10 py-4 bg-secondary text-[#222223] hover:bg-secondary-dark transition-colors duration-500 text-sm uppercase tracking-wider font-sans">
-						View All Listings
+						View All Properties
 					</Link>
 				</motion.div>
 			</div>

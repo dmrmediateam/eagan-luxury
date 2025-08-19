@@ -39,10 +39,6 @@ const steps: Step[] = [
 		title: "Let's Advertise Your Home",
 		description:
 			"Our approach includes a targeted digital marketing strategy, social media advertising, email marketing and personalized 1 to 1 outreach to the right buyer.",
-		cta: {
-			text: "View Our Marketing",
-			link: "/marketing"
-		}
 	},
 	{
 		number: 5,

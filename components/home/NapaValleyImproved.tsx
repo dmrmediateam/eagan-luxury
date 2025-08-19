@@ -129,7 +129,7 @@ export function NapaValley() {
 					<motion.h2
 						className="text-5xl sm:text-6xl md:text-7xl mt-4 md:mt-6 font-light tracking-tight"
 						variants={titleVariants}>
-						Lake Geneva
+						New Jersey
 					</motion.h2>
 				</motion.div>
 
@@ -140,17 +140,17 @@ export function NapaValley() {
 						initial="hidden"
 						whileInView="visible"
 						viewport={{ once: true, margin: "-50px" }}>
-						{/* About Lake Geneva Section */}
+						{/* About New Jersey Section */}
 						<motion.div
 							custom={0}
 							variants={sectionVariants}
 							className="mb-16 md:mb-20">
 							<h3 className="text-2xl md:text-3xl font-light tracking-tight text-zinc-800 mb-8">
-								About Lake Geneva
+								About New Jersey
 							</h3>
 							<p className="text-lg font-light leading-relaxed text-zinc-700">
-								Legendary Real Estate has over $50 million in
-								sales, trusted in Lake Geneva, Sonoma, and
+								Cheryl Towey has over $50 million in
+								sales, trusted in New Jersey, Sonoma, and
 								beyond. Lorem ipsum dolor sit amet, consectetuer
 								adipiscing elit, sed diam nonummy nibh euismod
 								tincidunt ut laoreet dolore magna aliquam erat
@@ -219,7 +219,7 @@ export function NapaValley() {
 										transition: { duration: 0.4 }
 									}}
 									whileTap={{ scale: 0.98 }}>
-									View Lake Geneva Listings
+									View New Jersey Listings
 								</motion.button>
 							</Link>
 						</motion.div>
@@ -237,7 +237,7 @@ export function NapaValley() {
 							className="relative h-[500px] mb-16 overflow-hidden">
 							<Image
 								src="/media/gr3.jpg"
-								alt="Lake Geneva Vineyards"
+								alt="New Jersey Vineyards"
 								fill
 								className="object-cover"
 								style={{ objectPosition: "center" }}
@@ -256,7 +256,7 @@ export function NapaValley() {
 							custom={0}
 							className="mb-16 pl-8 border-l border-zinc-400">
 							<blockquote className="text-2xl md:text-3xl font-light italic text-zinc-700 leading-relaxed">
-								&ldquo;Lake Geneva isn&apos;t just about wine;
+								&ldquo;New Jersey isn&apos;t just about wine;
 								it&apos;s a symphony of natural beauty, culinary
 								excellence, and architectural elegance.&rdquo;
 							</blockquote>

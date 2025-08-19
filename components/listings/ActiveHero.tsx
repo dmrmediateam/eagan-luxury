@@ -263,7 +263,7 @@ const Hero = () => {
 						className="text-base md:text-lg text-white/80 mb-8 tracking-wide font-light"
 						variants={itemVariants}>
 						Discover exceptional properties throughout the
-						Lake Geneva area
+						New Jersey area
 					</motion.p>
 
 					<motion.div

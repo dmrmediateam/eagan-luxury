@@ -7,9 +7,9 @@ import type { Metadata } from "next";
 import PrivacyPolicyContent from "@/components/privacy/PrivacyPolicyContent";
 
 export const metadata: Metadata = {
-	title: "Privacy Policy | Legendary Real Estate | Lake Geneva, WI",
+	title: "Privacy Policy | Cheryl Towey | New Jersey, WI",
 	description:
-		"Learn about how Legendary Real Estate collects, uses, and protects your personal information in accordance with privacy laws."
+		"Learn about how Cheryl Towey collects, uses, and protects your personal information in accordance with privacy laws."
 };
 
 export default function PrivacyPolicyPage() {

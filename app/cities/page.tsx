@@ -6,6 +6,8 @@ import { SectionTitle } from "@/components/ui/SectionTitle";
 import Navbar from "@/components/home/NavbarNew";
 import { FooterNew } from "@/components/home/FooterNew";
 import { ContactNew } from "@/components/home/ContactNew";
+import CityPropertiesView from "@/components/properties/CityPropertiesView";
+import { getAllServiceAreas } from "@/lib/cheryl-service-areas";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -184,6 +186,42 @@ export default function CitiesPage() {
 								</motion.div>
 							))}
 						</div>
+					</motion.div>
+				</div>
+			</section>
+
+			{/* Properties Search Section */}
+			<section className="py-24 bg-gray-50">
+				<div className="mx-[5%] lg:mx-[10%] xl:mx-[15%]">
+					<motion.div
+						initial="hidden"
+						whileInView="visible"
+						viewport={{ once: true, amount: 0.3 }}
+						variants={containerVariants}
+						className="text-center mb-16">
+						<motion.h2
+							variants={itemVariants}
+							className="text-4xl lg:text-5xl font-serif font-light text-[#222223] mb-6">
+							Search Properties by City
+						</motion.h2>
+						<motion.p
+							variants={itemVariants}
+							className="text-lg text-[#222223]/70 max-w-3xl mx-auto">
+							Find your perfect home in any of our service areas. Use the search below to explore available properties by city.
+						</motion.p>
+					</motion.div>
+
+					<motion.div
+						initial="hidden"
+						whileInView="visible"
+						viewport={{ once: true, amount: 0.3 }}
+						variants={itemVariants}>
+						<CityPropertiesView
+							showSearch={true}
+							title=""
+							subtitle=""
+							variant="compact"
+						/>
 					</motion.div>
 				</div>
 			</section>

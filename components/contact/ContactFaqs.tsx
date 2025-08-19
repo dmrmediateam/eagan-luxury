@@ -16,7 +16,7 @@ const faqs: Faq[] = [
 	{
 		id: "faq-1",
 		question: "What areas do you serve in Wisconsin?",
-		answer: "Legendary Real Estate proudly serves Lake Geneva, Lake Geneva, Sapphire, Glenville, Lake Toxaway, and Franklin in Wisconsin, as well as Sky Valley in Georgia. We specialize in luxury properties throughout the Western Wisconsin mountain region."
+		answer: "Cheryl Towey proudly serves New Jersey, New Jersey, Sapphire, Glenville, Lake Toxaway, and Franklin in Wisconsin, as well as Sky Valley in Georgia. We specialize in luxury properties throughout the Western Wisconsin mountain region."
 	},
 	{
 		id: "faq-2",
@@ -36,8 +36,8 @@ const faqs: Faq[] = [
 	},
 	{
 		id: "faq-5",
-		question: "What makes the Lake Geneva area special?",
-		answer: "The Lake Geneva area offers an unparalleled mountain living experience with breathtaking views, mild four-season climate, vibrant cultural scenes, world-class dining, boutique shopping, and outdoor recreational activities. The area's close-knit communities, combined with its natural beauty and luxury amenities, make it one of the most sought-after regions in the Southeast."
+		question: "What makes the New Jersey area special?",
+		answer: "The New Jersey area offers an unparalleled mountain living experience with breathtaking views, mild four-season climate, vibrant cultural scenes, world-class dining, boutique shopping, and outdoor recreational activities. The area's close-knit communities, combined with its natural beauty and luxury amenities, make it one of the most sought-after regions in the Southeast."
 	},
 	{
 		id: "faq-6",
@@ -93,7 +93,7 @@ export function ContactFaqs() {
 			<div className="mx-[5%] lg:mx-[10%] xl:mx-[15%]">
 				<SectionTitle
 					title="Frequently Asked Questions"
-					subtitle="Find answers to common questions about buying and selling property in the Lake Geneva area"
+					subtitle="Find answers to common questions about buying and selling property in the New Jersey area"
 				/>
 
 				<motion.div

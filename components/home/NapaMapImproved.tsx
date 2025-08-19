@@ -137,7 +137,7 @@ export function NapaMap() {
 					<motion.h2
 						className="text-5xl sm:text-6xl md:text-7xl mt-4 md:mt-6 font-light tracking-tight"
 						variants={titleVariants}>
-						Lake Geneva
+						New Jersey
 					</motion.h2>
 				</motion.div>
 
@@ -154,7 +154,7 @@ export function NapaMap() {
 						<div className="h-full w-full relative">
 							<Image
 								src="/media/map.png"
-								alt="Lake Geneva Map"
+								alt="New Jersey Map"
 								fill
 								className="object-cover"
 								priority

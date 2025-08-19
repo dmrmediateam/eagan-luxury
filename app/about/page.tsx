@@ -10,18 +10,16 @@ import { AwardsScrollBanner } from "@/components/about/AwardsScrollBanner";
 import { ContactFaqs } from "@/components/contact/ContactFaqs";
 
 export const metadata: Metadata = {
-	title: "About Cheryl Towey | Weichert Realtors | New Jersey",
+	title: "About Cheryl Towey Services | Cheryl Towey Services | New Jersey",
 	description:
-		"Learn about Cheryl Towey, your trusted real estate professional with Weichert Realtors serving New Jersey. Specializing in Hackettstown, Andover, Byram, Blairstown, Chester, and Washington."
+		"Learn about Cheryl Towey Services, your trusted real estate professional with Cheryl Towey Services serving New Jersey. Specializing in Hackettstown, Andover, Byram, Blairstown, Chester, and Washington."
 };
 
 export default function About() {
 	return (
 		<>
 			<Hero />
-			<AwardsScrollBanner />
 			<AboutCheryl />
-			<Stats />
 			<AboutCTA
 				backgroundImage="/images/highlands-estate.jpg"
 				title="Ready to Work with Cheryl?"
@@ -29,7 +27,6 @@ export default function About() {
 			/>
 			<Values />
 			<ContactNew />
-			<ContactFaqs />
 			<FooterNew />
 		</>
 	);

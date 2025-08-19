@@ -48,7 +48,7 @@ const awards: Award[] = [
 		image: "/mr/mrlogo7.png"
 	},
 	{
-		name: "Best of the Lake Geneva",
+		name: "Best of the New Jersey",
 		year: "2019-2023",
 		image: "/mr/mrlogo8.jpg"
 	},

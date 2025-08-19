@@ -41,9 +41,9 @@ export function TestimonialsCTA({
 							Contact Us
 						</Link>
 						<Link
-							href="/listings"
+							href="/listings/active"
 							className="px-8 py-4 border border-white text-white text-base tracking-widest uppercase transition-all duration-300 hover:bg-white hover:text-[#1A1A1A] hover:shadow-[0_10px_25px_rgba(255,255,255,0.2)]">
-							View Listings
+							View Properties
 						</Link>
 					</div>
 				</motion.div>

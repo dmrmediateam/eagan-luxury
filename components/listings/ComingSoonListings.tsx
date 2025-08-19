@@ -77,7 +77,7 @@ const ComingSoonListings: React.FC<ComingSoonListingsProps> = async ({
 					<div className="flex flex-col items-center justify-center">
 						<SectionTitle
 							title="Coming Soon"
-							subtitle="Preview our upcoming exceptional properties before they hit the market. These carefully selected homes represent the finest upcoming offerings in Lake Geneva area's most desirable locations."
+							subtitle="Preview our upcoming exceptional properties before they hit the market. These carefully selected homes represent the finest upcoming offerings in New Jersey area's most desirable locations."
 							centered={true}
 						/>
 					</div>

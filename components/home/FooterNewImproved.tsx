@@ -40,10 +40,10 @@ const footerLinks: FooterLinkGroup[] = [
 	{
 		title: "Properties",
 		links: [
-			{ label: "Featured Listings", href: "/listings/featured" },
-			{ label: "Luxury Estates", href: "/listings/luxury-estates" },
-			{ label: "Vineyard Properties", href: "/listings/vineyard" },
-			{ label: "Vacation Rentals", href: "/rentals" }
+			{ label: "Featured Listings", href: "/listings/active" },
+			{ label: "Sold Properties", href: "/listings/sold" },
+			{ label: "Coming Soon", href: "/listings/coming-soon" },
+			{ label: "Property Search", href: "/listings/search" }
 		]
 	},
 	{
@@ -115,7 +115,7 @@ export function FooterNewImproved() {
 							<div className="w-40 md:w-48">
 								<Image
 									src="/logos/keytextlogogray.png"
-									alt="Legendary Real Estate"
+									alt="Cheryl Towey"
 									width={200}
 									height={60}
 									className="object-contain h-auto"
@@ -282,7 +282,7 @@ export function FooterNewImproved() {
 					transition={{ delay: 0.5 }}
 					className="mt-20 pt-8 border-t border-zinc-200 text-zinc-400 font-light text-sm tracking-wide flex flex-col md:flex-row justify-between items-center">
 					<p>
-						© {new Date().getFullYear()} Legendary Real Estate. All
+						© {new Date().getFullYear()} Cheryl Towey. All
 						Rights Reserved.
 					</p>
 					<div className="flex space-x-6 mt-4 md:mt-0">

@@ -67,11 +67,11 @@ export function HomeValuation() {
 								personalized report for you.
 							</p>
 
-							<div className="pt-8">
+							<a className="pt-8" href="/contact">
 								<button className="inline-block px-10 py-4 bg-[#B08D57] text-white font-sans text-sm tracking-widest uppercase transition-all duration-300 hover:bg-[#8A6D3B] hover:shadow-md">
 									START HERE
 								</button>
-							</div>
+							</a>
 						</div>
 					</motion.div>
 				</motion.div>

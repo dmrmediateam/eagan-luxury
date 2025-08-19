@@ -43,7 +43,7 @@ export function formatBlogPost(post: SanityBlogPost): ContentItem {
 			month: "long",
 			day: "numeric"
 		}),
-		author: post.author || "Legendary Real Estate",
+		author: post.author || "Cheryl Towey",
 		category: post.category,
 		image: post.mainImage.url,
 		content: post.content
@@ -64,7 +64,7 @@ export function formatRelatedBlogPosts(posts: SanityBlogPost[]): ContentItem[] {
 			month: "long",
 			day: "numeric"
 		}),
-		author: p.author || "Legendary Real Estate",
+		author: p.author || "Cheryl Towey",
 		category: p.category,
 		image: p.mainImage.url,
 		readTime: "5 min read" // Default read time
@@ -87,11 +87,11 @@ export function formatPressRelease(
 			month: "long",
 			day: "numeric"
 		}),
-		source: pressRelease.source || "Legendary Real Estate",
+		source: pressRelease.source || "Cheryl Towey",
 		sourceUrl: pressRelease.sourceUrl,
 		category: pressRelease.category,
 		image: pressRelease.mainImage.url,
-		location: pressRelease.location || "Lake Geneva, CA",
+		location: pressRelease.location || "New Jersey, CA",
 		featured: pressRelease.featured || false,
 		content: pressRelease.content
 	};
@@ -113,11 +113,11 @@ export function formatRelatedPressReleases(
 			month: "long",
 			day: "numeric"
 		}),
-		source: p.source || "Legendary Real Estate",
+		source: p.source || "Cheryl Towey",
 		sourceUrl: p.sourceUrl,
 		category: p.category,
 		image: p.mainImage.url,
-		location: p.location || "Lake Geneva, CA",
+		location: p.location || "New Jersey, CA",
 		featured: p.featured || false
 	}));
 }

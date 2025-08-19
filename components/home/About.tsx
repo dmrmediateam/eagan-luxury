@@ -21,11 +21,11 @@ const textVariants = {
 // Stats data
 const stats = [
 	{
-		value: "15+",
+		value: "10+",
 		label: "YEARS OF EXPERIENCE"
 	},
 	{
-		value: "500+",
+		value: "250+",
 		label: "HAPPY FAMILIES SERVED"
 	},
 	{
@@ -45,7 +45,7 @@ export function About() {
 					className="max-w-5xl mx-auto">
 					{/* Header */}
 					<SectionTitle
-						title="About Cheryl Towey"
+						title="About Cheryl Towey Services"
 						subtitle="Dedicated real estate professional with a passion for helping families find their perfect home in New Jersey's most desirable communities."
 						className="mb-20"
 					/>

@@ -37,11 +37,11 @@ export default function TermsOfServiceContent() {
 					Acceptance of Terms
 				</h2>
 				<p>
-					Welcome to Legendary Real Estate website. By accessing and
+					Welcome to Cheryl Towey website. By accessing and
 					using this website, you accept and agree to be bound by the
 					terms and provisions of this agreement. These Terms of
 					Service apply to all visitors, users, and others who access
-					or use our real estate services in Lake Geneva area.
+					or use our real estate services in New Jersey area.
 				</p>
 			</motion.div>
 
@@ -51,7 +51,7 @@ export default function TermsOfServiceContent() {
 				</h2>
 				<p>
 					Permission is granted to temporarily view the materials
-					(information or software) on Legendary Real Estate&apos;s
+					(information or software) on Cheryl Towey&apos;s
 					website for personal, non-commercial transitory viewing
 					only. This is the grant of a license, not a transfer of
 					title, and under this license you may not:
@@ -64,7 +64,7 @@ export default function TermsOfServiceContent() {
 					</li>
 					<li>
 						Attempt to decompile or reverse engineer any software
-						contained on Legendary Real Estate&apos;s website
+						contained on Cheryl Towey&apos;s website
 					</li>
 					<li>
 						Remove any copyright or other proprietary notations from
@@ -87,7 +87,7 @@ export default function TermsOfServiceContent() {
 					Real Estate Information
 				</h2>
 				<p>
-					Legendary Real Estate provides real estate services in the Lake Geneva area and
+					Cheryl Towey provides real estate services in the New Jersey area and
 					Walworth County. The information provided on our website
 					regarding properties, market trends, and real estate advice
 					is for general informational purposes only. While we strive
@@ -144,8 +144,8 @@ export default function TermsOfServiceContent() {
 					Disclaimer
 				</h2>
 				<p>
-					The materials on Legendary Real Estate&apos;s website are
-					provided on an &lsquo;as is&rsquo; basis. Legendary Real Estate
+					The materials on Cheryl Towey&apos;s website are
+					provided on an &lsquo;as is&rsquo; basis. Cheryl Towey
 					makes no warranties, expressed or implied, and hereby
 					disclaims and negates all other warranties including,
 					without limitation, implied warranties or conditions of
@@ -154,7 +154,7 @@ export default function TermsOfServiceContent() {
 					of rights.
 				</p>
 				<p>
-					Further, Legendary Real Estate does not warrant or make any
+					Further, Cheryl Towey does not warrant or make any
 					representations concerning the accuracy, likely results, or
 					reliability of the use of the materials on its website or
 					otherwise relating to such materials or on any sites linked
@@ -167,12 +167,12 @@ export default function TermsOfServiceContent() {
 					Limitations
 				</h2>
 				<p>
-					In no event shall Legendary Real Estate or its suppliers be
+					In no event shall Cheryl Towey or its suppliers be
 					liable for any damages (including, without limitation,
 					damages for loss of data or profit, or due to business
 					interruption) arising out of the use or inability to use the
-					materials on Legendary Real Estate&apos;s website, even if The
-					Goodrich Group or a Legendary Real Estate authorized
+					materials on Cheryl Towey&apos;s website, even if The
+					Goodrich Group or a Cheryl Towey authorized
 					representative has been notified orally or in writing of the
 					possibility of such damage.
 				</p>
@@ -194,7 +194,7 @@ export default function TermsOfServiceContent() {
 					Group. We have no control over, and assume no responsibility
 					for, the content, privacy policies, or practices of any
 					third-party websites or services. You further acknowledge
-					and agree that Legendary Real Estate shall not be responsible
+					and agree that Cheryl Towey shall not be responsible
 					or liable, directly or indirectly, for any damage or loss
 					caused or alleged to be caused by or in connection with the
 					use of or reliance on any such content, goods, or services
@@ -212,11 +212,11 @@ export default function TermsOfServiceContent() {
 					Revisions and Errata
 				</h2>
 				<p>
-					The materials appearing on Legendary Real Estate&apos;s website
+					The materials appearing on Cheryl Towey&apos;s website
 					could include technical, typographical, or photographic
-					errors. Legendary Real Estate does not warrant that any of the
+					errors. Cheryl Towey does not warrant that any of the
 					materials on its website are accurate, complete, or current.
-					Legendary Real Estate may make changes to the materials
+					Cheryl Towey may make changes to the materials
 					contained on its website at any time without notice. The
 					Goodrich Group does not, however, make any commitment to
 					update the materials.
@@ -264,28 +264,29 @@ export default function TermsOfServiceContent() {
 				</p>
 				<p className="not-prose">
 					<span className="block text-zinc-700 font-light">
-						Legendary Real Estate
+						Cheryl Towey
 					</span>
 					<span className="block text-zinc-700 font-light">
-						1381 Main Street, Suite 01
+					1625 NJ-10 East
 					</span>
 					<span className="block text-zinc-700 font-light">
-						St. Helena, California 94574
+					Morris Plains, NJ 07950
 					</span>
 					<span className="block text-zinc-700 font-light mt-2">
 						Email:{" "}
 						<a
-							href="mailto:legal@goodrichgroup.com"
+							href="mailto:cheryl.towey@weichert.com"			
 							className="text-zinc-700 hover:text-zinc-900 underline">
-							legal@goodrichgroup.com
+							cheryl.towey@weichert.com
 						</a>
 					</span>
 					<span className="block text-zinc-700 font-light">
 						Phone:{" "}
 						<a
-							href="tel:+14157358779"
+							href="tel:+1 (908) 334-0971"
 							className="text-zinc-700 hover:text-zinc-900">
-							(415) 735-8779
+							+1 (908) 334-0971
+
 						</a>
 					</span>
 				</p>

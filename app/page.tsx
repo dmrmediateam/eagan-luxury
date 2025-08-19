@@ -10,9 +10,8 @@ import { FooterNew } from "@/components/home/FooterNew";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-	title: "Cheryl Towey - New Jersey Real Estate Agent",
-	description:
-		"Cheryl Towey is a premier real estate agent with Weichert Realtors serving New Jersey. Specializing in luxury homes and exceptional service in Hackettstown, Andover, Byram, Blairstown, Chester, and Washington."
+	title: "Cheryl Towey - New Jersey Real Estate Services",
+	description: "Helping buyers and sellers across Morris, Sussex, and Warren counties, Cheryl Towey is your trusted New Jersey real estate agent. Explore local listings, get expert guidance, and make your move with confidence."
 };
 
 export default function Home() {

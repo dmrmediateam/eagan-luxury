@@ -66,12 +66,12 @@ const socialPosts: SocialPost[] = [
 	{
 		id: "insta-1",
 		platform: "instagram",
-		username: "Legendary Real Estate Team",
+		username: "Cheryl Towey Team",
 		userHandle: "@legendaryrealestateteam",
 		profileImage: "",
 		postImage: "/mr/mr2.webp",
 		caption:
-			"Exclusive preview of our newest luxury listing in Lake Geneva, WI. Contact us for private viewings of this lakefront retreat.",
+			"Exclusive preview of our newest luxury listing in New Jersey, WI. Contact us for private viewings of this lakefront retreat.",
 		postedAt: "2 days ago",
 		likes: 284,
 		comments: 32,
@@ -81,13 +81,13 @@ const socialPosts: SocialPost[] = [
 	{
 		id: "fb-1",
 		platform: "facebook",
-		username: "Legendary Real Estate Team",
+		username: "Cheryl Towey Team",
 		userHandle: "@legendaryrealestateteam",
 		profileImage: "",
 		postImage:
 			"https://img-v2.gtsstatic.net/reno/imagereader.aspx?url=https%3A%2F%2Fm.sothebysrealty.com%2F1103i215%2Faa3jnnkxyfjqmb6te1a48em3e3i215&w=3840&q=75&option=N&permitphotoenlargement=false&fallbackimageurl=https%3A%2F%2Fsothebysrealty.com%2Fassets%2Fimages%2Fcommon%2Fnophoto%2Flisting.jpg",
 		caption:
-			"Another stunning property SOLD in under 30 days in Lake Geneva, WI. Market expertise makes all the difference in this luxury mountain market.",
+			"Another stunning property SOLD in under 30 days in New Jersey, WI. Market expertise makes all the difference in this luxury mountain market.",
 		postedAt: "1 week ago",
 		likes: 412,
 		comments: 48,
@@ -99,11 +99,11 @@ const socialPosts: SocialPost[] = [
 const linkedInPosts: LinkedInPost[] = [
 	{
 		id: "linkedin-1",
-		username: "Legendary Real Estate Team",
+		username: "Cheryl Towey Team",
 		title: "@legendaryrealestateteam",
 		profileImage: "",
 		content:
-			"We're thrilled to announce our new property acquisition service for discerning clients looking to expand their luxury real estate portfolio in Lake Geneva area, WI. Our team provides end-to-end support with market analysis, property selection, and investment strategies tailored to your mountain living goals.",
+			"We're thrilled to announce our new property acquisition service for discerning clients looking to expand their luxury real estate portfolio in New Jersey area, WI. Our team provides end-to-end support with market analysis, property selection, and investment strategies tailored to your mountain living goals.",
 		image: "/mr/mr1.webp",
 		postedAt: "3 days ago",
 		likes: 348,

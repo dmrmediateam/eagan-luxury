@@ -6,15 +6,32 @@ export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url)
     const status = searchParams.get('status')
     const city = searchParams.get('city')
+    const propertyType = searchParams.get('propertyType')
+    const minPrice = searchParams.get('minPrice') ? parseInt(searchParams.get('minPrice')!) : undefined
+    const maxPrice = searchParams.get('maxPrice') ? parseInt(searchParams.get('maxPrice')!) : undefined
+    const beds = searchParams.get('beds') ? parseInt(searchParams.get('beds')!) : undefined
+    const baths = searchParams.get('baths') ? parseInt(searchParams.get('baths')!) : undefined
     const limit = searchParams.get('limit') ? parseInt(searchParams.get('limit')!) : 10
     const offset = searchParams.get('offset') ? parseInt(searchParams.get('offset')!) : 0
+    const sort = searchParams.get('sort') as 'price_desc' | 'price_asc' | 'date_desc' | 'date_asc' | null
 
-    const listings = await getListingsWithMedia({
+    const result = await getListingsWithMedia({
       status: status || undefined,
       city: city || undefined,
+      propertyType: propertyType || undefined,
+      minPrice,
+      maxPrice,
+      beds,
+      baths,
       limit,
-      offset
+      offset,
+      includeCount: true,
+      sortBy: sort || undefined
     })
+
+    // Handle both array return (legacy) and object return (with count)
+    const listings = Array.isArray(result) ? result : result.listings
+    const totalCount = Array.isArray(result) ? result.length : result.totalCount
 
     // Convert BigInt to string to fix serialization issue
     const serializedListings = listings.map(listing => ({
@@ -26,7 +43,12 @@ export async function GET(request: NextRequest) {
       }))
     }))
 
-    return NextResponse.json(serializedListings)
+    return NextResponse.json({
+      listings: serializedListings,
+      totalCount,
+      page: Math.floor(offset / limit) + 1,
+      totalPages: Math.ceil(totalCount / limit)
+    })
   } catch (error) {
     console.error('Error fetching listings:', error)
     return NextResponse.json(

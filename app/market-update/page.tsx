@@ -8,9 +8,9 @@ import { FooterNew } from "@/components/home/FooterNew";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-	title: "Market Update | Legendary Real Estate | Lake Geneva, WI",
+	title: "Market Update | Cheryl Towey | New Jersey, WI",
 	description:
-		"Stay informed with the latest real estate market updates for Lake Geneva area from Legendary Real Estate."
+		"Stay informed with the latest real estate market updates for New Jersey area from Cheryl Towey."
 };
 
 export default function MarketUpdate() {

@@ -14,14 +14,17 @@ export async function getListingsWithMedia(options: {
 	city?: string
 	limit?: number
 	offset?: number
+	propertyType?: string
+	minPrice?: number
+	maxPrice?: number
+	beds?: number
+	baths?: number
+	includeCount?: boolean
+	sortBy?: 'price_desc' | 'price_asc' | 'date_desc' | 'date_asc'
 } = {}) {
-	const { status, city, limit = 10, offset = 0 } = options
+	const { status, city, limit = 10, offset = 0, propertyType, minPrice, maxPrice, beds, baths, includeCount = false, sortBy = 'date_desc' } = options
 
-	const where: {
-		deletedYn: boolean
-		standardStatus?: string
-		city?: string
-	} = {
+	const where: any = {
 		deletedYn: false
 	}
 
@@ -30,7 +33,77 @@ export async function getListingsWithMedia(options: {
 	}
 
 	if (city) {
-		where.city = city
+		where.city = {
+			equals: city,
+			mode: 'insensitive'
+		}
+	}
+
+	if (propertyType) {
+		where.propertyType = {
+			equals: propertyType,
+			mode: 'insensitive'
+		}
+	}
+
+	if (minPrice || maxPrice) {
+		where.listPrice = {}
+		if (minPrice) where.listPrice.gte = minPrice
+		if (maxPrice) where.listPrice.lte = maxPrice
+	}
+
+	if (beds) {
+		where.bedsTotal = {
+			gte: beds
+		}
+	}
+
+	if (baths) {
+		where.bathsFull = {
+			gte: baths
+		}
+	}
+
+	// Determine order by parameter
+	let orderBy: any = { modificationTimestamp: 'desc' }
+	
+	switch (sortBy) {
+		case 'price_desc':
+			orderBy = { listPrice: 'desc' }
+			break
+		case 'price_asc':
+			orderBy = { listPrice: 'asc' }
+			break
+		case 'date_desc':
+			orderBy = { modificationTimestamp: 'desc' }
+			break
+		case 'date_asc':
+			orderBy = { modificationTimestamp: 'asc' }
+			break
+		default:
+			orderBy = { modificationTimestamp: 'desc' }
+	}
+
+	if (includeCount) {
+		// Return both listings and count for pagination
+		const [listings, totalCount] = await Promise.all([
+			prisma.listing.findMany({
+				where,
+				include: {
+					media: {
+						orderBy: { order: 'asc' },
+						take: 1 // Get primary photo
+					},
+					mls: true
+				},
+				orderBy,
+				take: limit,
+				skip: offset
+			}),
+			prisma.listing.count({ where })
+		])
+
+		return { listings, totalCount }
 	}
 
 	return await prisma.listing.findMany({

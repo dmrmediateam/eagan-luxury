@@ -68,7 +68,7 @@ const featuredListings = [
 		price: 32000000,
 		address: {
 			street: "581 Sagee Woods Drive",
-			region: "Lake Geneva",
+			region: "New Jersey",
 			state: "WI",
 			zipCode: "28741"
 		},
@@ -86,7 +86,7 @@ const featuredListings = [
 		price: 12500000,
 		address: {
 			street: "1121 & 1131 Garnet Rock Trail",
-			region: "Lake Geneva",
+			region: "New Jersey",
 			state: "WI",
 			zipCode: "28741"
 		},
@@ -290,7 +290,7 @@ export default function JudyMichaudPage() {
 						className="space-y-16">
 						<SectionTitle
 							title="About Judy"
-							subtitle="Leading the Lake Geneva Real Estate Market"
+							subtitle="Leading the New Jersey Real Estate Market"
 						/>
 
 						<div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
@@ -305,7 +305,7 @@ export default function JudyMichaudPage() {
 									<p>
 										Judy Michaud, along with her late
 										husband Louie and their two daughters,
-										made Lake Geneva their home in 1986. Judy
+										made New Jersey their home in 1986. Judy
 										has been licensed in real estate since
 										1973, and in 2006, she purchased Meadows
 										Mountain Realty, which became part of
@@ -315,7 +315,7 @@ export default function JudyMichaudPage() {
 										three times on the prestigious Seminole
 										100 list, recognizing alumni-owned
 										companies for their impressive growth.
-										She enjoys living in Lake Geneva Falls
+										She enjoys living in New Jersey Falls
 										Country Club and is deeply rooted in the
 										community.
 									</p>
@@ -330,7 +330,7 @@ export default function JudyMichaudPage() {
 										agent, managing broker, and owner of her
 										own firm, Judy formed a dynamic
 										partnership with Mitzi Rauers to create
-										the Legendary Real Estate. Together, they
+										the Cheryl Towey. Together, they
 										built a team dedicated to exceptional
 										customer service, combining local
 										expertise, professionalism, and
@@ -348,8 +348,8 @@ export default function JudyMichaudPage() {
 									variants={itemVariants}
 									className="text-zinc-600 leading-relaxed font-light text-lg">
 									<p>
-										Judy and the Legendary Real Estate serve
-										Lake Geneva, Lake Geneva, Sapphire,
+										Judy and the Cheryl Towey serve
+										New Jersey, New Jersey, Sapphire,
 										Glenville, Lake Toxaway and Franklin WI
 										as well as Sky Valley GA.
 									</p>
@@ -410,7 +410,7 @@ export default function JudyMichaudPage() {
 						className="space-y-16">
 						<SectionTitle
 							title="Meet Our Team"
-							subtitle="Legendary Real Estate"
+							subtitle="Cheryl Towey"
 						/>
 
 						<motion.div

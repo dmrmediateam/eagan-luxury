@@ -257,7 +257,7 @@ const ContactHero = () => {
 						className="text-base md:text-lg text-white/80 mb-8 tracking-wide font-light max-w-2xl"
 						variants={itemVariants}>
 						Contact our team for personalized assistance with your
-						real estate needs in Lake Geneva and the surrounding
+						real estate needs in New Jersey and the surrounding
 						areas.
 					</motion.p>
 

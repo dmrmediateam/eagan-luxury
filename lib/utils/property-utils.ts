@@ -24,9 +24,10 @@ export function generatePropertySlug(street: string, city: string, state: string
     .replace(/-+/g, '-')
     .replace(/^-|-$/g, '');
 
-  const cleanState = state.toLowerCase();
+  const cleanState = state.toLowerCase().replace(/[^a-z0-9]/g, '');
+  const cleanZip = zipCode.replace(/[^0-9]/g, '');
 
-  return `${cleanStreet}-${cleanCity}-${cleanState}-${zipCode}`;
+  return `${cleanStreet}-${cleanCity}-${cleanState}-${cleanZip}`;
 }
 
 /**

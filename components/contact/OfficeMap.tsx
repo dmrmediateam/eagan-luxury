@@ -26,8 +26,8 @@ const Map = dynamic(
 const officeLocation: Location[] = [
 	{
 		id: "michaud-rauers-office",
-		title: "Legendary Real Estate",
-		description: "Our office in Lake Geneva, Wisconsin",
+		title: "Cheryl Towey",
+		description: "Our office in New Jersey, Wisconsin",
 		coordinates: {
 			lat: 35.0524068,
 			lng: -83.2004571
@@ -72,7 +72,7 @@ export function OfficeMap() {
 			<div className="mx-[5%] lg:mx-[10%] xl:mx-[15%]">
 				<SectionTitle
 					title="Find Us"
-					subtitle="Visit our office in Lake Geneva, Wisconsin"
+					subtitle="Visit our office in New Jersey, Wisconsin"
 				/>
 
 				<motion.div

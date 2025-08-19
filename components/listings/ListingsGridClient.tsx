@@ -94,6 +94,7 @@ const ListingsGridClient: React.FC<ListingsGridClientProps> = ({
 									listing={listing}
 									index={index}
 									isClickable={listing.status === "active"}
+									variant="featured"
 								/>
 							</motion.div>
 						))

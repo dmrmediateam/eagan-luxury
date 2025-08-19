@@ -98,6 +98,7 @@ const SoldListingsGridClient: React.FC<SoldListingsGridClientProps> = ({
 								listing={listing} // Pass the whole listing object
 								index={index} // Pass index for potential internal use in ListingCard (e.g., animation stagger)
 								isClickable={true} // Allow clicking sold listings
+								variant="default"
 							/>
 						</motion.div>
 					))

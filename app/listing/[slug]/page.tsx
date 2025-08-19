@@ -53,7 +53,7 @@ export async function generateMetadata({ params }: ListingPageProps): Promise<Me
 }
 
 // Helper function to serialize Decimal objects
-function serializeListing(listing: any) {
+function serializeListing(listing: any): any {
 	return {
 		...listing,
 		listPrice: listing.listPrice ? Number(listing.listPrice) : null,
@@ -74,9 +74,15 @@ function serializeListing(listing: any) {
 export default async function ListingPage({ params }: ListingPageProps) {
 	const { slug } = await params
 	
-	const listing = await prisma.listing.findFirst({
+	// Decode the slug in case it has URL encoding
+	const decodedSlug = decodeURIComponent(slug)
+	
+	console.log('🔍 Listing page slug:', { original: slug, decoded: decodedSlug })
+	
+	// Try to find the listing by exact slug match first
+	let listing = await prisma.listing.findFirst({
 		where: {
-			listingKey: slug,
+			listingKey: decodedSlug,
 			deletedYn: false
 		},
 		include: {
@@ -93,15 +99,43 @@ export default async function ListingPage({ params }: ListingPageProps) {
 		}
 	})
 
+	// If not found by exact match, try to find by partial listing key match
 	if (!listing) {
+		listing = await prisma.listing.findFirst({
+			where: {
+				listingKey: {
+					contains: decodedSlug,
+					mode: 'insensitive'
+				},
+				deletedYn: false
+			},
+			include: {
+				media: {
+					orderBy: { order: 'asc' }
+				},
+				mls: true,
+				priceHistories: {
+					orderBy: { changedAt: 'desc' }
+				},
+				statusHistories: {
+					orderBy: { changedAt: 'desc' }
+				}
+			}
+		})
+	}
+
+	if (!listing) {
+		console.log('❌ Listing not found for slug:', decodedSlug)
 		notFound()
 	}
+	
+	console.log('✅ Found listing:', listing.listingKey)
 
 	// Serialize the listing to handle Decimal objects
 	const serializedListing = serializeListing(listing)
 
 	// Get similar listings
-	const similarListings = await prisma.listing.findMany({
+	const similarListings: any[] = await prisma.listing.findMany({
 		where: {
 			city: listing.city,
 			deletedYn: false,
@@ -120,7 +154,7 @@ export default async function ListingPage({ params }: ListingPageProps) {
 	})
 
 	// Serialize similar listings
-	const serializedSimilarListings = similarListings.map(serializeListing)
+	const serializedSimilarListings: any[] = similarListings.map(serializeListing)
 
 	// Format price
 	const formatPrice = (price?: any) => {

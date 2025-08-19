@@ -82,7 +82,7 @@ const socialLinks: SocialLink[] = [
 		id: "facebook",
 		name: "Facebook",
 		icon: "/icons/facebook.svg",
-		username: "LEGENDARY REAL ESTATE",
+		username: "Cheryl Towey",
 		url: "https://facebook.com/thegoodrichgroup",
 		image: "/media/gr1.jpg"
 	},

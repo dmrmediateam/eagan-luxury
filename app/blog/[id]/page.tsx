@@ -33,13 +33,13 @@ export async function generateMetadata({
 
 	if (!post) {
 		return {
-			title: "Post Not Found | Legendary Real Estate | Lake Geneva, WI",
+			title: "Post Not Found | Cheryl Towey | New Jersey, WI",
 			description: "The requested blog post could not be found."
 		};
 	}
 
 	return {
-		title: `${post.title} | Legendary Real Estate | Lake Geneva, WI`,
+		title: `${post.title} | Cheryl Towey | New Jersey, WI`,
 		description: post.excerpt
 	};
 }

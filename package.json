@@ -19,9 +19,20 @@
 		"db:seed": "tsx prisma/seed.ts",
 		"db:studio": "prisma studio",
 		"db:refresh-search": "tsx scripts/refresh-listing-search.ts",
-		"db:setup": "tsx scripts/setup-database.ts"
+		"db:setup": "tsx scripts/setup-database.ts",
+		"db:update-mls-rentcast": "tsx scripts/update-mls-to-rentcast.ts",
+		"sync:rentcast": "tsx scripts/sync-rentcast-data.ts sync",
+		"sync:rentcast:primary": "tsx scripts/sync-rentcast-data.ts primary",
+		"sync:rentcast:properties": "tsx scripts/sync-rentcast-data.ts properties",
+		"sync:rentcast:listings": "tsx scripts/sync-rentcast-data.ts listings",
+		"sync:rentcast:stats": "tsx scripts/sync-rentcast-data.ts stats",
+		"sync:rentcast:stats-primary": "tsx scripts/sync-rentcast-data.ts stats-primary",
+		"test:rentcast": "tsx scripts/test-rentcast-integration.ts",
+		"test:database": "tsx scripts/test-database-with-service-areas.ts",
+		"cleanup:null-addresses": "tsx scripts/cleanup-null-addresses.ts"
 	},
 	"dependencies": {
+		"@heroicons/react": "^2.2.0",
 		"@hookform/resolvers": "^4.1.2",
 		"@lexical/code": "^0.26.0",
 		"@lexical/html": "^0.26.0",
@@ -54,6 +65,7 @@
 		"@tiptap/starter-kit": "^2.11.5",
 		"@types/geojson": "^7946.0.16",
 		"@types/leaflet": "^1.9.17",
+		"@types/node-fetch": "^2.6.13",
 		"autoprefixer": "^10.4.19",
 		"class-variance-authority": "^0.7.1",
 		"clsx": "^2.1.1",
@@ -66,6 +78,7 @@
 		"nanoid": "^5.1.5",
 		"next": "15.2.0",
 		"next-sanity": "^9.8.61",
+		"node-fetch": "^3.3.2",
 		"postcss": "^8.4.38",
 		"react": "^19.0.0",
 		"react-dom": "^19.0.0",
@@ -94,7 +107,7 @@
 		"prisma": "^5.22.0",
 		"tailwindcss": "^3.4.1",
 		"ts-node": "^10.9.2",
-		"tsx": "^4.19.2",
+		"tsx": "^4.20.4",
 		"typescript": "^5"
 	}
 }

@@ -5,14 +5,14 @@ const prisma = new PrismaClient()
 async function main() {
 	console.log('🌱 Starting database seed...')
 
-	// Create MLS
+	// Create MLS - RentCast as the data source
 	const mls = await prisma.mls.upsert({
 		where: { id: 1 },
 		update: {},
 		create: {
 			id: 1,
-			name: 'New Jersey MLS',
-			vendor: 'NJMLS',
+			name: 'RentCast',
+			vendor: 'RentCast',
 			timezone: 'America/New_York'
 		}
 	})
@@ -146,16 +146,16 @@ async function main() {
 		create: {
 			officeKey: 'weichert-morristown',
 			mlsId: 1,
-			name: 'Weichert Realtors - Morristown',
+			name: 'Cheryl Towey Services - Morristown',
 			addressFull: '123 Main Street',
 			city: 'Morristown',
 			state: 'NJ',
 			postalCode: '07960',
-			phone: '(973) 555-0123'
+			phone: '(262) 204-5534'
 		}
 	})
 
-	// Create agent (Cheryl Towey)
+	// Create agent (Cheryl Towey Services)
 	const agent = await prisma.member.upsert({
 		where: { memberKey: 'cheryl-towey' },
 		update: {},

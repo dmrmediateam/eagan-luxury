@@ -36,7 +36,7 @@ const slideInVariants = {
 };
 
 export function AboutCTA({
-	title = "Ready to Find Your Lake Geneva Dream Home?",
+	title = "Ready to Find Your New Jersey Dream Home?",
 	subtitle = "Let our experienced team guide you through the process with personalized service and local expertise.",
 	buttonText = "Contact Us Today",
 	buttonLink = "#contact"
@@ -45,7 +45,7 @@ export function AboutCTA({
 		<div className="relative py-28 md:py-36 lg:py-44 overflow-hidden">
 			<Image
 				src="/mr/mr2.webp"
-				alt="Lake Geneva Estate"
+				alt="New Jersey Estate"
 				width={1920}
 				height={1080}
 				className="absolute inset-0 w-full h-full object-cover scale-105 filter brightness-90"

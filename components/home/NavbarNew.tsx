@@ -25,13 +25,7 @@ const menuLinks = [
 	{ title: "About", href: "/about" },
 	{
 		title: "Properties",
-		href: "/properties",
-		subLinks: [
-			{ title: "Featured Listings", href: "/listings/active" },
-			{ title: "Select Solds", href: "/listings/sold" },
-			{ title: "Coming Soon", href: "/listings/coming-soon" },
-			{ title: "Home Search", href: "/listings" }
-		]
+		href: "/properties"
 	},
 	{
 		title: "Cities",

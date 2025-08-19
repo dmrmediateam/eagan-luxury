@@ -23,7 +23,7 @@ interface AdminNotificationEmailProps {
 
 export const AdminNotificationEmail = ({
 	name = "Unknown",
-	email = "unknown@example.com",
+	email = "contact@legendaryrealestateservices.com",
 	phone = "Not provided",
 	message = "No message provided"
 }: AdminNotificationEmailProps) => {
@@ -50,7 +50,7 @@ export const AdminNotificationEmail = ({
 							src={goodrichLogoUrl}
 							width="240"
 							height="72"
-							alt="Legendary Real Estate"
+							alt="Cheryl Towey"
 							style={{ margin: "0 auto" }}
 						/>
 					</Section>
@@ -111,7 +111,7 @@ export const AdminNotificationEmail = ({
 
 					{/* Footer */}
 					<Section style={footer}>
-						<Text style={footerText}>Legendary Real Estate</Text>
+						<Text style={footerText}>Cheryl Towey</Text>
 						<Text style={footerAddress}>
 							1381 Main Street, Suite 01 | St. Helena, California
 							94574
@@ -136,7 +136,7 @@ export const AdminNotificationEmail = ({
 						</Section>
 
 						<Text style={footerCopyright}>
-							© {new Date().getFullYear()} Legendary Real Estate
+							© {new Date().getFullYear()} Cheryl Towey
 						</Text>
 						<Text style={footerNote}>
 							This is an automated notification. Please do not

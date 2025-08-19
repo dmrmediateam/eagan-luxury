@@ -89,51 +89,51 @@ const logoVariants = {
 
 const partners = [
 	{
-		name: "Lake Geneva area Home Inspection",
+		name: "New Jersey area Home Inspection",
 		category: "Home Inspection",
 		description:
-			"Thorough home inspections with specialized knowledge of Lake Geneva area properties.",
-		contact: "707-555-1234",
+			"Thorough home inspections with specialized knowledge of New Jersey area properties.",
+		contact: "(262) 204-5534",
 		website: "https://example.com/winecountryinspection"
 	},
 	{
-		name: "Lake Geneva Mortgage Group",
+		name: "New Jersey Mortgage Group",
 		category: "Mortgage & Financing",
 		description:
 			"Local lenders specializing in vineyard and luxury property financing.",
-		contact: "707-555-2345",
+		contact: "(262) 204-5534",
 		website: "https://example.com/napavalleymortgage"
 	},
 	{
 		name: "Sonoma Title Company",
 		category: "Title & Escrow",
 		description:
-			"Experienced title and escrow services for Lake Geneva area real estate transactions.",
-		contact: "707-555-3456",
+			"Experienced title and escrow services for New Jersey area real estate transactions.",
+		contact: "(262) 204-5534",
 		website: "https://example.com/sonomatitle"
 	},
 	{
 		name: "Valley Landscape Design",
 		category: "Landscaping",
 		description:
-			"Expert landscaping services specializing in drought-resistant and Lake Geneva area aesthetics.",
-		contact: "707-555-4567",
+			"Expert landscaping services specializing in drought-resistant and New Jersey area aesthetics.",
+		contact: "(262) 204-5534",
 		website: "https://example.com/valleylandscape"
 	},
 	{
-		name: "Lake Geneva area Home Insurance",
+		name: "New Jersey area Home Insurance",
 		category: "Insurance",
 		description:
 			"Specialized insurance solutions for vineyard properties and luxury homes.",
-		contact: "707-555-5678",
+		contact: "(262) 204-5534",
 		website: "https://example.com/wineinsurance"
 	},
 	{
-		name: "Lake Geneva Architects",
+		name: "New Jersey Architects",
 		category: "Architecture & Design",
 		description:
 			"Award-winning architectural services for new construction and renovations.",
-		contact: "707-555-6789",
+		contact: "(262) 204-5534",
 		website: "https://example.com/napaarchitects"
 	}
 ];

@@ -83,7 +83,7 @@ const FeaturedListings: React.FC<FeaturedListingsProps> = async ({
 					{/* Use the SectionTitle component instead of FeaturedListingsHeader */}
 					<SectionTitle
 						title="Featured Properties"
-						subtitle="Immerse yourself in our curated selection of exceptional properties. Each listing represents the finest in Lake Geneva area living, showcasing the natural beauty and sophisticated lifestyle of the Blue Ridge Mountains."
+						subtitle="Immerse yourself in our curated selection of exceptional properties. Each listing represents the finest in New Jersey area living, showcasing the natural beauty and sophisticated lifestyle of the Blue Ridge Mountains."
 						centered={true}
 					/>
 
