@@ -12,7 +12,7 @@ import { HomepageStructuredData } from '@/app/components/HomepageStructuredData'
 import { LocalBusinessSchema } from '@/app/components/LocalBusinessSchema';
 
 export const metadata: Metadata = {
-  title: 'Cheryl Towey - Real Estate Agent | Hackettstown, Sussex County, Warren County NJ | Weichert Realtors',
+  title: 'Real Estate By Cheryl Towey | Sussex County, Warren County NJ',
   description: 'Licensed real estate agent Cheryl Towey serves Hackettstown, Andover, Byram, Blairstown, Chester, Washington & Northwest New Jersey. Expert local knowledge, proven results. Call 908-334-0971.',
   keywords: 'real estate agent Hackettstown NJ, homes for sale Sussex County, Warren County realtor, Andover NJ real estate, Byram Township homes, Blairstown realtor, Chester NJ properties, Washington NJ real estate, Weichert Realtors Morris Plains, Northwest New Jersey homes',
   openGraph: {

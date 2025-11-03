@@ -118,6 +118,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     
+    // City Pages
+    {
+      url: `${baseUrl}/cities/montague`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/cities/high-bridge`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/cities/parsippany-troy-hills`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    
     // Legal Pages
     {
       url: `${baseUrl}/privacy-policy`,
