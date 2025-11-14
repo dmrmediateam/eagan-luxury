@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Bodoni_Moda, Varela } from 'next/font/google'
+import { Playfair_Display, Space_Grotesk } from 'next/font/google'
 import Script from 'next/script'
 import './globals.css'
 import Navbar from '@/components/Navbar'
@@ -14,43 +14,40 @@ import {
   getOrganizationSchema,
 } from '@/lib/structuredData'
 
-// Bodoni Moda for headings - Elegant luxury serif
-const bodoniModa = Bodoni_Moda({ 
+const playfair = Playfair_Display({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
-  variable: '--font-bodoni',
+  variable: '--font-playfair',
   display: 'swap',
 })
 
-// Varela for body text - Clean, modern sans-serif
-const varela = Varela({ 
-  weight: '400',
+const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
-  variable: '--font-varela',
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-space',
   display: 'swap',
 })
 
 export const metadata: Metadata = {
-  title: 'Cheryl Towey - Licensed Real Estate Agent | Northwest New Jersey',
-  description: 'Licensed real estate professional serving Northwest New Jersey since 2010. Specializing in Hackettstown, Sussex County, Warren County. Weichert Realtors.',
-  keywords: 'licensed real estate agent New Jersey, Cheryl Towey realtor, Hackettstown homes for sale, Sussex County realtor, Warren County real estate, Morris Plains office',
-  authors: [{ name: 'Cheryl Towey', url: 'https://www.realestatebycherylnj.com' }],
-  creator: 'Cheryl Towey',
-  publisher: 'Weichert Realtors',
-  verification: {
-    google: 'google-site-verification-code', // Add actual verification code when available
-  },
+  title: 'Eagan Luxury Real Estate | St. Petersburg Waterfront Specialists',
+  description:
+    'Eagan Luxury is a concierge real estate collective focused on waterfront estates, skyline penthouses, and Gulf Beach villas throughout St. Petersburg, Tierra Verde, and the Pinellas Bayway.',
+  keywords:
+    'St. Petersburg waterfront homes, Tierra Verde luxury real estate, Bacopa Bay condos, Pinellas Bayway estates, Gulf Beach penthouse, Eagan Luxury',
+  authors: [{ name: 'Eagan Luxury', url: 'https://www.eaganluxury.com' }],
+  creator: 'Eagan Luxury Real Estate',
+  publisher: 'Eagan Luxury Real Estate',
   openGraph: {
-    title: 'Cheryl Towey - Licensed Real Estate Agent NJ',
-    description: 'Find your dream home in Northwest New Jersey with experienced licensed agent Cheryl Towey.',
-    url: 'https://www.realestatebycherylnj.com',
-    siteName: 'Real Estate by Cheryl NJ',
+    title: 'Eagan Luxury | Waterfront & Sky Residences',
+    description: 'Concierge representation for St. Petersburg waterfront estates and Gulf-front villas.',
+    url: 'https://www.eaganluxury.com',
+    siteName: 'Eagan Luxury',
     images: [
       {
-        url: 'https://www.realestatebycherylnj.com/images/cheryl-towey.jpg',
+        url: 'https://www.eaganluxury.com/images/aerial-view-of-lisloughrey-pier-in-ireland-2025-02-12-05-10-21-utc.jpg',
         width: 1200,
         height: 630,
-        alt: 'Cheryl Towey - Licensed Real Estate Agent in Northwest New Jersey',
+        alt: 'Luxury waterfront harbor with yachts',
       },
     ],
     locale: 'en_US',
@@ -58,8 +55,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    site: '@cheryltoweyrealestate',
-    creator: '@cheryltoweyrealestate',
+    site: '@eaganluxury',
+    creator: '@eaganluxury',
   },
   robots: {
     index: true,
@@ -80,7 +77,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${bodoniModa.variable} ${varela.variable}`}>
+    <html lang="en" className={`${playfair.variable} ${spaceGrotesk.variable}`}>
       <head>
         {/* Global Structured Data */}
         <MultiStructuredData
@@ -92,7 +89,7 @@ export default function RootLayout({
           ]}
         />
       </head>
-      <body className={varela.className}>
+      <body className={spaceGrotesk.className}>
         <Script
           src="https://kestrel.idxhome.com/ihf-kestrel.js"
           strategy="beforeInteractive"
