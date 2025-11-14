@@ -2,14 +2,16 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import NavbarNew from "@/components/home/NavbarNew";
 import { FooterNew } from "@/components/home/FooterNew";
 import { ContactNew } from "@/components/home/ContactNew";
 import { useRef } from "react";
 
-const containerVariants = {
+const easing = [0.22, 1, 0.36, 1] as [number, number, number, number];
+
+const containerVariants: Variants = {
 	hidden: { opacity: 0 },
 	visible: {
 		opacity: 1,
@@ -20,27 +22,27 @@ const containerVariants = {
 	}
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
 	hidden: { opacity: 0, y: 30 },
 	visible: {
 		opacity: 1,
 		y: 0,
 		transition: {
 			duration: 0.7,
-			ease: [0.22, 1, 0.36, 1]
+			ease: easing
 		}
 	}
 };
 
 // Card animation variants for listings
-const cardVariants = {
+const cardVariants: Variants = {
 	hidden: { opacity: 0 },
 	visible: (custom: number) => ({
 		opacity: 1,
 		transition: {
 			duration: 1.3,
 			delay: custom * 0.15,
-			ease: [0.22, 1, 0.36, 1]
+			ease: easing
 		}
 	})
 };

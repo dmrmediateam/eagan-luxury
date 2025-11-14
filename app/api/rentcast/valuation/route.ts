@@ -32,11 +32,11 @@ export async function POST(request: NextRequest) {
     }
 
     const results = await Promise.all(promises);
-    
-    const response: any = {};
-    
+
+    const response: Record<string, unknown> = {};
+
     results.forEach(result => {
-      if (result.error) {
+      if ('error' in result) {
         response[result.type] = { error: result.error };
       } else {
         response[result.type] = result.data;
@@ -45,10 +45,11 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json(response);
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('RentCast valuation API error:', error);
+    const message = error instanceof Error ? error.message : 'Unknown error';
     return NextResponse.json(
-      { error: 'Failed to get property valuation', details: error.message },
+      { error: 'Failed to get property valuation', details: message },
       { status: 500 }
     );
   }

@@ -54,10 +54,11 @@ export async function POST(request: NextRequest) {
       message: `RentCast ${action} completed successfully` 
     });
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('RentCast sync error:', error);
+    const message = error instanceof Error ? error.message : 'Unknown error';
     return NextResponse.json(
-      { error: 'Failed to sync RentCast data', details: error.message },
+      { error: 'Failed to sync RentCast data', details: message },
       { status: 500 }
     );
   }
@@ -84,10 +85,11 @@ export async function GET(request: NextRequest) {
           { status: 400 }
         );
     }
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('RentCast API error:', error);
+    const message = error instanceof Error ? error.message : 'Unknown error';
     return NextResponse.json(
-      { error: 'Failed to process request' },
+      { error: 'Failed to process request', details: message },
       { status: 500 }
     );
   }
