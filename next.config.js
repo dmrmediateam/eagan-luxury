@@ -1,41 +1,22 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-	/* config options here */
-	images: {
-		remotePatterns: [
-			{
-				protocol: 'https',
-				hostname: 'images.unsplash.com'
-			},
-			{
-				protocol: 'https',
-				hostname: 'cdn.sanity.io'
-			},
-			{
-				protocol: 'https',
-				hostname: 'img-v2.gtsstatic.net'
-			},
-			{
-				protocol: 'https',
-				hostname: 'images.weichert.com'
-			}
-		],
-		formats: ["image/webp"]
-	},
-	// Add Sanity CORS configuration
-	async headers() {
-		return [
-			{
-				source: "/studio/:path*",
-				headers: [
-					{
-						key: "Access-Control-Allow-Origin",
-						value: "*"
-					}
-				]
-			}
-		];
-	}
-};
+  images: {
+    domains: ['images.unsplash.com', 'via.placeholder.com'],
+  },
+  async redirects() {
+    return [
+      {
+        source: '/studio',
+        destination: 'https://realestatebycherlnj.sanity.studio/',
+        permanent: true,
+      },
+      {
+        source: '/market-reports',
+        destination: '/blog',
+        permanent: true,
+      },
+    ]
+  },
+}
 
-export default nextConfig;
+module.exports = nextConfig

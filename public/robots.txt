@@ -1,0 +1,22 @@
+# robots.txt for Cheryl Towey Real Estate - Northwest New Jersey
+
+User-agent: *
+Allow: /
+Allow: /listings
+Allow: /properties
+Allow: /communities
+Allow: /blog
+Allow: /contact
+
+# Disallow admin and API routes
+Disallow: /api/
+Disallow: /admin/
+Disallow: /_next/
+Disallow: /dashboard/
+
+# Sitemaps
+Sitemap: https://www.realestatebycherylnj.com/sitemap.xml
+
+# Crawl delay for respectful crawling
+Crawl-delay: 1
+
