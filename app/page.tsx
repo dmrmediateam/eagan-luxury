@@ -3,6 +3,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { HomepageStructuredData } from '@/app/components/HomepageStructuredData';
 import { LocalBusinessSchema } from '@/app/components/LocalBusinessSchema';
+import SearchWidget from '@/components/SearchWidget';
+import FeaturedProperties from '@/components/FeaturedProperties';
 
 const listings = [
   {
@@ -99,41 +101,30 @@ export default function Home() {
       <HomepageStructuredData />
       <LocalBusinessSchema />
       <main className="page-transition">
-        <section className="section-shell">
+        <section className="section-shell hero-section">
           <div className="page-shell hero-grid">
             <div className="hero-panel">
               <p className="eyebrow">St. Petersburg • Gulf Beaches</p>
               <div className="rule" />
-              <h1 className="text-4xl md:text-[3.5rem] leading-tight">
-                Quietly presenting the coast’s most singular residences.
+              <h1 className="text-4xl md:text-[3.5rem] leading-tight mb-8">
+                Quietly presenting the coast's most singular residences.
               </h1>
-              <p className="mt-6 text-base text-ink-soft max-w-xl">
-                Luxury breathes. We release only a handful of waterfront, marina, and skyline offerings each season—edited,
-                square, and calm.
-              </p>
-              <div className="mt-10 flex flex-wrap gap-4">
-                <Link href="/listings" className="btn-primary">
-                  Discover Collection
-                </Link>
-                <Link href="/contact" className="btn-outline">
-                  Speak with Eagan
-                </Link>
+              <div className="mt-8">
+                <SearchWidget />
               </div>
             </div>
             <div className="hero-media">
-              <video
-                className="w-full h-full object-cover"
-                autoPlay
-                muted
-                loop
-                playsInline
-                poster="/images/aerial-view-of-lisloughrey-pier-in-ireland-2025-02-12-05-10-21-utc.jpg"
-              >
-                <source src="/videos/the%20dock.mov" type="video/quicktime" />
-              </video>
+              <Image
+                src="/images/DeborahEaganEdited_42 (1).jpg"
+                alt="Deborah Eagan"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 41.666667vw"
+                priority
+              />
             </div>
           </div>
-          <div className="page-shell mt-10 metric-grid">
+          <div className="page-shell mt-8 metric-grid">
             {accolades.map((item) => (
               <div key={item.label} className="metric">
                 <p className="text-3xl font-semibold text-ink">{item.label}</p>
@@ -144,13 +135,24 @@ export default function Home() {
         </section>
 
         <section className="section-shell">
-          <div className="page-shell space-y-10">
-            <div className="grid gap-6 md:grid-cols-2">
+          <div className="page-shell">
+            <div className="mb-8">
+              <p className="eyebrow">Featured Properties</p>
+              <div className="rule" />
+              <h2 className="text-3xl mt-6">Curated waterfront residences.</h2>
+            </div>
+            <FeaturedProperties />
+          </div>
+        </section>
+
+        <section className="section-shell">
+          <div className="page-shell space-y-16">
+            <div className="grid gap-8 md:grid-cols-2">
               <div className="tile">
                 <p className="eyebrow">Signature Collection</p>
                 <div className="rule" />
-                <h2 className="text-3xl">Square-cut editorial showcases with cinematic pacing.</h2>
-                <p className="mt-4 text-base">
+                <h2 className="text-3xl mb-6">Square-cut editorial showcases with cinematic pacing.</h2>
+                <p className="text-base leading-relaxed">
                   Each release is storyboarded like a Christie’s exhibition—rigid grids, calm whitespace, and bold contrasts to let
                   the architecture lead. Catalogue drops are private and data-backed.
                 </p>
@@ -158,11 +160,11 @@ export default function Home() {
               <div className="tile-muted">
                 <p className="eyebrow">Request Access</p>
                 <div className="rule" />
-                <p className="text-base">
+                <p className="text-base leading-relaxed mb-8">
                   Email info@eaganluxury.com for off-market dossiers across St. Petersburg waterfront towers, Tierra Verde marina
                   estates, and Gulf Beach villas.
                 </p>
-                <Link href="/contact" className="btn-primary mt-6">
+                <Link href="/contact" className="btn-primary mt-8">
                   Secure Brief
                 </Link>
               </div>
@@ -193,43 +195,43 @@ export default function Home() {
         </section>
 
         <section className="section-shell">
-          <div className="page-shell grid gap-6 md:grid-cols-3">
+          <div className="page-shell grid gap-8 md:grid-cols-3">
             {briefs.map((brief) => (
               <div key={brief.title} className="tile">
                 <p className="eyebrow">Advisory</p>
                 <div className="rule" />
-                <h3 className="text-2xl mb-4">{brief.title}</h3>
-                <p>{brief.copy}</p>
+                <h3 className="text-2xl mb-6">{brief.title}</h3>
+                <p className="leading-relaxed">{brief.copy}</p>
               </div>
             ))}
           </div>
         </section>
 
         <section className="section-shell">
-          <div className="page-shell grid gap-6 lg:grid-cols-12">
+          <div className="page-shell grid gap-8 lg:grid-cols-12">
             <div className="tile lg:col-span-7">
               <p className="eyebrow">Testimonials</p>
               <div className="rule" />
               {testimonials.map((testimonial) => (
-                <blockquote key={testimonial.author} className="mb-8">
-                  <p className="text-xl leading-8 text-ink-soft">“{testimonial.quote}”</p>
-                  <footer className="mt-3 text-xs uppercase tracking-[0.3em] text-graphite">{testimonial.author}</footer>
+                <blockquote key={testimonial.author} className="mb-12">
+                  <p className="text-xl leading-relaxed text-ink-soft">"{testimonial.quote}"</p>
+                  <footer className="mt-4 text-xs uppercase tracking-[0.3em] text-graphite">{testimonial.author}</footer>
                 </blockquote>
               ))}
             </div>
             <div className="tile-muted lg:col-span-5">
               <p className="eyebrow">Office</p>
               <div className="rule" />
-              <p className="text-sm leading-7">
+              <p className="text-sm leading-relaxed mb-8">
                 4993 Bacopa Ln S #705
                 <br />
                 St. Petersburg, FL 33715
               </p>
-              <div className="mt-6 grid gap-2 text-xs uppercase tracking-[0.25em]">
+              <div className="grid gap-3 text-xs uppercase tracking-[0.25em] mb-8">
                 <a href="tel:7276371019">Call 727.637.1019</a>
                 <a href="mailto:info@eaganluxury.com">Email info@eaganluxury.com</a>
               </div>
-              <Link href="/about" className="btn-outline mt-6">
+              <Link href="/about" className="btn-outline">
                 Studio Overview
               </Link>
             </div>
@@ -237,28 +239,28 @@ export default function Home() {
         </section>
 
         <section className="section-shell">
-          <div className="page-shell grid gap-6 lg:grid-cols-12">
+          <div className="page-shell grid gap-8 lg:grid-cols-12">
             <div className="tile lg:col-span-8">
               <p className="eyebrow">Arrange a Consultation</p>
               <div className="rule" />
-              <h2 className="text-3xl">Tell us the viewline, marina depth, or skyline you’re targeting.</h2>
-              <p className="mt-4 text-base">
-                We’ll deliver a structured action plan covering valuation, creative direction, and launch sequencing tailored to
+              <h2 className="text-3xl mb-6">Tell us the viewline, marina depth, or skyline you're targeting.</h2>
+              <p className="text-base leading-relaxed">
+                We'll deliver a structured action plan covering valuation, creative direction, and launch sequencing tailored to
                 your residence.
               </p>
             </div>
             <div className="tile-muted lg:col-span-4 flex flex-col justify-between">
               <div>
                 <p className="uppercase text-xs tracking-[0.3em]">Direct Line</p>
-                <a href="tel:7276371019" className="text-2xl mt-2 block">
+                <a href="tel:7276371019" className="text-2xl mt-3 block mb-8">
                   727.637.1019
                 </a>
-                <p className="uppercase text-xs tracking-[0.3em] mt-6">Email</p>
-                <a href="mailto:info@eaganluxury.com" className="text-sm">
+                <p className="uppercase text-xs tracking-[0.3em]">Email</p>
+                <a href="mailto:info@eaganluxury.com" className="text-sm mt-3 block">
                   info@eaganluxury.com
                 </a>
               </div>
-              <Link href="/contact" className="btn-primary mt-8">
+              <Link href="/contact" className="btn-primary mt-12">
                 Schedule
               </Link>
             </div>

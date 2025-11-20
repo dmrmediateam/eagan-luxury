@@ -1,13 +1,13 @@
 import { defineConfig } from 'sanity'
 import { deskTool } from 'sanity/desk'
 import { visionTool } from '@sanity/vision'
-import { schemaTypes } from './sanity/schemas'
+import { schemaTypes } from './schemas'
 
 export default defineConfig({
   name: 'default',
-  title: 'Cheryl Towey Real Estate Website Blog',
+  title: 'Eagan Luxury Real Estate',
 
-  projectId: 'cs56ipyy',
+  projectId: '7yjd71xv',
   dataset: 'production',
 
   plugins: [deskTool(), visionTool()],

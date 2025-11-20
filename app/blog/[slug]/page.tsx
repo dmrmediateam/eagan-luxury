@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { PortableText } from '@portabletext/react';
 import { getBlogPostBySlug, getAllBlogPosts } from '@/data/blogPosts';
 import type { Metadata } from 'next';
@@ -27,10 +28,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   return {
     title: post.seo?.metaTitle || post.title,
-    description: post.seo?.metaDescription || post.description,
+    description: post.seo?.metaDescription || post.excerpt,
     openGraph: {
       title: post.seo?.metaTitle || post.title,
-      description: post.seo?.metaDescription || post.description,
+      description: post.seo?.metaDescription || post.excerpt,
       images: [post.mainImage.asset.url],
       type: 'article',
       publishedTime: post.publishedAt,
@@ -42,41 +43,55 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 const portableTextComponents = {
   block: {
     h2: ({ children }: any) => (
-      <h2 className="text-3xl font-light text-black mt-12 mb-4">{children}</h2>
+      <h2 className="text-3xl font-light text-ink mt-12 mb-4">{children}</h2>
     ),
     h3: ({ children }: any) => (
-      <h3 className="text-2xl font-light text-black mt-8 mb-3">{children}</h3>
+      <h3 className="text-2xl font-light text-ink mt-8 mb-3">{children}</h3>
     ),
     h4: ({ children }: any) => (
-      <h4 className="text-xl font-medium text-black mt-6 mb-2">{children}</h4>
+      <h4 className="text-xl font-medium text-ink mt-6 mb-2">{children}</h4>
     ),
     normal: ({ children }: any) => (
-      <p className="text-gray-dark text-lg leading-relaxed mb-6">{children}</p>
+      <p className="text-ink-soft text-lg leading-relaxed mb-6">{children}</p>
     ),
     blockquote: ({ children }: any) => (
-      <blockquote className="border-l-4 border-gold pl-6 my-8 italic text-gray-dark">
+      <blockquote className="border-l-4 border-accent pl-6 my-8 italic text-ink-soft">
         {children}
       </blockquote>
     ),
   },
   list: {
     bullet: ({ children }: any) => (
-      <ul className="list-disc list-inside mb-6 text-gray-dark space-y-2">{children}</ul>
+      <ul className="list-disc list-inside mb-6 text-ink-soft space-y-2">{children}</ul>
     ),
     number: ({ children }: any) => (
-      <ol className="list-decimal list-inside mb-6 text-gray-dark space-y-2">{children}</ol>
+      <ol className="list-decimal list-inside mb-6 text-ink-soft space-y-2">{children}</ol>
     ),
   },
   marks: {
     link: ({ children, value }: any) => (
       <a
         href={value.href}
-        className="text-gold hover:underline"
-        target="_blank"
-        rel="noopener noreferrer"
+        className="text-accent hover:underline"
+        target={value.blank ? "_blank" : undefined}
+        rel={value.blank ? "noopener noreferrer" : undefined}
       >
         {children}
       </a>
+    ),
+  },
+  types: {
+    image: ({ value }: any) => (
+      <div className="my-8">
+        <img
+          src={value.asset?.url}
+          alt={value.alt || ''}
+          className="w-full rounded"
+        />
+        {value.caption && (
+          <p className="text-sm text-ink-soft mt-2 text-center">{value.caption}</p>
+        )}
+      </div>
     ),
   },
 };
@@ -96,139 +111,141 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
   });
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <div className="relative h-[60vh] min-h-[500px] bg-black">
-        <img
-          src={post.mainImage.asset.url}
-          alt={post.mainImage.alt}
-          className="w-full h-full object-cover opacity-60"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/80 flex items-end">
-          <div className="container-max pb-16">
-            <div className="max-w-4xl">
-              {/* Category Badge */}
-              <div className="inline-block bg-gold text-white px-4 py-2 text-xs uppercase tracking-wider mb-6">
-                {post.category}
-              </div>
+    <main className="page-transition">
+      <section className="section-shell">
+        <div className="page-shell">
+          <Link href="/blog" className="text-sm text-ink-soft hover:text-accent mb-6 inline-block">
+            ← Back to Blog
+          </Link>
 
-              {/* Title */}
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light text-white mb-6 leading-tight">
-                {post.title}
-              </h1>
+          <div className="max-w-4xl mx-auto">
+            <div className="flex items-center gap-3 text-xs uppercase tracking-wider text-ink-soft mb-4">
+              <span className="text-accent">{post.category}</span>
+              <span>•</span>
+              <span>{formattedDate}</span>
+              {post.readTime && (
+                <>
+                  <span>•</span>
+                  <span>{post.readTime}</span>
+                </>
+              )}
+            </div>
 
-              {/* Meta Information */}
-              <div className="flex flex-wrap items-center gap-4 text-white/90 text-sm">
-                <div className="flex items-center gap-2">
-                  {post.author.image && (
-                    <img
+            <h1 className="text-4xl md:text-[3.5rem] leading-tight mb-6">
+              {post.title}
+            </h1>
+
+            {post.author && (
+              <div className="flex items-center gap-3 mb-8">
+                {post.author.image && (
+                  <div className="relative w-12 h-12 rounded-full overflow-hidden">
+                    <Image
                       src={post.author.image}
                       alt={post.author.name}
-                      className="w-10 h-10 rounded-full border-2 border-gold"
+                      fill
+                      className="object-cover"
+                      sizes="48px"
                     />
-                  )}
-                  <span>{post.author.name}</span>
-                </div>
-                <span>•</span>
-                <span>{formattedDate}</span>
-                <span>•</span>
-                <span>{post.readTime}</span>
+                  </div>
+                )}
+                <span className="text-ink-soft">{post.author.name}</span>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
+            )}
 
-      {/* Article Content */}
-      <article className="section-padding">
-        <div className="container mx-auto px-4 max-w-4xl">
-          {/* Lead Paragraph */}
-          <div className="text-xl text-gray-dark leading-relaxed mb-12 pb-8 border-b border-gray">
-            {post.description}
-          </div>
+            <div className="w-12 h-px bg-accent mb-8" />
 
-          {/* Main Content - Portable Text */}
-          <div className="prose prose-lg max-w-none">
-            <PortableText value={post.body} components={portableTextComponents} />
-          </div>
+            <p className="text-xl text-ink-soft leading-relaxed mb-8">
+              {post.excerpt}
+            </p>
 
-          {/* Tags */}
-          {post.tags && post.tags.length > 0 && (
-            <div className="mt-16 pt-8 border-t border-gray">
-              <h3 className="text-sm uppercase tracking-wider text-gray-dark mb-4">
-                Topics
-              </h3>
-              <div className="flex flex-wrap gap-3">
-                {post.tags.map((tag, index) => (
-                  <span
-                    key={index}
-                    className="px-4 py-2 bg-gray-light text-black text-sm border border-gray rounded-sm"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Author Bio */}
-          <div className="mt-16 p-8 bg-gray-light border border-gray rounded-sm">
-            <div className="flex items-start gap-6">
-              {post.author.image && (
-                <img
-                  src={post.author.image}
-                  alt={post.author.name}
-                  className="w-24 h-24 rounded-full border-2 border-gold"
+            {/* Smaller Featured Image */}
+            {post.mainImage?.asset?.url && (
+              <div className="relative aspect-[4/3] w-full mb-12 rounded overflow-hidden">
+                <Image
+                  src={post.mainImage.asset.url}
+                  alt={post.mainImage.alt || post.title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 896px"
+                  priority
                 />
-              )}
-              <div>
-                <h3 className="text-2xl font-light text-black mb-3">
-                  About {post.author.name}
-                </h3>
-                <p className="text-gray-dark leading-relaxed mb-4">
-                  Expert real estate agent specializing in Morris County and surrounding areas.
-                  Helping families find their dream homes with personalized service and local market expertise.
-                </p>
-                <Link href="/contact" className="btn-primary inline-block">
-                  Contact {post.author.name}
-                </Link>
               </div>
-            </div>
-          </div>
-
-          {/* Back to Blog */}
-          <div className="mt-16 text-center">
-            <Link
-              href="/blog"
-              className="inline-flex items-center gap-2 text-black hover:text-gold transition-colors duration-200"
-            >
-              <span>←</span>
-              <span className="text-lg">Back to All Insights</span>
-            </Link>
-          </div>
-        </div>
-      </article>
-
-      {/* CTA Section */}
-      <section className="section-padding bg-gray-light border-t border-gray">
-        <div className="container-max text-center">
-          <h2 className="text-3xl sm:text-4xl font-light text-black mb-6">
-            Ready to Find Your Perfect Home?
-          </h2>
-          <p className="text-lg text-gray-dark max-w-2xl mx-auto mb-8">
-            Get expert guidance and exclusive access to listings in Morris County and beyond.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/contact" className="btn-primary">
-              Schedule a Consultation
-            </Link>
-            <Link href="/listings" className="btn-outline">
-              Browse Listings
-            </Link>
+            )}
           </div>
         </div>
       </section>
-    </div>
+
+      {/* Article Content */}
+      <section className="section-shell bg-ink/5">
+        <div className="page-shell">
+          <article className="max-w-4xl mx-auto">
+            <div className="prose prose-lg max-w-none">
+              <PortableText value={post.content} components={portableTextComponents} />
+            </div>
+
+            {/* Tags */}
+            {post.tags && post.tags.length > 0 && (
+              <div className="mt-16 pt-8 border-t border-ink/20">
+                <h3 className="text-sm uppercase tracking-wider text-ink mb-4">
+                  Topics
+                </h3>
+                <div className="flex flex-wrap gap-3">
+                  {post.tags.map((tag, index) => (
+                    <span
+                      key={index}
+                      className="px-4 py-2 bg-ink/10 text-ink text-sm rounded"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Author Bio */}
+            {post.author && (
+              <div className="mt-16 p-8 tile">
+                <div className="flex items-start gap-6">
+                  {post.author.image && (
+                    <div className="relative w-24 h-24 rounded-full overflow-hidden flex-shrink-0">
+                      <Image
+                        src={post.author.image}
+                        alt={post.author.name}
+                        fill
+                        className="object-cover"
+                        sizes="96px"
+                      />
+                    </div>
+                  )}
+                  <div>
+                    <h3 className="text-2xl font-light text-ink mb-3">
+                      About {post.author.name}
+                    </h3>
+                    <p className="text-ink-soft leading-relaxed mb-4">
+                      Expert real estate agent specializing in St. Petersburg and surrounding areas.
+                      Helping families find their dream homes with personalized service and local market expertise.
+                    </p>
+                    <Link href="/contact" className="btn-primary inline-block">
+                      Contact {post.author.name}
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Back to Blog */}
+            <div className="mt-16 text-center">
+              <Link
+                href="/blog"
+                className="inline-flex items-center gap-2 text-ink hover:text-accent transition-colors"
+              >
+                <span>←</span>
+                <span>Back to All Insights</span>
+              </Link>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
   );
 }
-
