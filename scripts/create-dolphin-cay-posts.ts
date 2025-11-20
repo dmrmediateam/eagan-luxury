@@ -7,11 +7,15 @@
 
 import { createClient } from '@sanity/client';
 
+if (!process.env.SANITY_API_TOKEN) {
+  throw new Error('SANITY_API_TOKEN environment variable is required. Please set it in your .env.local file.');
+}
+
 const client = createClient({
   projectId: '7yjd71xv',
   dataset: 'production',
   apiVersion: '2024-01-01',
-  token: process.env.SANITY_API_TOKEN || 'skXLeyDuhuM4wyB7bmxjv7atVUz2N4quqqjlpZhlzYPCYGDVhaOa35MofZIJBOdr2IJyukuXEVh4AdVix7uaMQ02uIxiA6r1imN26JWbScISQx0BEnFrs5lbaO5GK5LFnuvk7cudkFkwYCHexHIa7ZikCklcDNLSwkGpBDmf9M6JcEbvvtB0',
+  token: process.env.SANITY_API_TOKEN,
   useCdn: false,
 });
 
