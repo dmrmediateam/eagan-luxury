@@ -1,11 +1,21 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { notFound } from 'next/navigation';
 
 interface PageProps {
   params: {
     community: string;
   };
 }
+
+// Valid community slugs from footer and header
+const validCommunities = [
+  'dolphin-cay',
+  'tierra-verde',
+  'bacopa-bay',
+  'st-petersburg-waterfront',
+  'downtown-st-petersburg',
+];
 
 function formatCommunityName(slug: string): string {
   return slug
@@ -16,6 +26,11 @@ function formatCommunityName(slug: string): string {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { community } = params;
+  
+  if (!validCommunities.includes(community)) {
+    notFound();
+  }
+  
   const communityName = formatCommunityName(community);
   
   return {
@@ -26,6 +41,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default function MagazinePage({ params }: PageProps) {
   const { community } = params;
+  
+  if (!validCommunities.includes(community)) {
+    notFound();
+  }
+  
   const communityName = formatCommunityName(community);
 
   return (

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
+import { notFound } from 'next/navigation';
 import { getRestaurantsByCommunity } from '@/sanity/queries/businesses';
 
 interface PageProps {
@@ -8,6 +9,15 @@ interface PageProps {
     community: string;
   };
 }
+
+// Valid community slugs from footer and header
+const validCommunities = [
+  'dolphin-cay',
+  'tierra-verde',
+  'bacopa-bay',
+  'st-petersburg-waterfront',
+  'downtown-st-petersburg',
+];
 
 function formatCommunityName(slug: string): string {
   return slug
@@ -24,6 +34,11 @@ function formatDate(dateString: string | null): string {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { community } = params;
+  
+  if (!validCommunities.includes(community)) {
+    notFound();
+  }
+  
   const communityName = formatCommunityName(community);
   
   return {
@@ -34,6 +49,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function RestaurantsPage({ params }: PageProps) {
   const { community } = params;
+  
+  if (!validCommunities.includes(community)) {
+    notFound();
+  }
+  
   const communityName = formatCommunityName(community);
   const restaurants = await getRestaurantsByCommunity(communityName);
 

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
+import { notFound } from 'next/navigation';
 import CommunityListings from './components/CommunityListings';
 
 interface PageProps {
@@ -8,6 +9,15 @@ interface PageProps {
     community: string;
   };
 }
+
+// Valid community slugs from footer and header
+const validCommunities = [
+  'dolphin-cay',
+  'tierra-verde',
+  'bacopa-bay',
+  'st-petersburg-waterfront',
+  'downtown-st-petersburg',
+];
 
 // Helper function to format community name for display
 function formatCommunityName(slug: string): string {
@@ -20,6 +30,12 @@ function formatCommunityName(slug: string): string {
 // Generate metadata for SEO
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { community } = params;
+  
+  // Validate community slug - return 404 if not valid
+  if (!validCommunities.includes(community)) {
+    notFound();
+  }
+  
   const communityName = formatCommunityName(community);
   
   return {
@@ -46,6 +62,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default function CommunityPage({ params }: PageProps) {
   const { community } = params;
+  
+  // Validate community slug - return 404 if not valid
+  if (!validCommunities.includes(community)) {
+    notFound();
+  }
+  
   const communityName = formatCommunityName(community);
 
   return (

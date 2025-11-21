@@ -73,12 +73,16 @@ const briefs = [
 
 const testimonials = [
   {
-    quote: 'Eagan Luxury positioned our Bacopa Bay residence with museum-grade media and sold within weeks.',
-    author: 'Robert B. • Bacopa Bay',
+    quote: 'My wife and I have purchased and sold 5 properties with Debi and Bill and have in all cases had buyers within hours of the listing going live. She plants seeds and waters them like no other I know.',
+    author: 'Burt Driver • 4961 Bacopa Ln Penthouse #801',
   },
   {
-    quote: 'They handled contractors, staging, and remote closing while we relocated overseas. Seamless.',
-    author: 'Bruce T. • St. Petersburg',
+    quote: 'Debi sets the standard for a 5-star realtor. From the first introduction to the day our home closed, she was engaging, creative, confident, reassuring and always available. Debi is a true professional in an industry where it is critical to have a top-notch expert and partner to reach the finish line. Bravo Debi!',
+    author: 'The Hamachers • 4991 Bacopa Ln #703',
+  },
+  {
+    quote: 'In less than 10 days and with multiple offers in hand, our home sold! Debi took the time to fully understand the special attributes of the home and then used precision marketing techniques that helped to increase a high level of interest. I would not hesitate one iota to work with her again on any transaction. She is indeed one of those rare champions for unmatched customer service.',
+    author: 'Danato J. Tramuto • Pasadena Yacht and Country Club',
   },
 ];
 
@@ -249,6 +253,11 @@ export default function Home() {
                   <footer className="mt-4 text-xs uppercase tracking-[0.3em] text-graphite">{testimonial.author}</footer>
                 </blockquote>
               ))}
+              <div className="mt-8">
+                <Link href="/testimonials" className="btn-ghost">
+                  View All Testimonials →
+                </Link>
+              </div>
             </div>
             <div className="tile-muted lg:col-span-5">
               <p className="eyebrow">Office</p>
