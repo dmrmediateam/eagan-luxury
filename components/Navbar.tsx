@@ -196,7 +196,7 @@ export default function Navbar() {
                     {featuredCommunities.map((item) => (
                       <li key={item.slug}>
                         <Link
-                          href={`/communities/${item.slug}`}
+                          href={`/${item.slug}`}
                           className="group block text-base hover:text-accent transition-colors duration-200"
                           onClick={() => setOpen(false)}
                         >

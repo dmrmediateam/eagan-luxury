@@ -1,9 +1,10 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import HomeValuation from '@/components/HomeValuation';
 
-export const metadata = {
-  title: 'Seller\'s Guide | Cheryl Towey Real Estate',
-  description: 'Expert guidance for home sellers in New Jersey. Get a free home valuation, learn about the selling process, and maximize your property\'s value with Cheryl Towey.',
+export const metadata: Metadata = {
+  title: 'Sell With Us | Eagan Luxury Real Estate',
+  description: 'Expert guidance for selling your luxury waterfront or sky residence in St. Petersburg. Professional marketing, strategic pricing, and comprehensive support.',
 };
 
 export default function SellersPage() {
@@ -11,145 +12,121 @@ export default function SellersPage() {
     {
       step: '01',
       title: 'Consultation & Valuation',
-      description: 'Meet with Cheryl to discuss your goals and receive a comprehensive market analysis of your property.',
-      icon: '🤝',
+      description: 'Comprehensive market analysis and strategic pricing for your property.',
     },
     {
       step: '02',
-      title: 'Prepare Your Home',
-      description: 'Expert advice on staging, repairs, and improvements to maximize your home\'s appeal and value.',
-      icon: '✨',
+      title: 'Preparation & Staging',
+      description: 'Expert guidance on presenting your home to maximize appeal and value.',
     },
     {
       step: '03',
       title: 'Professional Marketing',
-      description: 'High-quality photography, virtual tours, MLS listing, and targeted digital marketing campaigns.',
-      icon: '📸',
+      description: 'Gallery-grade photography, virtual tours, and targeted digital campaigns.',
     },
     {
       step: '04',
-      title: 'Show Your Home',
-      description: 'Coordinate showings and open houses to showcase your property to qualified buyers.',
-      icon: '🚪',
+      title: 'Showings & Open Houses',
+      description: 'Coordinated presentations to qualified buyers and real estate professionals.',
     },
     {
       step: '05',
-      title: 'Review Offers',
-      description: 'Analyze offers together and negotiate the best terms, price, and contingencies for your sale.',
-      icon: '📋',
+      title: 'Offer Review & Negotiation',
+      description: 'Strategic analysis and expert negotiation to secure optimal terms.',
     },
     {
       step: '06',
-      title: 'Close the Sale',
-      description: 'Navigate inspections, appraisals, and closing process smoothly to complete your successful sale.',
-      icon: '✅',
+      title: 'Closing',
+      description: 'Seamless navigation through inspections, appraisals, and final transactions.',
     },
   ];
 
   const marketingStrategies = [
     {
-      title: 'Professional Photography & Video',
-      description: 'Stunning visuals that showcase your home\'s best features and attract more qualified buyers.',
-      icon: '📷',
+      title: 'Professional Photography',
+      description: 'Stunning visuals that showcase your property\'s best features.',
     },
     {
       title: 'MLS & Online Exposure',
-      description: 'Maximum visibility on all major real estate platforms including Zillow, Realtor.com, and more.',
-      icon: '🌐',
+      description: 'Maximum visibility across all major real estate platforms.',
     },
     {
-      title: 'Targeted Social Media',
-      description: 'Strategic advertising on Facebook, Instagram, and other platforms to reach potential buyers.',
-      icon: '📱',
+      title: 'Digital Marketing',
+      description: 'Strategic advertising and social media campaigns.',
     },
     {
-      title: 'Virtual Tours & 3D Walkthroughs',
-      description: 'Immersive digital experiences that allow buyers to explore your home from anywhere.',
-      icon: '🎥',
+      title: 'Virtual Tours',
+      description: 'Immersive digital experiences for remote buyers.',
     },
     {
-      title: 'Professional Staging Advice',
-      description: 'Expert recommendations to present your home in the best possible light.',
-      icon: '🏠',
+      title: 'Staging Consultation',
+      description: 'Expert recommendations to present your home optimally.',
     },
     {
-      title: 'Open Houses & Private Showings',
-      description: 'Flexible showing options to accommodate serious buyers and maximize interest.',
-      icon: '🗝️',
+      title: 'Private Showings',
+      description: 'Flexible showing options for qualified buyers.',
     },
   ];
 
   const benefits = [
     {
-      title: 'Maximum Market Exposure',
+      title: 'Maximum Exposure',
       description: 'Your listing reaches thousands of potential buyers through strategic marketing.',
     },
     {
-      title: 'Expert Pricing Strategy',
-      description: 'Data-driven pricing to attract buyers while maximizing your return.',
+      title: 'Expert Pricing',
+      description: 'Data-driven pricing strategy to attract buyers while maximizing return.',
     },
     {
       title: 'Skilled Negotiation',
       description: 'Professional representation to secure the best terms and highest price.',
     },
     {
-      title: 'Stress-Free Process',
-      description: 'Full-service support handling all details from listing to closing.',
+      title: 'Full-Service Support',
+      description: 'Comprehensive assistance from listing through closing.',
     },
   ];
 
   return (
-    <div className="min-h-screen">
+    <main className="page-transition">
       {/* Hero Section */}
-      <section className="section-padding bg-gradient-to-b from-gray-light to-white">
-      <div className="container-max">
-        <div className="text-center max-w-4xl mx-auto">
-            <h1 className="scroll-animate text-3xl sm:text-4xl font-serif font-light text-black mb-6 heading-underline pb-4">
-            Seller's Guide
+      <section className="section-shell">
+        <div className="page-shell max-w-4xl">
+          <p className="eyebrow">Sell With Us</p>
+          <div className="rule" />
+          <h1 className="text-4xl md:text-[3.5rem] leading-tight mt-6 font-light">
+            Sell Your Property
           </h1>
-            <p className="scroll-animate text-base text-gray-dark leading-relaxed mb-8">
-              Maximize your home's value with expert guidance, professional marketing, and strategic pricing. Cheryl Towey provides comprehensive support to ensure a successful sale from start to finish.
-            </p>
-            <div className="scroll-animate flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="#valuation" className="btn-primary text-xs">
-                Get Free Home Valuation
-              </Link>
-              <Link href="/contact" className="btn-secondary text-xs">
-                Schedule Consultation
-              </Link>
-            </div>
+          <p className="mt-8 text-lg text-ink-soft leading-relaxed max-w-2xl">
+            Expert guidance, professional marketing, and strategic pricing to maximize your property's value. We provide comprehensive support throughout the entire selling process.
+          </p>
+          <div className="flex gap-4 flex-wrap mt-8">
+            <Link href="#valuation" className="btn-primary">
+              Get Home Valuation
+            </Link>
+            <Link href="/contact" className="btn-outline">
+              Schedule Consultation
+            </Link>
           </div>
         </div>
       </section>
 
       {/* The Selling Process */}
-      <section className="section-padding bg-white">
-        <div className="container-max">
-          <div className="text-center mb-16">
-            <h2 className="scroll-animate text-3xl sm:text-4xl font-serif font-light text-black mb-4">
-              The Home Selling Process
-            </h2>
-            <p className="scroll-animate text-base text-gray-dark max-w-3xl mx-auto">
-              A proven step-by-step approach to selling your home for top dollar
-            </p>
-          </div>
-
-          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {sellingProcess.map((item, index) => (
-              <div
-                key={index}
-                className="scroll-animate bg-gradient-to-br from-white to-gray-light p-8 rounded-sm border border-gray-200 hover:border-gold hover:shadow-xl transition-all duration-300 group"
-              >
-                <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                  {item.icon}
-                </div>
-                <div className="text-xs uppercase tracking-widest text-gold font-semibold mb-3">
-                  Step {item.step}
-                </div>
-                <h3 className="text-xl font-serif font-light text-black mb-3 group-hover:text-gold transition-colors duration-300">
-                  {item.title}
-                </h3>
-                <p className="text-sm text-gray-dark leading-relaxed">
+      <section className="section-shell bg-ink/5">
+        <div className="page-shell max-w-6xl">
+          <p className="eyebrow">Process</p>
+          <div className="rule" />
+          <h2 className="text-3xl md:text-4xl font-light mb-12">
+            The Selling Process
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {sellingProcess.map((item) => (
+              <div key={item.step} className="tile">
+                <p className="text-sm uppercase tracking-[0.2em] text-graphite mb-4">
+                  {item.step}
+                </p>
+                <h3 className="text-xl font-light mb-4">{item.title}</h3>
+                <p className="text-sm leading-relaxed text-ink-soft">
                   {item.description}
                 </p>
               </div>
@@ -158,90 +135,71 @@ export default function SellersPage() {
         </div>
       </section>
 
-      {/* Why Sell With Cheryl */}
-      <section className="section-padding bg-gray-light">
-        <div className="container-max">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-              {/* Image */}
-              <div className="scroll-animate order-2 lg:order-1">
-                <div className="bg-white p-8 rounded-sm shadow-xl">
-                  <div className="aspect-video bg-gray-200 rounded-sm mb-6 flex items-center justify-center">
-                    <span className="text-gray-400 text-sm">Professional Listing Photo</span>
-                  </div>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="text-center p-4 bg-gradient-to-br from-gold/10 to-transparent rounded-sm">
-                      <div className="text-2xl font-serif text-gold mb-1">98%</div>
-                      <div className="text-xs text-gray-dark">Average List-to-Sale Price</div>
+      {/* Why Sell With Us */}
+      <section className="section-shell">
+        <div className="page-shell max-w-6xl">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <p className="eyebrow">Why Choose Us</p>
+              <div className="rule" />
+              <h2 className="text-3xl md:text-4xl font-light mb-8">
+                Proven Results
+              </h2>
+              <p className="text-base leading-relaxed text-ink-soft mb-8">
+                Our proven track record, comprehensive marketing strategies, and deep knowledge of the St. Petersburg luxury market ensure your property sells quickly and for the best possible price.
+              </p>
+              <div className="space-y-6">
+                {benefits.map((benefit, index) => (
+                  <div key={index} className="flex gap-4">
+                    <div className="flex-shrink-0 mt-1">
+                      <div className="w-1 h-1 bg-accent rounded-full" />
                     </div>
-                    <div className="text-center p-4 bg-gradient-to-br from-gold/10 to-transparent rounded-sm">
-                      <div className="text-2xl font-serif text-gold mb-1">45</div>
-                      <div className="text-xs text-gray-dark">Average Days on Market</div>
+                    <div>
+                      <h3 className="text-lg font-light mb-2">{benefit.title}</h3>
+                      <p className="text-sm leading-relaxed text-ink-soft">
+                        {benefit.description}
+                      </p>
                     </div>
                   </div>
+                ))}
+              </div>
+            </div>
+            <div className="tile-muted">
+              <div className="grid grid-cols-2 gap-6 mb-8">
+                <div className="text-center">
+                  <p className="text-3xl font-light text-ink mb-2">98%</p>
+                  <p className="text-xs uppercase tracking-[0.2em] text-graphite">
+                    Average List-to-Sale
+                  </p>
+                </div>
+                <div className="text-center">
+                  <p className="text-3xl font-light text-ink mb-2">45</p>
+                  <p className="text-xs uppercase tracking-[0.2em] text-graphite">
+                    Days on Market
+                  </p>
                 </div>
               </div>
-
-              {/* Content */}
-              <div className="order-1 lg:order-2">
-                <h2 className="scroll-animate text-3xl sm:text-4xl font-serif font-light text-black mb-6">
-                  Why Sell With Cheryl?
-                </h2>
-                <p className="scroll-animate text-base text-gray-dark leading-relaxed mb-8">
-                  Cheryl's proven track record, comprehensive marketing strategies, and deep knowledge of the New Jersey market ensure your home sells quickly and for the best possible price. Her personalized approach means you're never just another listing.
-                </p>
-                
-                <div className="space-y-6">
-                  {benefits.map((benefit, index) => (
-                    <div
-                      key={index}
-                      className="scroll-animate flex gap-4 p-6 bg-white rounded-sm border-l-4 border-gold hover:shadow-lg transition-all duration-300"
-                    >
-                      <div className="flex-shrink-0">
-                        <svg className="w-6 h-6 text-gold" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                        </svg>
-                      </div>
-                      <div>
-                        <h3 className="text-base font-serif font-light text-black mb-2">
-                          {benefit.title}
-                        </h3>
-                        <p className="text-sm text-gray-dark leading-relaxed">
-                          {benefit.description}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+              <p className="text-sm leading-relaxed text-ink-soft">
+                Our marketing approach combines data-driven pricing with gallery-grade presentation to achieve exceptional results for luxury properties.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Marketing Strategies */}
-      <section className="section-padding bg-white">
-        <div className="container-max">
-          <div className="text-center mb-16">
-            <h2 className="scroll-animate text-3xl sm:text-4xl font-serif font-light text-black mb-4">
-              Comprehensive Marketing
-            </h2>
-            <p className="scroll-animate text-base text-gray-dark max-w-3xl mx-auto">
-              Your property deserves a multi-channel marketing approach that reaches the right buyers
-            </p>
-          </div>
-
-          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <section className="section-shell bg-ink/5">
+        <div className="page-shell max-w-6xl">
+          <p className="eyebrow">Marketing</p>
+          <div className="rule" />
+          <h2 className="text-3xl md:text-4xl font-light mb-12">
+            Comprehensive Marketing
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {marketingStrategies.map((strategy, index) => (
-              <div
-                key={index}
-                className="scroll-animate bg-white p-6 rounded-sm border border-gray-200 hover:border-gold hover:shadow-lg transition-all duration-300"
-              >
-                <div className="text-4xl mb-4">{strategy.icon}</div>
-                <h3 className="text-base font-serif font-light text-black mb-2">
-                  {strategy.title}
-                </h3>
-                <p className="text-xs text-gray-dark leading-relaxed">
+              <div key={index} className="tile">
+                <h3 className="text-lg font-light mb-3">{strategy.title}</h3>
+                <p className="text-sm leading-relaxed text-ink-soft">
                   {strategy.description}
                 </p>
               </div>
@@ -250,123 +208,111 @@ export default function SellersPage() {
         </div>
       </section>
 
-      {/* Home Preparation Tips */}
-      <section className="section-padding bg-gray-light">
-        <div className="container-max">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="scroll-animate text-3xl sm:text-4xl font-serif font-light text-black mb-8 text-center">
-              Preparing Your Home to Sell
-            </h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="scroll-animate bg-white p-6 rounded-sm shadow-md">
-                <h3 className="text-lg font-serif font-light text-black mb-4 flex items-center gap-2">
-                  <span className="text-gold">✓</span>
-                  Interior Preparation
-                </h3>
-                <ul className="space-y-2 text-sm text-gray-dark">
-                  <li className="flex gap-2">
-                    <span className="text-gold flex-shrink-0">•</span>
-                    <span>Declutter and depersonalize spaces</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="text-gold flex-shrink-0">•</span>
-                    <span>Deep clean every room</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="text-gold flex-shrink-0">•</span>
-                    <span>Make minor repairs and touch-up paint</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="text-gold flex-shrink-0">•</span>
-                    <span>Update fixtures and hardware</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="text-gold flex-shrink-0">•</span>
-                    <span>Maximize natural light</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="text-gold flex-shrink-0">•</span>
-                    <span>Create inviting, neutral spaces</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="scroll-animate bg-white p-6 rounded-sm shadow-md">
-                <h3 className="text-lg font-serif font-light text-black mb-4 flex items-center gap-2">
-                  <span className="text-gold">✓</span>
-                  Exterior Preparation
-                </h3>
-                <ul className="space-y-2 text-sm text-gray-dark">
-                  <li className="flex gap-2">
-                    <span className="text-gold flex-shrink-0">•</span>
-                    <span>Enhance curb appeal with landscaping</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="text-gold flex-shrink-0">•</span>
-                    <span>Power wash siding and walkways</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="text-gold flex-shrink-0">•</span>
-                    <span>Paint or stain front door</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="text-gold flex-shrink-0">•</span>
-                    <span>Maintain lawn and gardens</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="text-gold flex-shrink-0">•</span>
-                    <span>Clean gutters and windows</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="text-gold flex-shrink-0">•</span>
-                    <span>Add welcoming touches (plants, new mailbox)</span>
-                  </li>
-                </ul>
-              </div>
+      {/* Home Preparation */}
+      <section className="section-shell">
+        <div className="page-shell max-w-4xl">
+          <p className="eyebrow">Preparation</p>
+          <div className="rule" />
+          <h2 className="text-3xl md:text-4xl font-light mb-12">
+            Preparing Your Home
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="tile">
+              <h3 className="text-xl font-light mb-6">Interior</h3>
+              <ul className="space-y-3 text-sm text-ink-soft">
+                <li className="flex items-start gap-3">
+                  <span className="text-accent mt-1">•</span>
+                  <span>Declutter and depersonalize spaces</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-accent mt-1">•</span>
+                  <span>Deep clean every room</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-accent mt-1">•</span>
+                  <span>Make minor repairs and touch-up paint</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-accent mt-1">•</span>
+                  <span>Update fixtures and hardware</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-accent mt-1">•</span>
+                  <span>Maximize natural light</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-accent mt-1">•</span>
+                  <span>Create inviting, neutral spaces</span>
+                </li>
+              </ul>
+            </div>
+            <div className="tile">
+              <h3 className="text-xl font-light mb-6">Exterior</h3>
+              <ul className="space-y-3 text-sm text-ink-soft">
+                <li className="flex items-start gap-3">
+                  <span className="text-accent mt-1">•</span>
+                  <span>Enhance curb appeal with landscaping</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-accent mt-1">•</span>
+                  <span>Power wash siding and walkways</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-accent mt-1">•</span>
+                  <span>Paint or stain front door</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-accent mt-1">•</span>
+                  <span>Maintain lawn and gardens</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-accent mt-1">•</span>
+                  <span>Clean gutters and windows</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-accent mt-1">•</span>
+                  <span>Add welcoming touches</span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
       </section>
 
       {/* Home Valuation Section */}
-      <section id="valuation" className="section-padding bg-white">
-        <div className="container-max">
-          <div className="text-center mb-12">
-            <h2 className="scroll-animate text-3xl sm:text-4xl font-serif font-light text-black mb-4">
-              Get Your Free Home Valuation
-            </h2>
-            <p className="scroll-animate text-base text-gray-dark max-w-3xl mx-auto">
-              Discover your home's current market value with a comprehensive analysis from Cheryl Towey
+      <section id="valuation" className="section-shell bg-ink/5">
+        <div className="page-shell max-w-4xl">
+          <p className="eyebrow">Valuation</p>
+          <div className="rule" />
+          <h2 className="text-3xl md:text-4xl font-light mb-6">
+            Get Your Home Valuation
+          </h2>
+          <p className="text-base leading-relaxed text-ink-soft mb-8">
+            Discover your property's current market value with a comprehensive analysis.
           </p>
-        </div>
-          
           <HomeValuation />
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="section-padding bg-gradient-to-br from-gray-light to-white">
-        <div className="container-max">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="scroll-animate text-3xl sm:text-4xl font-serif font-light text-black mb-6">
-              Ready to Sell Your Home?
-            </h2>
-            <p className="scroll-animate text-base text-gray-dark mb-8 leading-relaxed">
-              Let Cheryl create a customized marketing plan to sell your home quickly and for top dollar. Schedule your free consultation today.
-            </p>
-            <div className="scroll-animate flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contact" className="btn-primary text-xs">
-                Schedule a Consultation
-              </Link>
-              <a href="tel:9083340971" className="btn-secondary text-xs">
-                Call 908.334.0971
-              </a>
-            </div>
+      <section className="section-shell">
+        <div className="page-shell max-w-3xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-light mb-6">
+            Ready to Sell?
+          </h2>
+          <p className="text-base leading-relaxed text-ink-soft mb-8">
+            Let us create a customized marketing plan to sell your property quickly and for top dollar. Schedule your consultation today.
+          </p>
+          <div className="flex gap-4 justify-center flex-wrap">
+            <Link href="/contact" className="btn-primary">
+              Schedule Consultation
+            </Link>
+            <a href="tel:7276371019" className="btn-outline">
+              Call 727.637.1019
+            </a>
           </div>
-      </div>
+        </div>
       </section>
-    </div>
+    </main>
   );
 }
-

@@ -1,19 +1,26 @@
 import { MetadataRoute } from 'next';
 
 /**
- * Dynamic Sitemap Generation for Cheryl Towey Real Estate Website
+ * Dynamic Sitemap Generation for Eagan Luxury Real Estate Website
  * This file automatically generates a sitemap.xml at /sitemap.xml
- * 
- * Next.js will automatically serve this at: https://yourdomain.com/sitemap.xml
  */
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://www.realestatebycherylnj.com';
-  
-  // Current date for lastModified
+  const baseUrl = 'https://www.eaganluxury.com';
   const currentDate = new Date();
   
-  return [
+  // Featured communities from navigation
+  const featuredCommunities = [
+    'dolphin-cay',
+    'tierra-verde',
+    'bacopa-bay',
+    'st-petersburg-waterfront',
+    'downtown-st-petersburg',
+  ];
+
+  const communitySubPages = ['magazine', 'restaurants', 'businesses', 'marinas', 'resources'];
+
+  const sitemap: MetadataRoute.Sitemap = [
     // Homepage
     {
       url: baseUrl,
@@ -36,12 +43,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/buyers`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
       url: `${baseUrl}/sellers`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
@@ -54,89 +55,33 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/listing`,
+      url: `${baseUrl}/communities`,
       lastModified: currentDate,
-      changeFrequency: 'daily',
-      priority: 0.9,
+      changeFrequency: 'monthly',
+      priority: 0.8,
     },
     {
       url: `${baseUrl}/blog`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
-      priority: 0.7,
+      priority: 0.8,
     },
     
-    // Community Pages - Sussex County
-    {
-      url: `${baseUrl}/communities/sussex-county`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/communities/hackettstown`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/communities/andover`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/communities/byram`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/communities/blairstown`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    
-    // Community Pages - Warren County
-    {
-      url: `${baseUrl}/communities/warren-county`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/communities/chester`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/communities/washington`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    
-    // City Pages
-    {
-      url: `${baseUrl}/cities/montague`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/cities/high-bridge`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/cities/parsippany-troy-hills`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
+    // Featured Communities
+    ...featuredCommunities.flatMap(community => [
+      {
+        url: `${baseUrl}/${community}`,
+        lastModified: currentDate,
+        changeFrequency: 'weekly',
+        priority: 0.8,
+      },
+      ...communitySubPages.map(subPage => ({
+        url: `${baseUrl}/${community}/${subPage}`,
+        lastModified: currentDate,
+        changeFrequency: 'monthly',
+        priority: 0.7,
+      })),
+    ]),
     
     // Legal Pages
     {
@@ -146,7 +91,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.3,
     },
     {
-      url: `${baseUrl}/terms-of-service`,
+      url: `${baseUrl}/terms-and-conditions`,
+      lastModified: currentDate,
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
+    {
+      url: `${baseUrl}/fair-housing`,
+      lastModified: currentDate,
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
+    {
+      url: `${baseUrl}/mls-information`,
       lastModified: currentDate,
       changeFrequency: 'yearly',
       priority: 0.3,
@@ -157,9 +114,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'yearly',
       priority: 0.3,
     },
-    
-    // Note: Blog post URLs (/blog/[slug]) should be added dynamically
-    // by fetching from Sanity CMS. Add them here when blog is active.
   ];
-}
 
+  return sitemap;
+}

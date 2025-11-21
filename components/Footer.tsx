@@ -15,72 +15,108 @@ const navRight = [
   { label: 'Contact', href: '/contact' },
 ];
 
+const communities = [
+  { label: 'Dolphin Cay', href: '/dolphin-cay' },
+  { label: 'Tierra Verde', href: '/tierra-verde' },
+  { label: 'Bacopa Bay', href: '/bacopa-bay' },
+  { label: 'St. Petersburg Waterfront', href: '/st-petersburg-waterfront' },
+  { label: 'Downtown St. Petersburg', href: '/downtown-st-petersburg' },
+];
+
 export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
     <footer className="footer-shell section-shell">
       <div className="page-shell footer-grid">
+        {/* Brand & Contact Section */}
         <div className="footer-block lg:col-span-4">
           <p className="eyebrow">Eagan Luxury</p>
           <div className="rule" />
-          <p className="text-sm leading-7 mb-6">
+          <p className="text-sm leading-7 mb-8 text-ink-soft">
             A waterfront collective representing St. Petersburg, Tierra Verde, Bacopa Bay, and the Gulf Beaches. We curate
             gallery-grade marketing and bespoke negotiations for every shoreline property.
           </p>
-          <div className="mb-4">
-            <div className="relative h-14 w-56 mb-4">
+          
+          {/* KW Logo - Enhanced */}
+          <div className="mb-8 pb-8 border-b border-line">
+            <div className="relative h-16 w-64 bg-white border border-line p-4 flex items-center justify-start">
               <Image 
                 src="/images/KWlogo-55-1.png" 
                 alt="Keller Williams Realty St. Pete" 
                 fill 
-                className="object-contain" 
-                sizes="224px"
+                className="object-contain object-left" 
+                sizes="256px"
+                priority
               />
             </div>
           </div>
-          <div className="grid gap-2 text-sm uppercase tracking-[0.25em]">
-            <a href="tel:7276371019">727 637 1019</a>
-            <a href="mailto:info@eaganluxury.com">INFO@EAGANLUXURY.COM</a>
-            <span>4993 BACOPA LN S #705 • ST PETERSBURG FL</span>
+
+          {/* Contact Information */}
+          <div className="space-y-3">
+            <a 
+              href="tel:7276371019" 
+              className="block text-sm uppercase tracking-[0.2em] text-ink hover:text-accent transition-colors"
+            >
+              727 637 1019
+            </a>
+            <a 
+              href="mailto:info@eaganluxury.com" 
+              className="block text-sm uppercase tracking-[0.2em] text-ink hover:text-accent transition-colors"
+            >
+              INFO@EAGANLUXURY.COM
+            </a>
+            <p className="text-sm uppercase tracking-[0.2em] text-graphite leading-relaxed">
+              4993 BACOPA LN S #705<br />
+              ST PETERSBURG FL
+            </p>
           </div>
         </div>
 
+        {/* Navigation Section */}
         <div className="footer-block lg:col-span-4">
           <p className="eyebrow">Navigate</p>
           <div className="rule" />
-          <div className="grid grid-cols-2 gap-6 mb-8">
+          <div className="grid grid-cols-2 gap-8 mb-10">
             <ul className="list-plain">
               {navLeft.map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href}>{link.label}</Link>
+                  <Link href={link.href} className="hover:text-accent transition-colors">
+                    {link.label}
+                  </Link>
                 </li>
               ))}
             </ul>
             <ul className="list-plain">
               {navRight.map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href}>{link.label}</Link>
+                  <Link href={link.href} className="hover:text-accent transition-colors">
+                    {link.label}
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
+          
           <div>
             <p className="eyebrow mb-4">Featured Communities</p>
             <ul className="list-plain">
-              <li><Link href="#">Dolphin Cay</Link></li>
-              <li><Link href="#">Tierra Verde</Link></li>
-              <li><Link href="#">Bacopa Bay</Link></li>
-              <li><Link href="#">St. Petersburg Waterfront</Link></li>
-              <li><Link href="#">Downtown St. Petersburg</Link></li>
+              {communities.map((community) => (
+                <li key={community.label}>
+                  <Link href={community.href} className="hover:text-accent transition-colors">
+                    {community.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
 
+        {/* Inquiries Section */}
         <div className="footer-block lg:col-span-4">
           <p className="eyebrow">Inquiries</p>
           <div className="rule" />
-          <p className="text-sm leading-7 mb-6">
+          <p className="text-sm leading-7 mb-8 text-ink-soft">
             We operate by appointment for private showings and seller consultations. Submit your portfolio brief and our team
             will respond within one business day.
           </p>
@@ -92,27 +128,64 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="page-shell border-t border-grid mt-10 pt-6 text-xs uppercase tracking-[0.2em]">
-        <div className="flex flex-col md:flex-row gap-4 md:gap-6 justify-between mb-6">
-          <span>© {year} Eagan Luxury Real Estate. All Rights Reserved.</span>
-          <div className="flex gap-4 flex-wrap">
-            <Link href="/privacy-policy">Privacy Policy</Link>
-            <Link href="/terms-and-conditions">Terms</Link>
-            <Link href="/fair-housing">Fair Housing Act</Link>
-            <Link href="/mls-information">MLS Information</Link>
-            <Link href="/accessibility">Accessibility</Link>
+      {/* Footer Bottom */}
+      <div className="page-shell border-t border-line mt-12 pt-8">
+        <div className="flex flex-col md:flex-row gap-6 justify-between mb-8">
+          <span className="text-xs uppercase tracking-[0.2em] text-graphite">
+            © {year} Eagan Luxury Real Estate. All Rights Reserved.
+          </span>
+          <div className="flex gap-6 flex-wrap">
+            <Link 
+              href="/privacy-policy" 
+              className="text-xs uppercase tracking-[0.2em] text-graphite hover:text-accent transition-colors"
+            >
+              Privacy Policy
+            </Link>
+            <Link 
+              href="/terms-and-conditions" 
+              className="text-xs uppercase tracking-[0.2em] text-graphite hover:text-accent transition-colors"
+            >
+              Terms
+            </Link>
+            <Link 
+              href="/fair-housing" 
+              className="text-xs uppercase tracking-[0.2em] text-graphite hover:text-accent transition-colors"
+            >
+              Fair Housing Act
+            </Link>
+            <Link 
+              href="/mls-information" 
+              className="text-xs uppercase tracking-[0.2em] text-graphite hover:text-accent transition-colors"
+            >
+              MLS Information
+            </Link>
+            <Link 
+              href="/accessibility" 
+              className="text-xs uppercase tracking-[0.2em] text-graphite hover:text-accent transition-colors"
+            >
+              Accessibility
+            </Link>
           </div>
         </div>
-        <div className="text-xs uppercase tracking-[0.2em] text-graphite">
-          <p className="mb-2">Multiple Listings Service Information (Stella MLS)</p>
-          <p className="mb-4">
-            The data relating to real estate for sale on this website comes in part from the Internet Data Exchange (IDX) program of the Stellar MLS. 
-            All information is deemed reliable but not guaranteed.
-          </p>
-          <div className="flex gap-4 flex-wrap">
-            <a href="https://dmrmedia.org" target="_blank" rel="noopener noreferrer">
-              Produced by DMR Media
-            </a>
+        
+        {/* MLS Information */}
+        <div className="border-t border-line pt-6">
+          <div className="text-xs uppercase tracking-[0.15em] text-graphite space-y-3">
+            <p className="font-medium">Multiple Listings Service Information (Stellar MLS)</p>
+            <p className="leading-relaxed max-w-3xl">
+              The data relating to real estate for sale on this website comes in part from the Internet Data Exchange (IDX) program of the Stellar MLS. 
+              All information is deemed reliable but not guaranteed.
+            </p>
+            <div className="pt-2">
+              <a 
+                href="https://dmrmedia.org" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:text-accent transition-colors"
+              >
+                Produced by DMR Media
+              </a>
+            </div>
           </div>
         </div>
       </div>

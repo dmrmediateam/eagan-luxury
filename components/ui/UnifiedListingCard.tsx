@@ -7,7 +7,7 @@ import { motion, useInView } from "framer-motion";
 import type { SanityListing } from "@/types/sanity";
 import { urlForImage } from "@/lib/sanity-utils";
 
-// Database listing type (from RentCast)
+// Database listing type
 interface DatabaseListing {
   id: bigint | string;
   listingKey: string;

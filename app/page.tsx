@@ -11,15 +11,17 @@ const listings = [
     title: 'Harbour Isle Marina Estate',
     location: 'St. Petersburg Waterfront',
     price: '$4.85M',
-    specs: ['70’ slip', '6,700 sq ft', 'Boca Ciega Bay'],
+    specs: ['70\' slip', '6,700 sq ft', 'Boca Ciega Bay'],
     image: '/images/aerial-view-of-lisloughrey-pier-in-ireland-2025-02-12-05-10-21-utc.jpg',
+    href: '/st-petersburg-waterfront',
   },
   {
     title: 'Skyline Reserve Penthouse',
-    location: 'Downtown Arts District',
+    location: 'Downtown St. Petersburg',
     price: '$3.25M',
     specs: ['Dual-story glass', 'Private club access', 'Gallery walls'],
     image: '/images/toronto-city-skyline-ontario-canada-2024-10-16-15-20-33-utc.jpg',
+    href: '/downtown-st-petersburg',
   },
   {
     title: 'Marina Bay Villas',
@@ -27,6 +29,23 @@ const listings = [
     price: '$2.95M',
     specs: ['Yacht mooring', 'Resort courtyard', 'Gulf views'],
     image: '/images/yacht-club-in-the-indian-ocean-mauritius-a-tropic-2025-01-10-20-31-12-utc.jpg',
+    href: '/tierra-verde',
+  },
+  {
+    title: 'Dolphin Cay Waterfront Estate',
+    location: 'Dolphin Cay',
+    price: '$5.2M',
+    specs: ['Private marina', '8,200 sq ft', 'Gulf access'],
+    image: '/images/yacht-club-in-the-indian-ocean-mauritius-a-tropic-2025-01-10-20-31-12-utc.jpg',
+    href: '/dolphin-cay',
+  },
+  {
+    title: 'Bacopa Bay Residence',
+    location: 'Bacopa Bay',
+    price: '$3.8M',
+    specs: ['Deep water dock', '5,400 sq ft', 'Bay views'],
+    image: '/images/aerial-view-of-lisloughrey-pier-in-ireland-2025-02-12-05-10-21-utc.jpg',
+    href: '/bacopa-bay',
   },
 ];
 
@@ -169,7 +188,7 @@ export default function Home() {
                 </Link>
               </div>
             </div>
-            <div className="feature-grid">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {listings.map((listing) => (
                 <article key={listing.title} className="feature-card">
                   <div className="feature-media">
@@ -184,12 +203,24 @@ export default function Home() {
                         <li key={spec}>{spec}</li>
                       ))}
                     </ul>
-                    <Link href="/listings" className="btn-ghost">
+                    <Link href={listing.href || '/listings'} className="btn-ghost">
                       View dossier →
                     </Link>
                   </div>
                 </article>
               ))}
+              <article className="feature-card border-dashed border-2 border-line">
+                <div className="feature-content flex flex-col justify-center items-center text-center min-h-[400px]">
+                  <p className="eyebrow mb-4">Explore More</p>
+                  <h3 className="text-2xl mb-6">View All Communities</h3>
+                  <p className="text-base text-ink-soft mb-8">
+                    Discover additional waterfront communities and exclusive properties throughout St. Petersburg and the Gulf Beaches.
+                  </p>
+                  <Link href="/listings" className="btn-primary">
+                    See More →
+                  </Link>
+                </div>
+              </article>
             </div>
           </div>
         </section>
